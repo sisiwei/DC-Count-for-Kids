@@ -49,6 +49,7 @@ jQuery(document).ready(function ($) {
 	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids3.jsonp';
 	
     wax.tilejson(url, function(tilejson) {
+        var tooltip = new wax.tooltip();
         var m = new mm.Map('mainMap', new wax.mm.connector(tilejson),
             new mm.Point(900,400));
 
@@ -62,6 +63,7 @@ jQuery(document).ready(function ($) {
 		  		callbacks:
 					{	// Show a tooltip.
 						over: function(feature, context) {
+                            tooltip.over(feature, context);
 							if (feature){
 								var featureItem = $(feature);
 								console.log(featureItem);
@@ -81,6 +83,7 @@ if(feature){
 							
 						},
 						out: function(context) {
+                            tooltip.out(context);
 							//graph.unhighlight();
 						}
 					}
