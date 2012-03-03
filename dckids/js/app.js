@@ -1,95 +1,70 @@
 /* Foundation v2.2 http://foundation.zurb.com */
+//flot graph options
+var options = {
+    xaxis: {
+        font: { "family": "Georgia" },
+        tickColor: '#f4f4f4',
+        tickSize: 1,
+        tickDecimals: 0,
+		show: false
+    },
+    yaxis: {
+		font: { "family": "Georgia" },
+        tickColor: '#FFF',
+        autoscaleMargin: 0.1,
+		show:true,
+		position:"right"
+    },
+    series: {
+        lines: {
+            show: false,
+            lineWidth: 0.5,
+            fillColor: '#000000'
+        },
+        points: {
+            show: false,
+            fillColor: '#f69680',
+            radius: 4,
+            lineWidth: 2
+        },
+		bars: {
+            show: true,
+            lineWidth: 0,
+            fillColor: '#cccccc'
+        },
+        shadowSize: 0
+    },
+    colors: ["#0064CD"],
+    grid: {
+        show: true,
+        borderWidth: 0,
+        hoverable: true,
+        clickable: true
+     }
+};
+
+
+
 jQuery(document).ready(function ($) {
 
-	/* Use this js doc for all application specific JS */
-
-	/* TABS --------------------------------- */
-	/* Remove if you don't need :) */
-
-	function activateTab($tab) {
-		var $activeTab = $tab.closest('dl').find('a.active'),
-				contentLocation = $tab.attr("href") + 'Tab';
-
-		//Make Tab Active
-		$activeTab.removeClass('active');
-		$tab.addClass('active');
-
-    	//Show Tab Content
-		$(contentLocation).closest('.tabs-content').children('li').hide();
-		$(contentLocation).css('display', 'block');
-	}
-
-	$('dl.tabs').each(function () {
-		//Get all tabs
-		var tabs = $(this).children('dd').children('a');
-		tabs.click(function (e) {
-			activateTab($(this));
-		});
+	var mm = com.modestmaps;
+	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dckids.jsonp';
+	
+	wax.tilejson(url, function(tilejson) {
+	  var m = new mm.Map('mainMap',
+	    new wax.mm.connector(tilejson),
+	    new mm.Point(900,400));
+	
+	  m.setCenterZoom(new mm.Location(tilejson.center[1],
+	    tilejson.center[0]),
+	    tilejson.center[2] - 3);
+	
+	  wax.mm.zoomer(m).appendTo(m.parent);
+	  wax.mm.interaction(m);
 	});
 
-	if (window.location.hash) {
-		activateTab($('a[href="' + window.location.hash + '"]'));
-	}
-
-	/* ALERT BOXES ------------ */
-	$(".alert-box").delegate("a.close", "click", function(event) {
-    event.preventDefault();
-	  $(this).closest(".alert-box").fadeOut(function(event){
-	    $(this).remove();
-	  });
-	});
-
-
-	/* PLACEHOLDER FOR FORMS ------------- */
-	/* Remove this and jquery.placeholder.min.js if you don't need :) */
-
-	$('input, textarea').placeholder();
-
-	/* TOOLTIPS ------------ */
-	$(this).tooltips();
-
-
-
-	/* UNCOMMENT THE LINE YOU WANT BELOW IF YOU WANT IE6/7/8 SUPPORT AND ARE USING .block-grids */
-//	$('.block-grid.two-up>li:nth-child(2n+1)').css({clear: 'left'});
-//	$('.block-grid.three-up>li:nth-child(3n+1)').css({clear: 'left'});
-//	$('.block-grid.four-up>li:nth-child(4n+1)').css({clear: 'left'});
-//	$('.block-grid.five-up>li:nth-child(5n+1)').css({clear: 'left'});
-
-
-
-	/* DROPDOWN NAV ------------- */
-
-	var lockNavBar = false;
-	$('.nav-bar a.flyout-toggle').live('click', function(e) {
-		e.preventDefault();
-		var flyout = $(this).siblings('.flyout');
-		if (lockNavBar === false) {
-			$('.nav-bar .flyout').not(flyout).slideUp(500);
-			flyout.slideToggle(500, function(){
-				lockNavBar = false;
-			});
-		}
-		lockNavBar = true;
-	});
-  if (Modernizr.touch) {
-    $('.nav-bar>li.has-flyout>a.main').css({
-      'padding-right' : '75px'
-    });
-    $('.nav-bar>li.has-flyout>a.flyout-toggle').css({
-      'border-left' : '1px dashed #eee'
-    });
-  } else {
-    $('.nav-bar>li.has-flyout').hover(function() {
-      $(this).children('.flyout').show();
-    }, function() {
-      $(this).children('.flyout').hide();
-    })
-  }
-
-
-	/* DISABLED BUTTONS ------------- */
-	/* Gives elements with a class of 'disabled' a return: false; */
-  
+	var e = $('#mainFlotGraph');
+	//main graphing function
+	var plot = $.plot(e, [mobileArray], options);
 
 });
