@@ -52,7 +52,17 @@
 		    tilejson.center[2] - 3);
 		
 		  wax.mm.zoomer(m).appendTo(m.parent);
-		  wax.mm.interaction(m);
+          wax.mm.interaction(m, tilejson, {
+              callbacks: {
+                  // Example callback. Check out the console.
+                  over: function(feature, context) {
+                      if (feature) {
+                          console.log(feature);
+                      }
+                  },
+                  out: function(context) {}
+              }
+          });
 		});
 	</script>
 
