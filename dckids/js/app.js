@@ -43,8 +43,6 @@ var options = {
      }
 };
 
-
-
 jQuery(document).ready(function ($) {
 
 	var mm = com.modestmaps;
@@ -62,6 +60,7 @@ jQuery(document).ready(function ($) {
 	  wax.mm.zoomer(m).appendTo(m.parent);
 	  wax.mm.interaction(m);
 	});
+
 	var e = $('#mainFlotGraph');
 	//main graphing function
 	var plot = $.plot(e, [mobileArray], options);
