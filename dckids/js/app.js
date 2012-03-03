@@ -60,9 +60,6 @@ jQuery(document).ready(function ($) {
 	  wax.mm.interaction(m);
 	});
 
-    var mm = com.modestmaps;
-    var url = 'http://a.tiles.mapbox.com/v3/newamerica.dckids.jsonp';
-
     wax.tilejson(url, function(tilejson) {
         var m = new mm.Map('mainMap', new wax.mm.connector(tilejson),
             new mm.Point(900,400));
