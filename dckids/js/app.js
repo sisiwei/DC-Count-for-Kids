@@ -43,9 +43,27 @@ var options = {
      }
 };
 
-
-
 jQuery(document).ready(function ($) {
+	var mm = com.modestmaps;
+	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids2.jsonp';
+	
+	wax.tilejson(url, function(tilejson) {
+	  var m = new mm.Map('mainMap',
+	    new wax.mm.connector(tilejson),
+	    new mm.Point(900,400));
+	
+	  m.setCenterZoom(new mm.Location(tilejson.center[1],
+	    tilejson.center[0]),
+	    tilejson.center[2] - 3);
+	
+	  wax.mm.zoomer(m).appendTo(m.parent);
+	  wax.mm.interaction(m);
+	});
+
+	var e = $('#mainFlotGraph');
+	//main graphing function
+	var plot = $.plot(e, [mobileArray], options);
+
     var mm = com.modestmaps;
     var url = 'http://a.tiles.mapbox.com/v3/newamerica.dckids.jsonp';
 
