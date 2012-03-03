@@ -1,0 +1,494 @@
+body {
+  color: #333;
+	width:100%;
+	height:100%;
+	margin: 0px;
+	overflow: hidden;
+  }
+
+/* --------------------------
+  Layout
+----------------------------- */
+.layout-inner,
+#main {
+  width: 100%;
+  height:100%;
+  text-align: left;
+  position: relative;
+  /*background: url("http://naflite.newamerica.net/sites/all/themes/naflite/images/naflite_back.png") repeat-y center #0D253F;*/
+	background:#0D253F;
+	background:-moz-linear-gradient(top, #0D253F 100%, #163e69  0%);
+	background:-webkit-gradient(linear, left top, left bottom, from(#0D253F	), to(#163e69));
+  }
+#header {
+  	height: 60px;
+  	margin: 0 10px;
+	background:url("http://www.newamerica.net/sites/all/themes/nafbase/images/logo.png") no-repeat left center;
+	color:#f4f4f4;
+	width:100%;
+	float:left;
+  }
+#footer {
+  margin-top: 40px;
+  background: #333;
+  height: 200px;
+  }
+
+/* --------------------------
+  Typography
+----------------------------- */
+h1,h2,h3,h4,h5,h6 {
+  font-weight: normal;
+  margin: 0;
+  }
+h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover{
+  text-decoration: none;
+  }
+h1 { font-size: 28px; line-height: 30px; margin: 15px 0; }
+h2 { font-size: 24px; line-height: 26px; margin: 10px 0; }
+h3 { font-size: 22px; line-height: 24px; margin: 10px 0; }
+h4 { font-size: 14px; line-height: 18px; margin: 15px 0; }
+h5 { font-size: 13px; line-height: 16px; margin: 10px 0; }
+h4.list-title {
+  background:#f4f4f4;
+  padding: 5px 10px;
+  margin: 0;
+  display: block;
+  }
+h6 {
+  font-family: Arial,Helvetica,sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 15px;
+  margin: 10px 0;
+  }
+h1 a {
+  color: #f4f4f4;
+  }
+a {
+  color: #f4f4f4;
+  text-decoration: none;
+	-webkit-transition: color .218s;
+    -moz-transition: color .218s;
+    -o-transition: color .218s;
+    transition: color .218s;
+  }
+a:hover {
+  color: #CCC;
+  }
+.mainLegend a {
+  text-decoration: underline;	
+}
+a.external {
+  color: #CCC;
+  font-family: Arial,Helvetica,sans-serif;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 15px;
+  background:url(/images/sprite_base.png) no-repeat -490px -26px;
+  }
+a.flright {
+  float: right;
+  }
+/*
+  Items in the sidebar should 
+  have a default size of 12px
+*/
+.right {
+  font-size: 12px;
+  line-height: 16px;
+  }
+/*
+  Uppercase, bold and arial
+  styling to navigation
+*/
+.facet h4,
+div.product-listing .item .overview .label,
+a#all-savings,
+ul.information li ul li.title,
+ul.information li.title,
+ul#navigation li a,
+#footer .download span,
+ul.breadcrumb li a {
+  font-family: Arial,Helvetica,sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 10px;
+  line-height: 14px;
+  font-weight: bold;
+  }
+
+/* --------------------------
+  Header
+----------------------------- */
+
+#header h1 {
+float:right;
+position:relative;
+left: -20px;
+text-shadow: 3px 3px 2px #000000;	
+}
+
+
+/* --------------------------
+  Global Styles
+----------------------------- */
+#masthead {
+  background: #333;
+  height: 30px;
+  }
+#masthead a#newamerica {
+  background: transparent url(/images/sprite_base.png) no-repeat 0 0;
+  float: left;
+  margin-top: 5px;
+  display: block;
+  text-indent: -99999px;
+  width: 216px;
+  height: 20px;
+  }
+#logo {
+  float: left;
+  }
+
+a.close {
+  display: block;
+  text-indent: -999em;
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+a.close:active {
+    background-color: #666;
+}
+
+/* --------------------------
+  Map
+----------------------------- */
+.map {
+	position:absolute;
+	top:60px;
+	bottom:150px;
+	width:100%;
+}
+a.zoomer {
+  text-decoration:none;
+  position:absolute;
+  background-color:#fff;
+  color:#444;
+  line-height:25px;
+  font-size:20px;
+  z-index:99999;
+  text-align:center;
+  width:28px;
+  height:28px;
+  top:10px;
+box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
+  -moz-box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
+  -webkit-box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
+  border:1px solid #eee;
+  }
+
+a.zoomin {
+	background:#fff url(../images/zoom-in.png) -31px -1px no-repeat;
+/*  background-position:-31px -1px;*/
+  left:45px;
+  border-radius:0px 3px 3px 0px;
+  -moz-border-radius:0px 3px 3px 0px;
+  -webkit-border-radius:0px 3px 3px 0px;
+  }
+
+a.zoomout {
+	left:13px;
+	background:#fff url(../images/zoom-out.png) -61px -1px no-repeat;
+/*  background-position:-61px -1px;*/
+  border-radius:3px 0px 0px 3px;
+  -moz-border-radius:3px 0px 0px 3px;
+  -webkit-border-radius:3px 0px 0px 3px;
+  }
+  a.zoomdisabled {
+    background-color:#ccc;
+}
+
+.wax-legends {
+	position:absolute;
+	right:30px;
+	bottom:10px;
+	z-index:999999;
+	box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
+	-moz-box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
+	-webkit-box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
+}
+
+.wax-legends .wax-legend {
+	padding:5px;
+	background:rgba(255,255,255,0.8);
+	color:#666;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+.wax-legends .wax-legend h3,
+.wax-legends .wax-legend h4 {
+	margin: 0;
+}
+
+.wax-legends .wax-legend h4 {
+	font-style:italic;
+	margin: 0 0 5px 0;	
+}
+
+.wax-tooltip {
+	z-index: 10;
+	position: absolute;
+	background: rgba(13, 37, 63, .90);
+	color: rgb(244, 244, 244);
+	padding: 10px;
+	right: 30px;
+	top: 10px;
+	width: 300px;
+	opacity: 1;
+	-webkit-transition: opacity .5s;
+	-moz-transition: opacity .5s;
+	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+	min-height: 200px;
+  }
+
+.wax-tooltip h2{
+	  color:#fff;
+}
+
+.wax-tooltip.hide { opacity:0; }
+
+.wax-tooltip .close {
+  display:block;
+  position:absolute;
+  top:0px;
+  right:0px;
+	background:#fff url(../images/popup-close.png) no-repeat;
+  }
+
+.wax-mobile-body .wax-tooltip {
+  position:absolute;
+  top:50px;
+  }
+
+
+
+/* --------------------------
+  Map Tooltip
+----------------------------- */
+
+.mainToolTip{
+	float:left;
+	color:#f4f4f4;
+	width:100%;
+}
+
+.mainToolTip img{
+	position:relative;
+	left:500px;
+}
+
+.toolName{
+	font-size: 24px;
+	font-family: Arial;
+	text-shadow: 0px 1px 1px #333;
+}
+
+.wax-tooltip .close {
+    display:block;
+    position:absolute;
+    top:0px;
+	right:0px;
+	background:transparent url(../images/close.png) no-repeat;
+}
+
+
+/* --------------------------
+  InfoBox
+----------------------------- */
+
+#infoBox{
+	height:150px;
+	width:100%;	
+	color:#f4f4f4;
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	background:#0D253F;
+	background:-moz-linear-gradient(top, #163e69  0%, #0D253F 100%);
+	background:-webkit-gradient(linear, left top, left bottom, from(#163e69), to(#0D253F));
+}
+
+#infoBox * {
+	overflow:hidden;
+}
+
+.mainLegend{
+	width:100%;
+}
+
+.intro {
+	width: 60%;
+	padding: 0 0 0 10px;
+	font-size: 20px;	
+}
+
+.number{
+	float:left;
+	font-size: 35px;
+	font-weight: bold;
+	font-family: Arial;
+	text-shadow: 0px 1px 1px #333;
+}
+/* --------------------------
+  InfoBox Tooltip Craziness
+----------------------------- */
+
+#chartEmbed {
+	overflow: hidden;
+}
+
+.tooltip-hed{
+	width:100%;
+	float:left;
+	font-size: 34px;
+	text-shadow: 0px 1px 1px #333;
+	height: 30px;
+	margin: 5px 5px 5px 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.debt-in-dollars{
+	width: 100%;
+	font-size: 22px;
+	margin: 0 0 3px 0;
+}
+
+.gov-rev{
+	width: 50%;
+	float: left;
+	margin: 0 0 6px 0;
+}
+
+.gov-exp{
+	width: 50%;
+	float: right;
+	margin: 0 0 6px 0;
+}
+
+.debt-gdp-timeline,
+.legend-logo {
+	display:none;
+}
+
+
+
+/* --------------------------
+  Charts
+----------------------------- */
+
+.chart-hed{
+	display:none;
+}
+
+#chartNumbers {
+	width: 80%;
+	clear:both;
+	margin: 0 0 0 10px;
+	font-family: Arial;
+}
+
+.chart-source{
+	font-family: Arial, Helvetica, sans-serif;
+	float: left;
+	font-size: 11px;
+	padding: 0 0 0 10px;
+}
+
+#chartContainer{
+	width:40%;
+	height:40%;
+}
+
+
+/* --------------------------
+    Sharing
+----------------------------- */
+
+/* Share */
+a.share {
+  position:absolute;
+  display:block;
+  left:13px;
+  top:102px;
+  width:61px;
+  height:20px;
+  font:bold 10px/20px Arial,sans-serif;
+  text-align:center;
+  text-transform:uppercase;
+  background:#0D253F;
+  color:#fff;
+  z-index: 4;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+}
+a.share:active {
+  background: #4e92db;
+  -moz-box-shadow:inset 0 0 2px rgba(0,0,0,0.5);
+  -webkit-box-shadow:inset 0 0 2px rgba(0,0,0,0.5);
+  box-shadow:inset 0 0 2px rgba(0,0,0,0.5);
+}
+
+.wax-share {
+  background:#666;
+  background:rgba(32,32,32,0.75);
+  position:absolute;
+  top:0px; left:0px; right:0px; bottom:0px;
+  z-index:999999;
+  }
+
+.wax-share .share-content {
+  position:absolute;
+  display:block;
+  right:50%;
+  top:50%;
+  margin:-210px -180px 0px 0px;
+  padding:19px;
+  width:320px;
+  height:215px;
+  border:1px solid #ccc;
+  background:white;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
+  -moz-box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
+  -webkit-box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
+  overflow:hidden;
+  }
+  
+.wax-share a.close {
+  position:absolute;
+  right:10px;
+  top:10px;
+  background-color:transparent;
+  }
+
+.wax-share small { color:#999; }
+
+.wax-share textarea {
+  display:block;
+  font:normal 10px/15px Arial,sans-serif;
+  resize:none;
+  border:1px solid #ccc;
+  padding:4px;
+  width:310px;
+  }

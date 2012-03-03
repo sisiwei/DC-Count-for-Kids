@@ -1,0 +1,296 @@
+a.wax-fullscreen {
+  /* TODO: sprite-based fullscreen button */
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 99999;
+  }
+
+/* Zoom Controls */
+a.zoomer {
+  text-decoration: none;
+  position: absolute;
+  text-align: center;
+  background: #666;
+  color: white;
+  font-size: 14px;
+  z-index: 1;
+  width: 30px;
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  top: 80px;
+  left: 10px;
+  }
+a.zoomout {
+  top: 38px;
+  left: 10px;
+  -moz-border-radius: 0px 0px 3px 3px;
+  -webkit-border-radius: 0px 0px 3px 3px;
+  border-radius: 0px 0px 3px 3px;
+  border-top: 1px solid #111;
+  }
+a.zoomin {
+	top:10px;
+  -moz-border-radius: 3px 3px 0px 0px;
+  -webkit-border-radius: 3px 3px 0px 0px;
+  border-radius: 3px 3px 0px 0px;
+  }
+a.zoomer:active {
+  background-color: #333;
+  }
+a.zoomdisabled:active,
+a.zoomdisabled {
+  opacity: 0.7;
+  -moz-opacity: 0.7;
+  filter:alpha(opacity=70);
+  border: none;
+  cursor: default;
+  }
+.share {
+    top: 45px;
+    background: url(images/sprite.png) no-repeat scroll #666;
+    border-color: rgba(128, 128, 128, 0.75);
+    clear: left;
+    color: #FFFFFF;
+    font: bold 10px/18px Arial,sans-serif;
+    height: 25px;
+    left: 10px;
+    top: 70px;
+    width: 30px;
+	border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: block;
+    position: absolute;
+	z-index:1000;
+    opacity: 0.9;
+
+}
+
+/*Legend*/
+.wax-legends {
+  overflow: auto;
+  position: absolute;
+/*  left: 10px;*/
+  right:15px;
+  bottom: 10px;
+  z-index: 3;
+  }
+.wax-legends .wax-legend {
+  padding: 10px;
+  background: rgba(255,255,255,0.75);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
+  border: 1px solid #ccc;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: normal;
+/*  width: 250px;*/
+  width:500px;
+  }
+.wax-legends .wax-legend small {
+  display: block;
+  line-height: 14px;
+  }
+.wax-legends .wax-legend ul {
+  margin-bottom: 10px;
+  }
+.wax-legends .wax-legend div.scale ul li{
+  display: block;
+  float: left;
+  font-size: 9px;
+  }
+.wax-legends .wax-legend ul.bar-list li span {
+  height: 20px!important;
+  width: 40px!important;
+  }
+.wax-legends .wax-legend ul li span {
+  display: block;
+  float: left;
+  margin-right: 8px;
+  }
+.wax-legends .wax-legend div.scale ul li { margin-bottom: 5px; }
+.wax-legends .wax-legend div.scale ul.bar-list li { margin-bottom: 0; }
+.wax-legends .wax-legend div.scale ul.min-max li {
+  display: block;
+  float: left;
+  width: 99px;
+  }
+.wax-legends .wax-legend div.scale ul.min-max li.max { text-align: right;}
+.wax-legends a:hover {
+  color: #63aece;
+  text-decoration: underline;
+  }
+.wax-legends .wax-legend ul.vertical-list li {
+  margin-bottom: 5px;
+  font-size: 11px;
+  line-height: 10px;
+  display: block;
+  height: 10px;
+  }
+.wax-legends .wax-legend ul.vertical-list li span {
+  -moz-box-shadow: 1px 1px 0px #989898;
+  -webkit-box-shadow: 1px 1px 0px #989898;
+  box-shadow: 1px 1px 0px #989898;
+  width: 10px!important;
+  height: 10px!important;
+  }
+.dot-legend {
+  padding-bottom: 10px;
+  line-height: 15px;
+  font-size: 12px;
+  }
+.dot-legend .dot-title {
+  margin-bottom: 5px;
+  }
+.dot-legend .dot-source {
+  font-size: 9px!important;
+  margin-top: 5px;  }
+.wax-legend .source {
+  clear: both;
+  }
+.overlay-legend .title {
+  text-transform: uppercase;
+  }
+
+/* Wax tooltips */
+
+.wax-tooltip {
+  z-index: 4;
+  position: absolute;
+  background: rgb(40,40,40);
+  background: rgba(40,40,40,.90);
+  color: #fff;
+  padding: 10px;
+  right: 15px;
+  top: 15px;
+  width: 200px;
+  opacity: 1;
+  -webkit-transition: opacity .3s;
+  -moz-transition: opacity .3s;
+  }
+.wax-tooltip h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 18px;
+  }
+.wax-tooltip .int_chart img {
+  margin: 10px 0;
+  }
+.wax-fade {
+  opacity: 0;
+  }
+.wax-fade {
+  -webkit-animation-name: wax-fade;
+  -webkit-animation-iteration-count: 1;
+  }
+.wax-tooltip.hide { opacity:0; }
+.wax-tooltip .close {
+  display:block;
+  position:absolute;
+  top:0px;
+  right:0px;
+  }
+
+.wax-mobile-body .wax-tooltip {
+  position:absolute;
+  top:50px;
+  }
+
+.zoombox-box,
+.boxselector-box {
+  margin:0;
+  padding:0;
+  border:1px dashed #888;
+  background: rgba(255,255,255,0.25);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  display: none;
+  }
+
+.zoombox-box-container,
+.boxselector-box-container,
+.pointselector-box-container {
+  margin:0;
+  padding:0;
+  position:absolute;
+  background: url(blank.gif);
+  top:0;
+  left:0;
+  }
+
+.wax-point-div {
+  width:10px;
+  height:10px;
+  margin-left:-5px;
+  margin-top:-5px;
+  background:#fff;
+  border:1px solid #333;
+  -webkit-border-radius:5px;
+  }
+
+.mainLegend .mainToolTip{
+	background:#333;
+}
+/* --------------------------
+    Sharing
+----------------------------- */
+
+a.share:active {
+  background: #4e92db;
+  -moz-box-shadow:inset 0 0 2px rgba(0,0,0,0.5);
+  -webkit-box-shadow:inset 0 0 2px rgba(0,0,0,0.5);
+  box-shadow:inset 0 0 2px rgba(0,0,0,0.5);
+}
+
+.wax-share {
+  background:#666;
+  background:rgba(32,32,32,0.75);
+  position:absolute;
+  top:0px; left:0px; right:0px; bottom:0px;
+  z-index:999999;
+  }
+
+.wax-share .share-content {
+  position:absolute;
+  display:block;
+  right:50%;
+  top:50%;
+  margin:-210px -180px 0px 0px;
+  padding:19px;
+  width:320px;
+  height:215px;
+  border:1px solid #ccc;
+  background:white;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
+  -moz-box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
+  -webkit-box-shadow:rgba(0,0,0,0.1) 0px 1px 3px;
+  overflow:hidden;
+  }
+  
+.wax-share a.close {
+  position:absolute;
+  right:10px;
+  top:10px;
+  background-color:transparent;
+  }
+
+.wax-share small { color:#999; }
+
+.wax-share textarea {
+  display:block;
+  font:normal 10px/15px Arial,sans-serif;
+  resize:none;
+  border:1px solid #ccc;
+  padding:4px;
+  width:310px;
+  }
+
