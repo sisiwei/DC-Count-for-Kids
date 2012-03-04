@@ -47,7 +47,7 @@ jQuery(document).ready(function ($) {
 										indicator = $(featureItem[28]).html(),
 										schoolHexArray = $(featureItem[30]).html(),
 										schoolValueArray = $(featureItem[32]).html();
-										$('#school-perf').add('#school-data').show();
+										$('#school-perf').show();
 										$('#nbh-name').html(neighborhoodNames);
 										$('#race-pie-chart').html('<strong>Demographics:</strong><br/><center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ pctWhiteNo +','+ pctBlackNo +','+ pctHisp_20 +','+ pctAsianPI +'&chdl=White|Black|Hispanic|Asian&chma=|2&chf=bg,s,67676700" width="200" height="120" /></center>');
 										$('#avg-income').html('<strong>Avg. family income:</strong> $' + averageFamilyIncome);
@@ -73,6 +73,7 @@ $('#unemployment').html('<strong>Unemployment:</strong> ' + pctUnemployment + '%
 										elemOrSec = $(featureItem[20]).html(),
 										mathPct = $(featureItem[22]).html(),
 										readingPct = $(featureItem[24]).html();
+									$('#school-data').show();
 									$('#school-data').html('<strong>Lunches</strong><center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ countFreeLunch +','+ countRedPriceLunch +','+ countNonFreeOrReduced +'&chdl=Free|Reduce|Other&chma=|2&chf=bg,s,67676700" width="175" height="100" /></center><strong>Percentage Proficient and Above</strong><center><img style="padding-top:5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=190x100&cht=s&chd=t:25,75|'+ mathPct +','+ readingPct +'&chco=9970AB&chf=bg,s,67676700" width="190" height="100" /></center>');
 									$('#school-data').fadeIn(150);
 									$('#school-tooltip').html('<strong>' + schoolName + '</strong><br/>Total students: '+ totalStudents);
