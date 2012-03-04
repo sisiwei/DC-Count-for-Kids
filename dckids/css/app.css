@@ -8,6 +8,14 @@
 }
 */
 
+body {
+	background-color: #acc58b;
+}
+
+#header {
+	background-color: white;
+}
+
 .container {
 	margin-top: 20px;
 }
