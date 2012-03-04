@@ -89,7 +89,17 @@ jQuery(document).ready(function ($) {
 								
 								$('#nbh-name').html(neighborhoodNames);
 								$('#race-pie-chart').html('<img src="http://chart.apis.google.com/chart?chs=220x185&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ pctWhiteNo +','+ pctBlackNo +','+ pctHisp_20 +','+ pctAsianPI +'&chdl=White|Black|Hispanic|Asian&chma=|2&chf=bg,s,67676700" width="220" height="185" />');
-											
+
+                                // Clear old data
+                                var old_data = $('#additional-data');
+                                old_data.remove();
+                                // Display new data
+                                $('#map-info-content').append('<div id="additional-data"><dl></dl></div>');
+                                var data_list = $('#additional-data dl');
+                                data_string = '<dt>Unemployment</dt><dd>'+pctUnemployment+'%</dd>';
+                                data_string += '<dt>Poor Children</dt><dd>'+pctPoorChildren+'%</dd>';
+                                data_list.html(data_string);
+                                console.log(data_list);
 							}							
 						},
 						out: function(context) {
