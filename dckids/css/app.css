@@ -2,6 +2,30 @@
    Shared Styles
 ----------------------------------------- */
 
+/*
 #flot-graph {
 	 height: 200px;
+}
+*/
+
+.container {
+	margin-top: 20px;
+}
+
+#map-container-parent {
+	position: relative;
+}
+
+#map-info-box-row {
+	position: absolute;
+	top: 46px;
+}
+
+#map-info-box {
+	height: 400px;
+	width: 300px;
+	background-color: #ccc;
+	opacity: 0.6;
+	filter: Alpha(opacity=60);
+	border: 2px solid white;
 }
