@@ -71,11 +71,11 @@ p {
 }
 
 .school-box {
-	height: 250px;
+	height: 270px;
 	width: 210px;
 	position: absolute;
 	left: 10px;
-	bottom: 60px;
+	bottom: 80px;
 	background-color: white;
     border: 1px solid black;
 	padding: 5px;
