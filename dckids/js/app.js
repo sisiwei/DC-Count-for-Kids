@@ -47,7 +47,7 @@ jQuery(document).ready(function ($) {
 										indicator = $(featureItem[28]).html(),
 										schoolHexArray = $(featureItem[30]).html(),
 										schoolValueArray = $(featureItem[32]).html();
-										$('#school-perf').show();
+										$('#school-perf').add('#school-data').show();
 										$('#nbh-name').html(neighborhoodNames);
 										$('#race-pie-chart').html('<strong>Demographics:</strong><br/><center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ pctWhiteNo +','+ pctBlackNo +','+ pctHisp_20 +','+ pctAsianPI +'&chdl=White|Black|Hispanic|Asian&chma=|2&chf=bg,s,67676700" width="200" height="120" /></center>');
 										$('#avg-income').html('<strong>Avg. family income:</strong> $' + averageFamilyIncome);

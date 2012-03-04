@@ -5,8 +5,12 @@
 
 body { font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 13px; line-height: 18px; color: #555; -webkit-font-smoothing: antialiased; }
 
+h2 {
+	margin-bottom: 10px;
+}
+
 p {
-	padding: 2px 0px;
+	margin: 10px 0px;
 }
 
 .label {
@@ -48,9 +52,9 @@ p {
 	opacity: 0.9;
 	filter: Alpha(opacity=90);
 	background-color: white;
-	-moz-box-shadow: inset 0 0 4px 4px #aba3ab;
-	-webkit-box-shadow: inset 0 0 4px 4px #aba3ab;
-	box-shadow: inset 0 0 4px 4px #aba3ab;
+	-moz-box-shadow: inset 0 0 8px 3px #acacac;
+	-webkit-box-shadow: inset 0 0 8px 3px #acacac;
+	box-shadow: inset 0 0 8px 3px #acacac;
 }
 
 #map-info-content {
@@ -75,6 +79,7 @@ p {
 	background-color: white;
     border: 1px solid black;
 	padding: 5px;
+	display: none;
 }
 
 /* -----------------------------------------
