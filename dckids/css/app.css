@@ -88,6 +88,9 @@ body { font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida
 .indicator-floats {
 	font-family: Arial, sans-serif;
 	font-size: 12px;
+	position: relative;
+	float: left;
+	width: 140px;
 }
 
 #school-perf-chart {

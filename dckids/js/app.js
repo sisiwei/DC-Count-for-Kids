@@ -29,7 +29,6 @@ jQuery(document).ready(function ($) {
                             /* tooltip.over(feature, context); */
 							if (feature){
 								var featureItem = $(feature);
-								console.log(featureItem.length);
 								if ($(feature).length == 33){	//CHANGE ME IF TOTAL CHANGES
 									var neighborhoodNames = $(featureItem[0]).html(),
 										averageFamilyIncome = $(featureItem[2]).html(),
@@ -49,14 +48,17 @@ jQuery(document).ready(function ($) {
 										schoolHexArray = $(featureItem[30]).html(),
 										schoolValueArray = $(featureItem[32]).html();
 
-										// schools in the neighborhood?
 										$('#nbh-name').html(neighborhoodNames);
 										$('#race-pie-chart').html('<strong>Demographics:</strong><br/><center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ pctWhiteNo +','+ pctBlackNo +','+ pctHisp_20 +','+ pctAsianPI +'&chdl=White|Black|Hispanic|Asian&chma=|2&chf=bg,s,67676700" width="200" height="120" /></center>');
 										$('#avg-income').html('<strong>Avg. family income:</strong> $' + averageFamilyIncome);
-										$('#poor-children').html('<strong>Poor Children:</strong> ' + pctPoorChildren + '%');
+										$('#poor-children').html('<strong>Poor children:</strong> ' + pctPoorChildren + '%');
 										$('#unemployment').html('<strong>Unemployment:</strong> ' + pctUnemployment + '%');
-										$('#school-perf-chart').html('<strong>Percentage Proficient or Advanced</strong><br/><center><img style="padding-top: 5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=280x260&cht=s&chd=t:' + schoolValueArray + '&chco=' + schoolHexArray + '&chdl=DC+Average|Nbhd+Schools&chf=bg,s,67676700" width="280" height="260" /></center>')
-
+										$('#police').html('<strong>Police Stations:</strong> ' + policeStat);
+										$('#library').html('<strong>Libraries:</strong> ' + libraryNum);
+										$('#child-care').html('<strong>Child care facilities:</strong> ' + childCareF);
+	
+										// INVESTIGATE DATA:
+										$('#school-perf-chart').html('<strong>Percentage Proficient or Advanced</strong><br/><center><img style="padding-top: 5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=280x200&cht=s&chd=t:' + schoolValueArray + '&chco=' + schoolHexArray + '&chdl=DC+Average|Nbhd+Schools&chf=bg,s,67676700" width="280" height="200" /></center>')
 								} else {
 									var schoolName = $(featureItem[0]).html(),
 										address = $(featureItem[2]).html(),
@@ -73,12 +75,12 @@ jQuery(document).ready(function ($) {
 										readingPct = $(featureItem[24]).html();
 									$('#school-tooltip').html('<strong>' + schoolName + '</strong><br/>Total students: ' + totalStudents);
 									$('#school-tooltip').css({"top": mouseY, "left": mouseX})
-									$('#school-tooltip').show();	
+									$('#school-tooltip').fadeIn(150);	
 								}
 							}							
 						},
 						out: function(context) {
-							$('#school-tooltip').hide();
+							$('#school-tooltip').fadeOut(100);
                             /* tooltip.out(context); */
 						}
 					}
