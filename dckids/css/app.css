@@ -72,6 +72,10 @@ body { font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida
 	border-bottom: 1px solid #eaeaea;
 }
 
+#school-perf {
+	display: none;
+}
+
 #nbh-name {
 	font-family: Georgia, serif;
 	font-size: 20px;
