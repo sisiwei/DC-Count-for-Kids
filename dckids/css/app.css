@@ -62,6 +62,16 @@ body { font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida
 	top: 20px;
 }
 
+.school-box {
+	height: 350px;
+	width: 200px;
+	position: absolute;
+	left: 0px;
+	bottom: 20px;
+	background-color: white;
+    border: 1px solid black;
+}
+
 /* -----------------------------------------
    Infobox Elements
 ----------------------------------------- */
