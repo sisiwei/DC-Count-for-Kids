@@ -73,7 +73,7 @@ jQuery(document).ready(function ($) {
 										elemOrSec = $(featureItem[20]).html(),
 										mathPct = $(featureItem[22]).html(),
 										readingPct = $(featureItem[24]).html();
-									$('#school-tooltip').html('<strong>' + schoolName + '</strong><br/>Total students: ' + totalStudents);
+									$('#school-tooltip').html('<strong>' + schoolName + '</strong><br/>Total students: '+ totalStudents +'<br /><strong>Lunches</strong><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ countFreeLunch +','+ countRedPriceLunch +','+ countNonFreeOrReduced +'&chdl=Free|Reduce|Other&chma=|2&chf=bg,s,67676700" width="200" height="120" />');
 									$('#school-tooltip').css({"top": mouseY, "left": mouseX})
 									$('#school-tooltip').fadeIn(150);	
 								}
