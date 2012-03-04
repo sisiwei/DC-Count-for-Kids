@@ -12,6 +12,11 @@ body {
 	background-color: #acc58b;
 }
 
+.label {
+	text-transform: uppercase;
+	color: black;
+}
+
 #header {
 	background-color: white;
 	padding: 15px 0px 0px 15px;
@@ -34,8 +39,7 @@ body {
 
 #map-container {
 	background-color: white;
-	border: 1px solid black;
-	height: 650px;
+	height: 750px;
 }
 
 #map-info-box-row {
@@ -44,13 +48,25 @@ body {
 }
 
 #map-info-box {
+	opacity: 0.7;
+	filter: Alpha(opacity=70);
+	background-color: white;
+}
+
+.info-box {
 	height: 400px;
 	width: 300px;
-	background-color: #ccc;
-	opacity: 0.6;
-	filter: Alpha(opacity=60);
-	border: 2px solid white;
+/* 	border: 2px solid white; */
 	position: absolute;
 	right: 20px;
 	top: 20px;
+	-moz-box-shadow: inset 0 0 4px 4px #aba3ab;
+	-webkit-box-shadow: inset 0 0 4px 4px #aba3ab;
+	box-shadow: inset 0 0 4px 4px #aba3ab;
+}
+
+.testing-box {
+	background-color: #d5a5d5;
+	width: 100px;
+	height: 20px;
 }

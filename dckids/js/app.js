@@ -46,18 +46,20 @@ var options = {
 
 jQuery(document).ready(function ($) {
 	var mm = com.modestmaps;
-	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
+//	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
 //	var url = 'https://tiles.mapbox.com/newamerica/map/map-ndxwx9rp';
+//	var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-x42wq9mu.jsonp';
+	var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-kk5ruz44.jsonp';
 	
     wax.tilejson(url, function(tilejson) {
         var tooltip = new wax.tooltip();
         var m = new mm.Map('mainMap', new wax.mm.connector(tilejson),
-            new mm.Point(670,630));
+            new mm.Point(995,700));
 
         m.setCenterZoom(new mm.Location(
-			38.92, //tilejson.center[1], 
-			-77.01), //tilejson.center[0]),
-            tilejson.center[2]);
+			38.905, //tilejson.center[1], lon
+			-76.956), //tilejson.center[0]), lat
+            12); // zoom
 
         wax.mm.zoomer(m).appendTo(m.parent);
 		//wax.mm.interaction(m, tilejson);
@@ -69,22 +71,25 @@ jQuery(document).ready(function ($) {
                             //tooltip.over(feature, context);
 							if (feature){
 								var featureItem = $(feature);
-								var neighborhoodNames = feature[0],
-									averageFamilyIncome = feature[2],
-									pctPoorChildren = feature[4],
-									pctUnemployment = feature[6],
-									pctBirths = feature[8],
-									pctBirthsL = feature[10],
-									averagePop = features[12],
-									pctBlackNo = features[14],
-									pctWhiteNo = features[16],
-									pctHisp_20 = features[18],
-									pctAsianPI = features[20],
-									childCareF = features[22],
-									libraryNum = features[24],
-									policeStat = features[26];
-
-								$('#school-name').html(featureItem[0]);
+								var neighborhoodNames = $(featureItem[0]).html(),
+									averageFamilyIncome = $(featureItem[2]).html(),
+									pctPoorChildren = $(featureItem[4]).html(),
+									pctUnemployment = $(featureItem[6]).html(),
+									pctBirths = $(featureItem[8]).html(),
+									pctBirthsL = $(featureItem[10]).html(),
+									averagePop = $(featureItem[12]).html(),
+									pctBlackNo = $(featureItem[14]).html(),
+									pctWhiteNo = $(featureItem[16]).html(),
+									pctHisp_20 = $(featureItem[18]).html(),
+									pctAsianPI = $(featureItem[20]).html(),
+									childCareF = $(featureItem[22]).html(),
+									libraryNum = $(featureItem[24]).html(),
+									policeStat = $(featureItem[26]).html();
+									// schools in the neighborhood?
+								
+								$('#nbh-name').html(neighborhoodNames);
+								$('#race-pie-chart').html('<img src="http://chart.apis.google.com/chart?chs=220x185&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ pctWhiteNo +','+ pctBlackNo +','+ pctHisp_20 +','+ pctAsianPI +'&chdl=White|Black|Hispanic|Asian&chma=|2&chf=bg,s,67676700" width="220" height="185" />');
+											
 							}							
 						},
 						out: function(context) {
