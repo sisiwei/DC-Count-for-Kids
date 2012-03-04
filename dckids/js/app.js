@@ -55,6 +55,7 @@ jQuery(document).ready(function ($) {
 										$('#avg-income').html('<strong>Avg. family income:</strong> $' + averageFamilyIncome);
 										$('#poor-children').html('<strong>Poor Children:</strong> ' + pctPoorChildren + '%');
 										$('#unemployment').html('<strong>Unemployment:</strong> ' + pctUnemployment + '%');
+										$('#school-perf-chart').html('<strong>Percentage Proficient or Advanced</strong><br/><center><img style="padding-top: 5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=280x260&cht=s&chd=t:' + schoolValueArray + '&chco=' + schoolHexArray + '&chdl=DC+Average|Nbhd+Schools&chf=bg,s,67676700" width="280" height="260" /></center>')
 
 								} else {
 									var schoolName = $(featureItem[0]).html(),

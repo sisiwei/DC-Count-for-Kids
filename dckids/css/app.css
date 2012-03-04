@@ -90,6 +90,10 @@ body { font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida
 	font-size: 12px;
 }
 
+#school-perf-chart {
+	padding: 5px 0px;
+}
+
 /* -----------------------------------------
    Tooltip Elements
 ----------------------------------------- */
