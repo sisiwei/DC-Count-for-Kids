@@ -50,8 +50,8 @@ jQuery(document).ready(function ($) {
 	
     wax.tilejson(url, function(tilejson) {
         var tooltip = new wax.tooltip();
-        var m = new mm.Map('map-container', new wax.mm.connector(tilejson),
-            new mm.Point(700,630));
+        var m = new mm.Map('mainMap', new wax.mm.connector(tilejson),
+            new mm.Point(670,630));
 
         m.setCenterZoom(new mm.Location(
 			38.92, //tilejson.center[1], 
