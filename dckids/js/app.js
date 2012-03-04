@@ -68,6 +68,21 @@ jQuery(document).ready(function ($) {
                             //tooltip.over(feature, context);
 							if (feature){
 								var featureItem = $(feature);
+								var neighborhoodNames = feature[0],
+									averageFamilyIncome = feature[2],
+									pctPoorChildren = feature[4],
+									pctUnemployment = feature[6],
+									pctBirths = feature[8],
+									pctBirthsL = feature[10],
+									averagePop = features[12],
+									pctBlackNo = features[14],
+									pctWhiteNo = features[16],
+									pctHisp_20 = features[18],
+									pctAsianPI = features[20],
+									childCareF = features[22],
+									libraryNum = features[24],
+									policeStat = features[26];
+
 								console.log(featureItem);
 								$('#school-name').html(featureItem[0]);
 							}							

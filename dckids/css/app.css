@@ -47,4 +47,7 @@ body {
 	opacity: 0.6;
 	filter: Alpha(opacity=60);
 	border: 2px solid white;
+	position: absolute;
+	right: 20px;
+	top: 20px;
 }
