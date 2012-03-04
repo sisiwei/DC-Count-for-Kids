@@ -67,13 +67,14 @@ p {
 }
 
 .school-box {
-	height: 350px;
-	width: 200px;
+	height: 250px;
+	width: 210px;
 	position: absolute;
-	left: 0px;
-	bottom: 20px;
+	left: 10px;
+	bottom: 60px;
 	background-color: white;
     border: 1px solid black;
+	padding: 5px;
 }
 
 /* -----------------------------------------
