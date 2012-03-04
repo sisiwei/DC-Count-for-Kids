@@ -20,7 +20,6 @@ jQuery(document).ready(function ($) {
             12); // zoom
 
         wax.mm.zoomer(m).appendTo(m.parent);
-		//wax.mm.interaction(m, tilejson);
 
 		wax.mm.interaction(m, tilejson, {
 		  		callbacks:

@@ -12,13 +12,13 @@ body { font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida
 
 #header {
 	background-color: white;
-	padding: 15px 0px 0px 15px;
+	padding: 8px 0px 0px 15px;
 	font-family: Helvetica, sans-serif;
 }
 
 #container {
 	width: 1000px;
-	margin: 20px auto 0px auto;
+	margin: 0px auto;
 }
 
 #map-container-parent {
