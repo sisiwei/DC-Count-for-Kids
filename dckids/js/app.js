@@ -50,7 +50,7 @@ jQuery(document).ready(function ($) {
 	
     wax.tilejson(url, function(tilejson) {
         var tooltip = new wax.tooltip();
-        var m = new mm.Map('mainMap', new wax.mm.connector(tilejson),
+        var m = new mm.Map('map-container', new wax.mm.connector(tilejson),
             new mm.Point(700,630));
 
         m.setCenterZoom(new mm.Location(
@@ -83,7 +83,6 @@ jQuery(document).ready(function ($) {
 									libraryNum = features[24],
 									policeStat = features[26];
 
-								console.log(featureItem);
 								$('#school-name').html(featureItem[0]);
 							}							
 						},
