@@ -2,12 +2,6 @@
    Shared Styles
 ----------------------------------------- */
 
-/*
-#flot-graph {
-	 height: 200px;
-}
-*/
-
 body {}
 
 .label {
@@ -46,8 +40,8 @@ body {}
 }
 
 #map-info-box {
-	opacity: 0.7;
-	filter: Alpha(opacity=70);
+	opacity: 0.9;
+	filter: Alpha(opacity=90);
 	background-color: white;
 	-moz-box-shadow: inset 0 0 4px 4px #aba3ab;
 	-webkit-box-shadow: inset 0 0 4px 4px #aba3ab;
@@ -55,24 +49,23 @@ body {}
 }
 
 #map-info-content {
-	width: 270px;
+	width: 280px;
 	padding: 15px;
 }
 
 .info-box {
-	height: 400px;
-	width: 300px;
-/* 	border: 2px solid white; */
+	height: 660px;
+	width: 310px;
 	position: absolute;
-	right: 20px;
+	right: 15px;
 	top: 20px;
 }
 
 /* -----------------------------------------
-   Infobox
+   Infobox Elements
 ----------------------------------------- */
 
-#nbh-label {
+.map-labels {
 	font-family: Arial, sans-serif;
 	font-size: 11px;
 	text-transform: uppercase;
@@ -85,4 +78,9 @@ body {}
 	padding-top: 5px;
 	line-height: 22px;
 	height: 95px;
+}
+
+#race-pie-chart {
+	padding: 5px 0px;
+	height: 140px;
 }
