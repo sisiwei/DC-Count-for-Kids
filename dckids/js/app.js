@@ -51,12 +51,12 @@ jQuery(document).ready(function ($) {
     wax.tilejson(url, function(tilejson) {
         var tooltip = new wax.tooltip();
         var m = new mm.Map('mainMap', new wax.mm.connector(tilejson),
-            new mm.Point(700,400));
+            new mm.Point(700,630));
 
         m.setCenterZoom(new mm.Location(
-			38.9, //tilejson.center[1], 
-			-76.95), //tilejson.center[0]),
-            tilejson.center[2] - 3);
+			38.92, //tilejson.center[1], 
+			-77.01), //tilejson.center[0]),
+            tilejson.center[2]);
 
         wax.mm.zoomer(m).appendTo(m.parent);
 		//wax.mm.interaction(m, tilejson);
@@ -68,7 +68,7 @@ jQuery(document).ready(function ($) {
                             //tooltip.over(feature, context);
 							if (feature){
 								var featureItem = $(feature);
-								console.log(feature[0]);
+								console.log(featureItem);
 								$('#school-name').html(featureItem[0]);
 							}							
 						},

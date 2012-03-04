@@ -14,6 +14,7 @@ body {
 
 #header {
 	background-color: white;
+	padding: 15px 0px 0px 15px;
 }
 
 .container {
@@ -22,6 +23,16 @@ body {
 
 #map-container-parent {
 	position: relative;
+}
+
+#map-container-row {
+	background-color: white;
+}
+
+#map-container {
+	background-color: white;
+	border: 1px solid black;
+	height: 650px;
 }
 
 #map-info-box-row {
