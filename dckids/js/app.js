@@ -1,4 +1,10 @@
 jQuery(document).ready(function ($) {
+	var mouseX = 0, mouseY = 0;
+	$(document).mousemove(function(e){
+    	mouseX = e.pageX - 210;
+		mouseY = e.pageY - 150;
+	});
+
 	var mm = com.modestmaps;
 //	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
 	var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-kk5ruz44.jsonp';
@@ -23,7 +29,8 @@ jQuery(document).ready(function ($) {
                             /* tooltip.over(feature, context); */
 							if (feature){
 								var featureItem = $(feature);
-								if ($(feature).length == 29){	//CHANGE ME IF TOTAL CHANGES
+								console.log(featureItem.length);
+								if ($(feature).length == 33){	//CHANGE ME IF TOTAL CHANGES
 									var neighborhoodNames = $(featureItem[0]).html(),
 										averageFamilyIncome = $(featureItem[2]).html(),
 										pctPoorChildren = $(featureItem[4]).html(),
@@ -37,7 +44,10 @@ jQuery(document).ready(function ($) {
 										pctAsianPI = $(featureItem[20]).html(),
 										childCareF = $(featureItem[22]).html(),
 										libraryNum = $(featureItem[24]).html(),
-										policeStat = $(featureItem[26]).html();
+										policeStat = $(featureItem[26]).html(),
+										indicator = $(featureItem[28]).html(),
+										schoolHexArray = $(featureItem[30]).html(),
+										schoolValueArray = $(featureItem[32]).html();
 
 										// schools in the neighborhood?
 										$('#nbh-name').html(neighborhoodNames);
@@ -59,15 +69,16 @@ jQuery(document).ready(function ($) {
 										countNonFreeOrReduced = $(featureItem[18]).html(),
 										elemOrSec = $(featureItem[20]).html(),
 										mathPct = $(featureItem[22]).html(),
-										readingPct = $(featureItem[24]).html();								
+										readingPct = $(featureItem[24]).html();
+									$('#school-tooltip').html('<strong>' + schoolName + '</strong><br/>Total students: ' + totalStudents);
+									$('#school-tooltip').css({"top": mouseY, "left": mouseX})
+									$('#school-tooltip').show();	
 								}
-																
-								
-											
 							}							
 						},
 						out: function(context) {
-                            tooltip.out(context);
+							$('#school-tooltip').hide();
+                            /* tooltip.out(context); */
 						}
 					}
 				});

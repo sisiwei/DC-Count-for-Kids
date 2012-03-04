@@ -2,7 +2,8 @@
    Shared Styles
 ----------------------------------------- */
 
-body {}
+
+body { font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 13px; line-height: 18px; color: #555; -webkit-font-smoothing: antialiased; }
 
 .label {
 	text-transform: uppercase;
@@ -12,10 +13,12 @@ body {}
 #header {
 	background-color: white;
 	padding: 15px 0px 0px 15px;
+	font-family: Helvetica, sans-serif;
 }
 
-.container {
-	margin-top: 20px;
+#container {
+	width: 1000px;
+	margin: 20px auto 0px auto;
 }
 
 #map-container-parent {
@@ -24,8 +27,6 @@ body {}
 
 #map-container-row {
 	background-color: white;
-	padding: 0px 15px 0px 0px;
-	left: -7px;
 	position: relative;
 }
 
@@ -65,8 +66,7 @@ body {}
    Infobox Elements
 ----------------------------------------- */
 
-.map-labels {
-	font-family: Arial, sans-serif;
+#nbh-label, #school-perf {
 	font-size: 11px;
 	text-transform: uppercase;
 	border-bottom: 1px solid #eaeaea;
@@ -83,4 +83,24 @@ body {}
 #race-pie-chart {
 	padding: 5px 0px;
 	height: 140px;
+}
+
+.indicator-floats {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+}
+
+/* -----------------------------------------
+   Tooltip Elements
+----------------------------------------- */
+
+#school-tooltip {
+	min-width: 100px;
+	background-color: white;
+	border: 1px solid #888;
+	position: absolute;
+	top: 0px;
+	left: 100px;
+	display: none;
+	padding: 5px 14px 5px 8px;
 }
