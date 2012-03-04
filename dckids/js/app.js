@@ -47,6 +47,7 @@ var options = {
 jQuery(document).ready(function ($) {
 	var mm = com.modestmaps;
 	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
+//	var url = 'https://tiles.mapbox.com/newamerica/map/map-ndxwx9rp';
 	
     wax.tilejson(url, function(tilejson) {
         var tooltip = new wax.tooltip();
