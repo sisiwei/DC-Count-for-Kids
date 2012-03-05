@@ -11,60 +11,58 @@
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width" />
 
-	<title>DC Count for Kids</title>
+	<title>D.C. KIDS COUNT</title>
   
 	<!-- Included CSS Files -->
-	<link rel="stylesheet" href="css/foundation.css">
 	<link rel="stylesheet" type="text/css" href="css/controls.css">
-	<!--<link rel="stylesheet" type="text/css" href="css/motw_mobilevfixed.css">-->
 	<link rel="stylesheet" href="css/app.css">
 
-	<!--[if lt IE 9]>
-		<link rel="stylesheet" href="stylesheets/ie.css">
-	<![endif]-->
-
-	<!-- IE Fix for HTML5 Tags -->
-	<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="js/modernizr.foundation.js"></script>
-	<script src="js/foundation.js"></script>
 	<script src='js/modestmaps.min.js' type='text/javascript'></script>
 	<script src='js/wax.mm.js' type='text/javascript'></script>
 	<script src='js/mapGraphInit.js' type='text/javascript'></script>
-	<script type="text/javascript" src="js/jquery.flot.min.js"></script>
 	<script src="js/app.js"></script>
 </head>
 <body>
-
-	<!-- container -->
-	<div class="container">
-		<div id="header" class="row">
-			<div class="twelve columns">
-				<h2>DC Count for Kids</h2>
-			</div>
+	<div id="container">
+		<div id="header">
+			<h2>D.C. KIDS COUNT</h2>
+			<p>Roll over an individual school <img src="images/redDot.jpg"/> or an entire neighborhood for detailed information.</p>
 		</div>
-		<div id="map-container-parent" class="row">
-			<div class="twelve colunns">
-				<div id="map-container-row" class="row">
-					<div id="map-container" class="twelve columns">
+		<div id="map-container-parent">
+				<div id="map-container-row">
+					<div id="map-container">
 						<div id="mainMap" class="map"></div>
-						<!-- <div id="flot-graph"></div> -->
 					</div>
 				</div>
-				<div style="clear:both;"></div>
 				
 				<div id="map-info-box" class="info-box"></div>
 				<div id="map-info-content" class="info-box">
+<<<<<<< HEAD
 					<div class="green label map-label">Neighborhood</div>
 					<div id="nbh-name">Test</div>
 					<div id="race-pie-chart">Test</div>
+=======
+					<div id="nbh-label">Neighborhood</div>
+					<div id="nbh-name">Roll over any neighborhood on the map</div>
+					<div id="avg-income" class="indicator-floats"></div>
+
+					<div id="police" class="indicator-floats"></div>
+					<div id="library" class="indicator-floats"></div>
+					<div id="unemployment" class="indicator-floats"></div>
+					<div id="child-care" class="indicator-floats"></div>
+					<div id="poor-children" class="indicator-floats" style="width: 145px;"></div>
+					<div style="clear:both;"></div>
+					<div id="race-pie-chart"></div>
+					<div id="school-perf">School Performance</div>
+					<div id="school-perf-chart"></div>
+>>>>>>> gh-pages
 				</div>
-			</div>
+				<div id="school-tooltip"></div>
+                <div id="school-data" class="school-box"></div>
+
+	
 		</div>
 	</div>
-
 </body>
 </html>
