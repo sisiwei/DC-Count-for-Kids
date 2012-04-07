@@ -73,8 +73,17 @@ $('#unemployment').html('<strong>Unemployment:</strong> ' + pctUnemployment + '%
 										elemOrSec = $(featureItem[20]).html(),
 										mathPct = $(featureItem[22]).html(),
 										readingPct = $(featureItem[24]).html();
+                                    console.log(countFreeLunch == 'NA');
+                                    var lunchChart = '<center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ countFreeLunch +','+ countRedPriceLunch +','+ countNonFreeOrReduced +'&chdl=Free|Reduce|Other&chma=|2&chf=bg,s,67676700" width="175" height="100" /></center>';
+                                    if (countFreeLunch == 'NA') {
+                                        lunchChart = '<center><p>No lunch data.</p></center>';
+                                    }
+                                    var proficiencyChart = '<center><img style="padding-top:5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=190x100&cht=s&chd=t:25,75|'+ readingPct +','+ mathPct +'&chco=9970AB&chf=bg,s,67676700" width="190" height="100" /></center>';
+                                    if (readingPct == 'NA') {
+                                        proficiencyChart = '<center><p>No reading/writing proficiency data.</p></center>';
+                                    }
+									$('#school-data').html('<strong>School details</strong><br/><strong>Lunches</strong>'+ lunchChart +'<strong>Percentage Proficient and Above</strong>' +proficiencyChart);
 									$('#school-data').show();
-									$('#school-data').html('<strong>School details</strong><br/><strong>Lunches</strong><center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ countFreeLunch +','+ countRedPriceLunch +','+ countNonFreeOrReduced +'&chdl=Free|Reduce|Other&chma=|2&chf=bg,s,67676700" width="175" height="100" /></center><strong>Percentage Proficient and Above</strong><center><img style="padding-top:5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=190x100&cht=s&chd=t:25,75|'+ mathPct +','+ readingPct +'&chco=9970AB&chf=bg,s,67676700" width="190" height="100" /></center>');
 									$('#school-data').fadeIn(150);
 									$('#school-tooltip').html('<strong>' + schoolName + '</strong><br/>Total students: '+ totalStudents);
 									$('#school-tooltip').css({"top": mouseY, "left": mouseX-225})
