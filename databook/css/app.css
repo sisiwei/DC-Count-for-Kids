@@ -10,25 +10,46 @@ Light green: #c9f1ae
 Orange: #f77833
 --------------------------*/
 
-body { font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 13px; line-height: 18px; color: #555; -webkit-font-smoothing: antialiased; }
+body { font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 13px; line-height: 18px; color: #555; -webkit-font-smoothing: antialiased; margin:0; padding:0; }
 
-h2 {
-	margin-bottom: 10px;
-}
+h2 { margin:0; }
+h2 img { }
 
-p {
-	margin: 10px 0px;
-}
+p { margin: 10px 0px; }
+ul { padding:0; margin:0; }
 
 .label {
 	text-transform: uppercase;
 	color: black;
 }
 
-#header {
-	background-color: white;
-	padding: 8px 0px 0px 15px;
-	font-family: Helvetica, sans-serif;
+#info {
+	z-index:1000;
+	background:white;
+	padding: 15px;
+	position:fixed;
+	height:100%;
+	width:250px;
+	-moz-box-shadow:    0px 0px 5px 1px #ddd;
+	-webkit-box-shadow: 0px 0px 5px 1px #ddd;
+	box-shadow:         0px 0px 5px 1px #ddd;
+	overflow-y: scroll;
+}
+
+#indicators {
+	list-style-type: none;
+	margin-top:-2px;
+}
+#indicators li {
+	cursor:pointer;
+	text-align:center;
+	background-color:white;
+	border:1px solid #eee;
+	border-top:none;
+	padding:10px 0;
+}
+#indicators li:hover {
+	color:#f77833;
 }
 
 #container {
@@ -39,6 +60,7 @@ p {
 
 #map-container-parent {
 	position: relative;
+	margin-left:280px;
 }
 
 #map-container-row {
@@ -64,19 +86,6 @@ p {
 	-moz-box-shadow: inset 0 0 8px 3px #acacac;
 	-webkit-box-shadow: inset 0 0 8px 3px #acacac;
 	box-shadow: inset 0 0 8px 3px #acacac;
-}
-
-#map-info-content {
-	width: 280px;
-	padding: 15px;
-}
-
-.info-box {
-	height: 660px;
-	width: 310px;
-	position: absolute;
-	right: 15px;
-	top: 20px;
 }
 
 .school-box {

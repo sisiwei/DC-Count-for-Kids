@@ -25,9 +25,39 @@
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<h2>D.C. KIDS COUNT</h2>
-			<p>Roll over an individual school <img src="images/redDot.jpg"/> or an entire neighborhood for detailed information.</p>
+		<div id="info">
+			<a href="#"><h2><img src="images/logo.png" alt="DC Action for Children Databook" /></h2></a>
+			<ul id="indicators">
+				<li>Concentrated neighborhood poverty</li>
+				<li>Home ownerships</li>
+				<li>Political Empowerment</li>
+				<li>Libraries</li>
+				<li>Access to food</li>
+				<li>Recreational centers</li>
+				<li>Transportation</li>
+				<li>Violent crimes</li>
+				<li>Environmental health</li>
+				<li>Youth work force</li>
+			</ul>
+
+			<div id="map-info-content" class="info-box">
+				<div id="nbh-label">Neighborhood</div>
+				<div id="nbh-name">Roll over any neighborhood on the map</div>
+				<div id="avg-income" class="indicator-floats"></div>
+
+				<div id="police" class="indicator-floats"></div>
+				<div id="library" class="indicator-floats"></div>
+				<div id="unemployment" class="indicator-floats"></div>
+				<div id="child-care" class="indicator-floats"></div>
+				<div id="poor-children" class="indicator-floats" style="width: 145px;"></div>
+				<div style="clear:both;"></div>
+				<div id="race-pie-chart"></div>
+				<div id="school-perf">School Performance</div>
+				<div id="school-perf-chart"></div>
+			</div>
+			<div id="school-tooltip"></div>
+            <div id="school-data" class="school-box"></div>
+
 		</div>
 		<div id="map-container-parent">
 				<div id="map-container-row">
@@ -35,25 +65,7 @@
 						<div id="mainMap" class="map"></div>
 					</div>
 				</div>
-				
-				<div id="map-info-box" class="info-box"></div>
-				<div id="map-info-content" class="info-box">
-					<div id="nbh-label">Neighborhood</div>
-					<div id="nbh-name">Roll over any neighborhood on the map</div>
-					<div id="avg-income" class="indicator-floats"></div>
-
-					<div id="police" class="indicator-floats"></div>
-					<div id="library" class="indicator-floats"></div>
-					<div id="unemployment" class="indicator-floats"></div>
-					<div id="child-care" class="indicator-floats"></div>
-					<div id="poor-children" class="indicator-floats" style="width: 145px;"></div>
-					<div style="clear:both;"></div>
-					<div id="race-pie-chart"></div>
-					<div id="school-perf">School Performance</div>
-					<div id="school-perf-chart"></div>
-				</div>
-				<div id="school-tooltip"></div>
-                <div id="school-data" class="school-box"></div>
+<!-- 				<div id="map-info-box" class="info-box"></div> -->
 
 	
 		</div>
