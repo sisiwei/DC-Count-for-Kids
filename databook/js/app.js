@@ -23,23 +23,6 @@ jQuery(document).ready(function ($) {
 
         wax.mm.zoomer(m).appendTo(m.parent);
 
-        AvgFamilyI: "91,983"
-		AvgPopulat: "8,875"
-		ChildCareF: "8"
-		Library: "0"
-		NBH_NAMES: "North Michigan Park, Michigan Park, University Heights"
-		NbhScore: 42.9
-		PctAsianPI: "1.5"
-		PctBlackNo: "81"
-		PctHisp_20: "4.5"
-		PctPoorChi: "22"
-		PctUnemplo: "13"
-		PctWhiteNo: "12"
-		Pct_birt_1: "7.9"
-		Pct_births: "18"
-		PoliceStat: "0"
-
-
 		wax.mm.interaction()
 			.map(m)
 			.tilejson(tilejson)
