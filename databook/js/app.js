@@ -1,9 +1,20 @@
 jQuery(document).ready(function ($) {
-	var mouseX = 0, mouseY = 0;
+	var mouseX = 0, mouseY = 0,
+		sidebar = $('#info'),
+		indicators = $('#indicators ul');
 
 	$(document).mousemove(function(e){
     	mouseX = e.pageX - 0;
 		mouseY = e.pageY - 170;
+	});
+	
+	indicators.mouseover(function(){
+		indicators.children('li:not(.active)').show();
+	}).mouseout(function(){
+		indicators.children('li:not(.active)').hide();
+	}).children('li:not(.active)').click(function(){
+		$(this).siblings('.active').removeClass('active');
+		$(this).addClass('active');
 	});
 
 	var mm = com.modestmaps;
