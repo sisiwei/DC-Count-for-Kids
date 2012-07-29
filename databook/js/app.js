@@ -24,7 +24,8 @@ jQuery(document).ready(function ($) {
 	var mm = com.modestmaps;
 //	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
 	//var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
-	var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
+	//var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
+	var url = 'http://a.tiles.mapbox.com/v3/dcaction.map-7j45adj0.jsonp';
 	
     wax.tilejson(url, function(tilejson) {
         var tooltip = new wax.tooltip();
@@ -44,39 +45,38 @@ jQuery(document).ready(function ($) {
 			.tilejson(tilejson)
 			.on({
 				on: function(feature) {
-
 					if (feature){
 						var d = feature.data;
 						console.log(d);
-						if (d.AvgFamilyI != undefined){
+						if (d.NBH_NAMES != undefined){
 							var neighborhoodNames = d.NBH_NAMES,
-								averageFamilyIncome = d.AvgFamilyI,
-								pctPoorChildren = d.PctPoorChi,
-								pctUnemployment = d.PctUnemplo,
-								pctBirths = d.Pct_birt_1,
-								pctBirthsL = d.Pct_births,
-								averagePop = d.AvgPopulat,
-								pctBlackNo = d.PctBlackNo,
-								pctWhiteNo = d.PctWhiteNo,
-								pctHisp_20 = d.PctHisp_20,
-								pctAsianPI = d.PctAsianPI,
-								childCareF = d.ChildCareF,
-								libraryNum = d.Library,
-								policeStat = d.PoliceStat,
-								schoolHexArray = d.chco,
-								schoolValueArray = d.chd;
-								$('#school-perf').show();
-								$('#nbh-name').html(neighborhoodNames);
-								$('#race-pie-chart').html('<strong>Demographics:</strong><br/><center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ pctWhiteNo +','+ pctBlackNo +','+ pctHisp_20 +','+ pctAsianPI +'&chdl=White|Black|Hispanic|Asian&chma=|2&chf=bg,s,67676700" width="200" height="120" /></center>');
-								$('#avg-income').html('<strong>Avg. family income:</strong> $' + averageFamilyIncome);
-								$('#police').html('<strong>Police stations:</strong> ' + policeStat);
-								$('#library').html('<strong>Libraries:</strong> ' + libraryNum);
-								$('#unemployment').html('<strong>Unemployment:</strong> ' + pctUnemployment + '%');
-								$('#poor-children').html('<strong>Children in poverty:</strong> ' + pctPoorChildren + '%');
-								$('#child-care').html('<strong>Child care facilities:</strong> ' + childCareF);
+								pop = d.PopTotal,
+								childPop = d.PopU18,
+								babyPop = d.PopU5,
+								pctWhite = d.PopNHW,
+								pctWhite18 = d.PopNHW18,
+								pctBlack = d.PopNHB,
+								pctBlack18 = d.PopNHB18,
+								pctOther = d.PopNHO,
+								pctOther18 = d.PopNHO18,
+								pctHisp = d.PopHisp,
+								pctHisp18 = d.PopHisp18,
+								//pctAsian = 
+								childPov = d.ChildPov,
+								medianFamilyIncome = d.MedFamIncR,
+								singleMotherFamilies = d.SingleMomF;
 
-								// // INVESTIGATE DATA:
-								$('#school-perf-chart').html('<strong>Percentage Proficient and Above</strong><br/><center><img style="padding-top: 5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=290x240&cht=s&chd=t:25,' + schoolValueArray + '&chco=' + schoolHexArray + '&chdl=DC+Average|Nbhd+Schools&chf=bg,s,67676700" width="290" height="240" /></center>')
+								// schoolHexArray = d.chco,
+								// schoolValueArray = d.chd;
+								// $('#school-perf').show();
+								$('#nbh-name').html(neighborhoodNames);
+								//$('#race-pie-chart').html('<strong>Demographics:</strong><br/><center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctAsian +'&chdl=White|Black|Hispanic|Asian&chma=|2&chf=bg,s,67676700" width="200" height="120" /></center>');
+								$('#avg-income').html('<strong>Avg. family income:</strong> $' + medianFamilyIncome);
+								//$('#unemployment').html('<strong>Unemployment:</strong> ' + pctUnemployment + '%');
+								$('#poor-children').html('<strong>Children in poverty:</strong> ' + childPov + '%');
+
+								// INVESTIGATE DATA:
+								// $('#school-perf-chart').html('<strong>Percentage Proficient and Above</strong><br/><center><img style="padding-top: 5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=290x240&cht=s&chd=t:25,' + schoolValueArray + '&chco=' + schoolHexArray + '&chdl=DC+Average|Nbhd+Schools&chf=bg,s,67676700" width="290" height="240" /></center>')
 						} else {
 							var schoolName = d.Name,
 								address = d.StreetAddress,
