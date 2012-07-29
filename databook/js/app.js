@@ -29,14 +29,8 @@ jQuery(document).ready(function ($) {
         var tooltip = new wax.tooltip();
         var m = new mm.Map('mainMap', 
         	new wax.mm.connector(tilejson),
-            new mm.Point(1024, 800));
+            new mm.Point(690, 750));
             
-        $('#mainMap').css({
-	        overflow: 'visible',
-	        width: '100%',
-	        height: '100%'
-        });
-
         m.setCenterZoom(new mm.Location(
 			38.905, //tilejson.center[1], lon
 			-76.956), //tilejson.center[0]), lat

@@ -30,6 +30,17 @@ ul {
 .right {
   float: right;
 }
+#container {
+  position: relative;
+  width: 960px;
+  height: 100%;
+  margin: 0px auto;
+}
+#primary {
+  position: relative;
+  width: 100%;
+  height: 750px;
+}
 /* -----------------------------------------
    Sidebar of information
 ----------------------------------------- */
@@ -37,15 +48,11 @@ ul {
   z-index: 1000;
   background: white;
   padding: 15px;
-  position: relative;
-  height: 100%;
+  margin: 0 15px 0 0;
   float: left;
-  width: 280px;
-  box-shadow: 0 0 5px 1px #dddddd;
-  -moz-box-shadow: 0 0 5px 1px #dddddd;
-  -webkit-box-shadow: 0 0 5px 1px #dddddd;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  width: 220px;
+  height: 100%;
+  overflow: hidden;
 }
 #brand {
   font-family: Georgia, serif;
@@ -100,47 +107,13 @@ ul {
   border-right: 10px solid #ccc;
   left: 0;
 }
-#container {
-  width: 100%;
-  height: 100%;
-  margin: 0px auto;
-}
+/* -----------------------------------------
+   Map portions
+----------------------------------------- */
 #map-container-parent {
-  position: relative;
-  float: right;
-  width: 80%;
-}
-#map-container-row {
-  background-color: white;
-  position: relative;
-}
-#map-container {
-  background-color: white;
+  float: left;
+  width: 690px;
   height: 100%;
-  width: 100%;
-}
-#map-info-box-row {
-  position: absolute;
-  top: 46px;
-}
-#map-info-box {
-  opacity: 0.9;
-  filter: alpha(opacity=90);
-  background-color: white;
-  box-shadow: 0 0 8px 3px #acacac;
-  -moz-box-shadow: 0 0 8px 3px #acacac;
-  -webkit-box-shadow: 0 0 8px 3px #acacac;
-}
-.school-box {
-  height: 270px;
-  width: 210px;
-  position: absolute;
-  left: 10px;
-  bottom: 80px;
-  background-color: white;
-  border: 1px solid black;
-  padding: 5px;
-  display: none;
 }
 /* -----------------------------------------
    Infobox Elements
