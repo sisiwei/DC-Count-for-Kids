@@ -1,193 +1,190 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-
-/*-----------------------
-Light blue: #8bd4f2
-Blue: #1faee8
-Green: #6eb43f
-Light green: #c9f1ae
-Orange: #f77833
---------------------------*/
-
-body { font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 13px; line-height: 18px; color: #555; -webkit-font-smoothing: antialiased; margin:0; padding:0; }
-
-h2 { margin:0; }
-p { margin: 10px 0px; }
-ul { padding:0; margin:0; }
-.clear {display:block; clear:both;}
-.left {float:left;}
-.right {float:right;}
-
+body {
+  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  color: #555;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  margin: 0;
+}
+p {
+  margin: 10px 0px;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+.clear {
+  display: block;
+  clear: both;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
 /* -----------------------------------------
    Sidebar of information
 ----------------------------------------- */
-
 #info {
-	z-index:1000;
-	background:white;
-	padding: 15px;
-	position:relative;
-	height:100%;
-	float: left;
-	width: 280px;
-	-moz-box-shadow:    0px 0px 5px 1px #ddd;
-	-webkit-box-shadow: 0px 0px 5px 1px #ddd;
-	box-shadow:         0px 0px 5px 1px #ddd;
-	overflow-y: scroll;
-	overflow-x: hidden;
+  z-index: 1000;
+  background: white;
+  padding: 15px;
+  position: relative;
+  height: 100%;
+  float: left;
+  width: 280px;
+  box-shadow: 0 0 5px 1px #dddddd;
+  -moz-box-shadow: 0 0 5px 1px #dddddd;
+  -webkit-box-shadow: 0 0 5px 1px #dddddd;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
-
-#brand { font-family: Georgia, serif; }
-#title { 
-	margin-left:15px;
-	font-size: 2.5em;
-	line-height:1em;
+#brand {
+  font-family: Georgia, serif;
 }
-
+#title {
+  margin-left: 15px;
+  font-size: 2.5em;
+  line-height: 1em;
+}
 /* -----------------------------------------
    Option dropdown
 ----------------------------------------- */
-
-#indicators { position:relative; }
+#indicators {
+  position: relative;
+}
+#indicators .selected {
+  margin: 10px auto;
+}
 #indicators > ul {
-	list-style-type: none;
-	margin: 10px auto;
-	width:250px;
+  list-style-type: none;
+  margin: 10px auto;
+  width: 250px;
+  display: none;
 }
 #indicators > ul > li {
-	display:none;
-	cursor:pointer;
-	text-align:center;
-	background-color:white;
-	border:1px solid #eee;
-	padding:10px 15px;
-
+  cursor: pointer;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #eee;
+  padding: 10px 15px;
 }
-#indicators li:hover { color:#f77833; }
-#indicators li.active { display:block; }
-#indicators li.active:hover { color:inherit; }
+#indicators li:hover {
+  color: #f77833;
+}
 #indicators .arrow {
-	position:absolute;
-	top:20px;
+  position: absolute;
+  top: 0;
 }
 #indicators .arrow-right {
-	width: 0; 
-	height: 0; 
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	border-left: 10px solid #ccc;
-	right:0;	
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #ccc;
+  right: 0;
 }
 #indicators .arrow-left {
-	width: 0; 
-	height: 0;
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent; 	
-	border-right:10px solid #ccc; 
-	left:0;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #ccc;
+  left: 0;
 }
-
-
 #container {
-	width: 100%;
-	height: 100%;
-	margin: 0px auto;
+  width: 100%;
+  height: 100%;
+  margin: 0px auto;
 }
-
 #map-container-parent {
-	position: relative;
-	float: right;
-	width: 80%;
+  position: relative;
+  float: right;
+  width: 80%;
 }
-
 #map-container-row {
-	background-color: white;
-	position: relative;
+  background-color: white;
+  position: relative;
 }
-
 #map-container {
-	background-color: white;
-	height: 100%;
-	width: 100%;
+  background-color: white;
+  height: 100%;
+  width: 100%;
 }
-
 #map-info-box-row {
-	position: absolute;
-	top: 46px;
+  position: absolute;
+  top: 46px;
 }
-
 #map-info-box {
-	opacity: 0.9;
-	filter: Alpha(opacity=90);
-	background-color: white;
-	-moz-box-shadow: inset 0 0 8px 3px #acacac;
-	-webkit-box-shadow: inset 0 0 8px 3px #acacac;
-	box-shadow: inset 0 0 8px 3px #acacac;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  background-color: white;
+  box-shadow: 0 0 8px 3px #acacac;
+  -moz-box-shadow: 0 0 8px 3px #acacac;
+  -webkit-box-shadow: 0 0 8px 3px #acacac;
 }
-
 .school-box {
-	height: 270px;
-	width: 210px;
-	position: absolute;
-	left: 10px;
-	bottom: 80px;
-	background-color: white;
-    border: 1px solid black;
-	padding: 5px;
-	display: none;
+  height: 270px;
+  width: 210px;
+  position: absolute;
+  left: 10px;
+  bottom: 80px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px;
+  display: none;
 }
-
 /* -----------------------------------------
    Infobox Elements
 ----------------------------------------- */
-
-#nbh-label, #school-perf {
-	font-size: 11px;
-	text-transform: uppercase;
-	border-bottom: 1px solid #eaeaea;
-}
-
+#nbh-label,
 #school-perf {
-	display: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eaeaea;
 }
-
+#school-perf {
+  display: none;
+}
 #nbh-name {
-	font-family: Georgia, serif;
-	font-size: 20px;
-	padding-top: 5px;
-	line-height: 22px;
-	height: 95px;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  padding-top: 5px;
+  line-height: 22px;
+  height: 95px;
 }
-
 #race-pie-chart {
-	padding: 5px 0px;
-	height: 140px;
+  padding: 5px 0px;
+  height: 140px;
 }
-
 .indicator-floats {
-	font-family: Arial, sans-serif;
-	font-size: 12px;
-	position: relative;
-	float: left;
-	width: 140px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  position: relative;
+  float: left;
+  width: 140px;
 }
-
 #school-perf-chart {
-	padding: 5px 0px;
+  padding: 5px 0px;
 }
-
 /* -----------------------------------------
    Tooltip Elements
 ----------------------------------------- */
-
 #school-tooltip {
-	min-width: 100px;
-	background-color: white;
-	border: 1px solid #888;
-	position: absolute;
-	top: 0px;
-	left: 100px;
-	display: none;
-	padding: 5px 14px 5px 8px;
+  min-width: 100px;
+  background-color: white;
+  border: 1px solid #888;
+  position: absolute;
+  top: 0px;
+  left: 100px;
+  display: none;
+  padding: 5px 14px 5px 8px;
 }

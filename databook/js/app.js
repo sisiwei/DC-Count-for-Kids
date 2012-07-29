@@ -1,18 +1,22 @@
 jQuery(document).ready(function ($) {
 	var mouseX = 0, mouseY = 0,
-		sidebar = $('#info'),
-		indicators = $('#indicators ul');
+		sidebar = $('#info');
 
 	$(document).mousemove(function(e){
     	mouseX = e.pageX - 0;
 		mouseY = e.pageY - 170;
 	});
+
+	var indicators = $('#indicators').find('ul'),
+		selected = $('#indicators').find('.selected');
 	
-	indicators.mouseover(function(){
-		indicators.children('li:not(.active)').show();
-	}).mouseout(function(){
-		indicators.children('li:not(.active)').hide();
-	}).children('li:not(.active)').click(function(){
+	selected.html(indicators.children('li.active').html());
+
+	selected.click(function(){
+		indicators.show();
+	}).siblings('ul').find('li:not(.active)').click(function(){
+		indicators.hide();
+		selected.html($(this).html());
 		$(this).siblings('.active').removeClass('active');
 		$(this).addClass('active');
 	});
