@@ -33,8 +33,8 @@ jQuery(document).ready(function ($) {
             new mm.Point(690, 750));
             
         m.setCenterZoom(new mm.Location(
-			38.905, //tilejson.center[1], lon
-			-76.956), //tilejson.center[0]), lat
+			38.908, //tilejson.center[1], lon
+			-77.020), //tilejson.center[0]), lat
             12); // zoom
 
         wax.mm.zoomer(m).appendTo(m.parent);
