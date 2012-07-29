@@ -23,7 +23,8 @@ jQuery(document).ready(function ($) {
 
 	var mm = com.modestmaps;
 //	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
-	var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
+	//var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
+	var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
 	
     wax.tilejson(url, function(tilejson) {
         var tooltip = new wax.tooltip();

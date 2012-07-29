@@ -62,19 +62,24 @@ ul {
   font-size: 2.5em;
   line-height: 1em;
 }
+
+#map-info-content {
+    margin-top: 20px;
+}
 /* -----------------------------------------
    Option dropdown
 ----------------------------------------- */
 #indicators {
   position: relative;
+  margin-top:10px;
 }
 #indicators .selected {
-  margin: 10px auto;
+  margin: 0px 20px;
 }
 #indicators > ul {
   list-style-type: none;
-  margin: 10px auto;
-  width: 250px;
+  margin: 10px;
+  width: 200px;
   display: none;
 }
 #indicators > ul > li {
