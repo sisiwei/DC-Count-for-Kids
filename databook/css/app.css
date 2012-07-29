@@ -54,7 +54,7 @@ ul {
   height: 100%;
   overflow: hidden;
 }
-#brand {
+#banner p {
   font-family: Georgia, serif;
 }
 #title {
@@ -74,7 +74,7 @@ ul {
 #indicators > ul {
   list-style-type: none;
   margin: 10px auto;
-  width: 250px;
+  width: 100%;
   display: none;
 }
 #indicators > ul > li {
