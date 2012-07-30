@@ -4,17 +4,19 @@
 body {
   font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 13px;
-  line-height: 18px;
+  line-height: 15px;
   color: #555;
   -webkit-font-smoothing: antialiased;
   margin: 0;
   padding: 0;
+  background: #eee;
 }
+h1,
 h2 {
   margin: 0;
 }
 p {
-  margin: 10px 0px;
+  margin: 5px 0;
 }
 ul {
   padding: 0;
@@ -30,12 +32,38 @@ ul {
 .right {
   float: right;
 }
-#container {
+#content {
   position: relative;
   width: 960px;
   height: 100%;
+  background-color: white;
   margin: 0px auto;
 }
+.width {
+  width: 920;
+  padding: 0 20px;
+}
+#container {
+  height: 100%;
+}
+/* -----------------------------------------
+   BANNER
+----------------------------------------- */
+#banner {
+  z-index: 9999;
+  border-bottom: 1px solid #eee;
+}
+#chatter {
+  width: 610px;
+  margin: 5px 0 0 5px;
+}
+#title {
+  font-size: 2.5em;
+  line-height: 1em;
+}
+/* -----------------------------------------
+   Primary interactive map
+----------------------------------------- */
 #primary {
   position: relative;
   width: 100%;
@@ -45,41 +73,26 @@ ul {
    Sidebar of information
 ----------------------------------------- */
 #info {
-  z-index: 1000;
   background: white;
-  padding: 15px;
+  padding: 15px 20px 15px 0;
   margin: 0 15px 0 0;
   float: left;
   width: 220px;
-  height: 100%;
   overflow: hidden;
-}
-#banner p {
-  font-family: Georgia, serif;
-}
-#title {
-  margin-left: 15px;
-  font-size: 2.5em;
-  line-height: 1em;
-}
-
-#map-info-content {
-    margin-top: 20px;
 }
 /* -----------------------------------------
    Option dropdown
 ----------------------------------------- */
 #indicators {
   position: relative;
-  margin-top:10px;
 }
 #indicators .selected {
-  margin: 0px 20px;
+  margin: 10px auto;
 }
 #indicators > ul {
   list-style-type: none;
-  margin: 10px;
-  width: 200px;
+  margin: 10px auto;
+  width: 100%;
   display: none;
 }
 #indicators > ul > li {
