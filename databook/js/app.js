@@ -5,6 +5,30 @@ jQuery(document).ready(function ($) {
 	$(document).mousemove(function(e){
     	mouseX = e.pageX - 0;
 		mouseY = e.pageY - 170;
+
+		//Sticky nav
+        var banner = $('#banner');
+
+		//when scroll
+        $(window).scroll(function(){
+
+            if ($(window).scrollTop() > 0){
+            	banner.find('#big').hide();
+            	banner.find('#small').show();
+
+	            banner.addClass('fixed').css('top','0').next()
+	            .css('padding-top','60px');
+
+            } else {
+            	banner.find('#small').hide();
+				banner.find('#big').show();
+            	
+	            banner.removeClass('fixed').next()
+	            .css('padding-top','0');
+            }
+
+        });
+
 	});
 
 	var indicators = $('#indicators').find('ul'),
@@ -31,10 +55,10 @@ jQuery(document).ready(function ($) {
         var tooltip = new wax.tooltip();
         var m = new mm.Map('mainMap', 
         	new wax.mm.connector(tilejson),
-            new mm.Point(690, 750));
+            new mm.Point(680, 750));
             
         m.setCenterZoom(new mm.Location(
-			38.908, //tilejson.center[1], lon
+			38.900, //tilejson.center[1], lon
 			-77.020), //tilejson.center[0]), lat
             12); // zoom
 

@@ -32,6 +32,15 @@ ul {
 .right {
   float: right;
 }
+.fixed {
+  position: fixed;
+  box-shadow: 0 2px 10px 0 #dddddd;
+  -moz-box-shadow: 0 2px 10px 0 #dddddd;
+  -webkit-box-shadow: 0 2px 10px 0 #dddddd;
+}
+/* -----------------------------------------
+   Wrapper
+----------------------------------------- */
 #content {
   position: relative;
   width: 960px;
@@ -40,17 +49,17 @@ ul {
   margin: 0px auto;
 }
 .width {
-  width: 920;
+  width: 920px;
   padding: 0 20px;
 }
-#container {
-  height: 100%;
-}
 /* -----------------------------------------
-   BANNER
+   Banner
 ----------------------------------------- */
 #banner {
   z-index: 9999;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #eee;
 }
 #chatter {
@@ -61,9 +70,15 @@ ul {
   font-size: 2.5em;
   line-height: 1em;
 }
+#small {
+  display: none;
+}
 /* -----------------------------------------
    Primary interactive map
 ----------------------------------------- */
+#container {
+  height: 100%;
+}
 #primary {
   position: relative;
   width: 100%;
@@ -75,7 +90,6 @@ ul {
 #info {
   background: white;
   padding: 15px 20px 15px 0;
-  margin: 0 15px 0 0;
   float: left;
   width: 220px;
   overflow: hidden;
@@ -130,7 +144,7 @@ ul {
 ----------------------------------------- */
 #map-container-parent {
   float: left;
-  width: 690px;
+  width: 680px;
   height: 100%;
 }
 /* -----------------------------------------
@@ -150,7 +164,7 @@ ul {
   font-size: 20px;
   padding-top: 5px;
   line-height: 22px;
-  height: 125px;
+  height: 95px;
 }
 #race-pie-chart {
   padding: 5px 0px;
