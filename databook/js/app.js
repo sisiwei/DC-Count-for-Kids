@@ -39,6 +39,7 @@ jQuery(document).ready(function ($) {
 	selected.click(function(){
 		indicators.slideToggle(toggleTime);
 	})
+
 	indicators.find('li:not(.active)').click(function(){
 		indicators.slideToggle(toggleTime);
 		selected.html($(this).html());
@@ -46,29 +47,41 @@ jQuery(document).ready(function ($) {
 		$(this).addClass('active');
 	});
 
-	var mm = com.modestmaps;
 //	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
 	//var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
 	//var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
 	var baseURL = 'dcaction.map-7j45adj0',
 		rec = 'dcaction.recreation-dc',
 		grocery = 'dcaction.grocery-dc',
-		pov = 'neigh-pov-dc';
+		pov = 'dcaction.neigh-pov-dc';
 
-	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + rec + '.jsonp';
+	buildMap(baseURL, rec);
+
+	$('#pov').click(function(){
+		buildMap(baseURL, pov);
+	});
+
+	$('#groceries').click(function(){
+		buildMap(baseURL, grocery);
+	});
 	
-    wax.tilejson(mapurl, function(tilejson) {
-        var tooltip = new wax.tooltip();
-        var m = new mm.Map('mainMap', 
-        	new wax.mm.connector(tilejson),
-            new mm.Point(680, 750));
-            
-        m.setCenterZoom(new mm.Location(
+});
+	
+function buildMap(baseURL, map){
+	var mm = com.modestmaps;
+	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + map + '.jsonp';
+	wax.tilejson(mapurl, function(tilejson) {
+	    var tooltip = new wax.tooltip();
+	    var m = new mm.Map('mainMap', 
+	    	new wax.mm.connector(tilejson),
+	        new mm.Point(680, 750));
+	        
+	    m.setCenterZoom(new mm.Location(
 			38.900, //tilejson.center[1], lon
 			-77.020), //tilejson.center[0]), lat
-            12); // zoom
+	        12); // zoom
 
-        wax.mm.zoomer(m).appendTo(m.parent);
+	    wax.mm.zoomer(m).appendTo(m.parent);
 
 		wax.mm.interaction()
 			.map(m)
@@ -147,7 +160,6 @@ jQuery(document).ready(function ($) {
 					$('#school-tooltip').fadeOut(100);
 					$('#school-data').fadeOut(100);
 				}
-			});
-    });
-    
-});
+		});
+	});
+};
