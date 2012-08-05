@@ -102,7 +102,7 @@ ul {
   position: relative;
 }
 #indicators .selected {
-  margin: 10px auto;
+  margin: 0px 20px;
   cursor: pointer;
 }
 #indicators > ul {
