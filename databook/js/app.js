@@ -48,9 +48,10 @@ jQuery(document).ready(function ($) {
 //	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
 	//var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
 	//var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
-	var baseurl = 'dcaction.map-7j45adj0';
+	var baseURL = 'dcaction.map-7j45adj0';
 	// http://a.tiles.mapbox.com/v3/dcaction.recreation-dc.jsonp
-	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseurl +',dcaction.recreation-dc.jsonp';
+	var layerURL = 'dcaction.grocery-dc';
+	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + layerURL + 'jsonp';
 	
     wax.tilejson(mapurl, function(tilejson) {
         var tooltip = new wax.tooltip();
