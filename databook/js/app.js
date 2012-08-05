@@ -30,15 +30,17 @@ jQuery(document).ready(function ($) {
         });
 	});
 
-	var indicators = $('#indicators').find('ul'),
-		selected = $('#indicators').find('.selected');
+	var indicators = $('#indicator-list'),
+		selected = $('#indicators').find('.selected'),
+		toggleTime = 250;
 	
 	selected.html(indicators.children('li.active').html());
 
 	selected.click(function(){
-		indicators.slideToggle(300);
-	}).siblings('ul').find('li:not(.active)').click(function(){
-		indicators.slideToggle(300);
+		indicators.slideToggle(toggleTime);
+	})
+	indicators.find('li:not(.active)').click(function(){
+		indicators.slideToggle(toggleTime);
 		selected.html($(this).html());
 		$(this).siblings('.active').removeClass('active');
 		$(this).addClass('active');
