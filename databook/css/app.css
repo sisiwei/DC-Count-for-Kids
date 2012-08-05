@@ -34,9 +34,9 @@ ul {
 }
 .fixed {
   position: fixed;
-  box-shadow: 0 2px 10px 0 #dddddd;
-  -moz-box-shadow: 0 2px 10px 0 #dddddd;
-  -webkit-box-shadow: 0 2px 10px 0 #dddddd;
+  box-shadow: 0 1px 5px 0 #eeeeee;
+  -moz-box-shadow: 0 1px 5px 0 #eeeeee;
+  -webkit-box-shadow: 0 1px 5px 0 #eeeeee;
 }
 /* -----------------------------------------
    Wrapper
@@ -47,7 +47,7 @@ ul {
   height: 100%;
   background-color: white;
   margin: 0px auto;
-  padding: 0 0 125px;
+  padding: 0 0 25px;
 }
 .width {
   width: 920px;
@@ -65,7 +65,7 @@ ul {
 }
 #chatter {
   width: 610px;
-  margin: 5px 0 0 16px;
+  margin: 5px 0 0 5px;
 }
 #title {
   font-size: 2.5em;
@@ -93,7 +93,9 @@ ul {
   padding: 15px 20px 15px 0;
   float: left;
   width: 220px;
+  height: 100%;
   overflow: hidden;
+  position: relative;
 }
 /* -----------------------------------------
    Option dropdown
@@ -102,25 +104,7 @@ ul {
   position: relative;
 }
 #indicators .selected {
-  margin: 0px 20px;
-  cursor: pointer;
-  line-height: 20px;
-}
-#indicators > ul {
-  list-style-type: none;
-  margin: 17px;
-  width: 182px;
-  display: none;
-}
-#indicators > ul > li {
-  cursor: pointer;
-  text-align: center;
-  background-color: white;
-  border: 1px solid #eee;
-  padding: 10px 15px;
-}
-#indicators li:hover {
-  color: #f77833;
+  margin: 10px auto;
 }
 #indicators .arrow {
   position: absolute;
@@ -142,6 +126,23 @@ ul {
   border-right: 10px solid #ccc;
   left: 0;
 }
+ul#indicator-list {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  list-style-type: none;
+  display: none;
+}
+ul#indicator-list > li {
+  cursor: pointer;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #eee;
+  padding: 10px 15px;
+}
+#indicator-list li:hover {
+  color: #f77833;
+}
 /* -----------------------------------------
    Map portions
 ----------------------------------------- */
@@ -153,11 +154,6 @@ ul {
 /* -----------------------------------------
    Infobox Elements
 ----------------------------------------- */
-#map-info-content {
-  top: 24px;
-  position: relative;
-}
-
 #nbh-label,
 #school-perf {
   font-size: 11px;
@@ -167,17 +163,14 @@ ul {
 #school-perf {
   display: none;
 }
-
 #nbh-name {
-  font-family: 'Helvetica Neue';
-  font-size: 16px;
+  font-family: Georgia, serif;
+  font-size: 20px;
   padding-top: 5px;
-  line-height: 19px;
-  height: 92px;
-  font-weight: bold;
+  line-height: 22px;
+  height: 95px;
 }
-
-#adult-race-pie-chart, #child-race-pie-chart {
+#race-pie-chart {
   padding: 5px 0px;
   height: 140px;
 }
