@@ -1,13 +1,87 @@
 jQuery(document).ready(function ($) {
 	var mouseX = 0, mouseY = 0,
-		sidebar = $('#info');
+		sidebar = $('#info'),
+		banner = $('#banner');
 
+	var baseURL = 'dcaction.map-7j45adj0',
+		indicatorURL = [
+			'dcaction.recreation-dc', 
+			'dcaction.grocery-dc', 
+			'dcaction.neigh-pov-dc', 
+			'dcaction.no-hs-degree-25-dc', 
+			'dcaction.no-hs-degree-18to24-dc'
+		];
+
+	//=======================
+	// 	DROPDOWN NAV
+	//========================
+
+	var indicators = $('#indicator-list'),
+		selected = $('#indicators').find('.selected'),
+		iMax = indicators.find('li').length,
+		toggleTime = 250;
+
+	// INIT LOAD
+	selected.html(indicators.find('li.active').html());
+	buildMap(baseURL, indicatorURL[indicators.find('li').index(indicators.find('li.active'))]);
+
+	selected.click(function(){
+		indicators.slideToggle(toggleTime);
+	})
+
+	indicators.find('li').click(function(){
+		indicators.slideUp(toggleTime);
+		if ('li:not(.active)'){
+			selected.html($(this).html());
+			$(this).siblings('.active').removeClass('active');
+			$(this).addClass('active');
+
+			var sIdx = indicators.find('li').index(this);
+			buildMap(baseURL, indicatorURL[sIdx]);
+		}
+	});
+
+	var arrow = $('.arrow'),
+		prevBtn = $('.arrow-left'),
+		nextBtn = $('.arrow-right');
+
+	arrow.click(function(){
+		if ($(this).hasClass('fade') == false){
+
+			var currIdx = indicators.find('li.active').index(),
+				newIdx = $(this).hasClass('arrow-left') ? currIdx - 1 : currIdx + 1 ;
+
+			if (newIdx != -1){
+				indicators.find('li').get(newIdx).click();
+			}
+
+			newIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
+			newIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
+		}
+
+	});
+
+	//=======================
+	// 	MAP
+	//========================
+
+//	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
+	//var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
+	//var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
+
+	var indicatorArray = [];
+
+	for (i = 0; i < iMax; i++){
+		var elementId = indicators.find('li').get(i).id;
+		indicatorArray.push(elementId);
+	}
+
+	//====================
+	// STICKY NAV
+	//====================
 	$(document).mousemove(function(e){
     	mouseX = e.pageX - 0;
 		mouseY = e.pageY - 170;
-
-		//Sticky nav
-        var banner = $('#banner');
 
 		//when scroll
         $(window).scroll(function(){
@@ -30,54 +104,6 @@ jQuery(document).ready(function ($) {
         });
 	});
 
-	var indicators = $('#indicator-list'),
-		selected = $('#indicators').find('.selected'),
-		toggleTime = 250;
-	
-	selected.html(indicators.children('li.active').html());
-
-	selected.click(function(){
-		indicators.slideToggle(toggleTime);
-	})
-
-	indicators.find('li:not(.active)').click(function(){
-		indicators.slideToggle(toggleTime);
-		selected.html($(this).html());
-		$(this).siblings('.active').removeClass('active');
-		$(this).addClass('active');
-	});
-
-//	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
-	//var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
-	//var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
-	var baseURL = 'dcaction.map-7j45adj0',
-		rec = 'dcaction.recreation-dc',
-		grocery = 'dcaction.grocery-dc',
-		pov = 'dcaction.neigh-pov-dc',
-		noHSDegree25 = 'dcaction.no-hs-degree-25-dc',
-		noHSDegree18 = 'dcaction.no-hs-degree-18to24-dc';
-
-	buildMap(baseURL, rec);
-
-	$('#pov').click(function(){
-		buildMap(baseURL, pov);
-	});
-
-	$('#groceries').click(function(){
-		buildMap(baseURL, grocery);
-	});
-
-	$('#rec').click(function(){
-		buildMap(baseURL, rec);
-	});
-
-	$('#noHS25').click(function(){
-		buildMap(baseURL, noHSDegree25);
-	});
-
-	$('#noHS18').click(function(){
-		buildMap(baseURL, noHSDegree18);
-	});
 	
 });
 	
@@ -105,6 +131,8 @@ function buildMap(baseURL, map){
 					if (feature){
 						var d = feature.data;
 						if (d.NBH_NAMES != undefined){
+							$('.indicator-floats').show();
+
 							var neighborhoodNames = d.NBH_NAMES,
 								pop = d.PopTotal,
 								childPop = (d.PopU18).toFixed(0),
@@ -137,13 +165,13 @@ function buildMap(baseURL, map){
 								// schoolValueArray = d.chd;
 								// $('#school-perf').show();
 								$('#nbh-name').html(neighborhoodNames);
-								$('#total-pop').html('<strong>Population (Total):</strong> ' + addCommas(pop));
-								$('#child-pop').html('<strong>Population (Under 18):</strong> ' + addCommas(childPop));
+								$('#total-pop .value').html(addCommas(pop));
+								$('#child-pop .value').html(addCommas(childPop));
+								$('#avg-income .value').html('$' + addCommas(medianFamilyIncome));
+								$('#poor-children .value').html((childPov * 100).toFixed(2) + '%');
+								$('#single-mother-families .value').html(singleMotherFamilies + '%');
 								$('#adult-race-pie-chart').html('<strong>Race & ethnicity (18 and over):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=3182bd|6baed6|bdd7e7|eff3ff&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctOther +'&chdl='+ pctWhiteLegend +'|' + pctBlackLegend + '|'+ pctHispLegend +'|'+ pctOtherLegend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
 								$('#child-race-pie-chart').html('<strong>Race & ethnicity (under 18):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=e34a33|fc8d59|fdcc8a|fef0d9&chds=0,700&chd=t:'+ pctWhite18 +','+ pctBlack18 +','+ pctHisp18 +','+ pctOther18 +'&chdl='+ pctWhite18Legend +'|' + pctBlack18Legend + '|'+ pctHisp18Legend +'|'+ pctOther18Legend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
-								$('#avg-income').html('<strong>Median family income:</strong> $' + addCommas(medianFamilyIncome));
-								$('#poor-children').html('<strong>Children in poverty:</strong> ' + (childPov * 100).toFixed(2) + '%');
-								$('#single-mother-families').html('<strong>Single mother families:</strong> ' + singleMotherFamilies + '%');
 
 								// INVESTIGATE DATA:
 								// $('#school-perf-chart').html('<strong>Percentage Proficient and Above</strong><br/><center><img style="padding-top: 5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=290x240&cht=s&chd=t:25,' + schoolValueArray + '&chco=' + schoolHexArray + '&chdl=DC+Average|Nbhd+Schools&chf=bg,s,67676700" width="290" height="240" /></center>')
