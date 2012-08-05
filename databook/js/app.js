@@ -107,7 +107,7 @@ function buildMap(baseURL, map){
 						if (d.NBH_NAMES != undefined){
 							var neighborhoodNames = d.NBH_NAMES,
 								pop = d.PopTotal,
-								childPop = d.PopU18,
+								childPop = (d.PopU18).toFixed(0),
 								babyPop = d.PopU5,
 								pctWhite = (d.PopNHW * 100).toFixed(1),
 								pctWhiteLegend = "White: " + pctWhite + "%",
@@ -131,7 +131,7 @@ function buildMap(baseURL, map){
 
 								childPov = d.ChildPov,
 								medianFamilyIncome = d.MedFamIncR,
-								singleMotherFamilies = d.SingleMomF;
+								singleMotherFamilies = (d.SingleMomF * 100).toFixed(1);
 
 								// schoolHexArray = d.chco,
 								// schoolValueArray = d.chd;
@@ -143,7 +143,7 @@ function buildMap(baseURL, map){
 								$('#child-race-pie-chart').html('<strong>Race & ethnicity (under 18):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=e34a33|fc8d59|fdcc8a|fef0d9&chds=0,700&chd=t:'+ pctWhite18 +','+ pctBlack18 +','+ pctHisp18 +','+ pctOther18 +'&chdl='+ pctWhite18Legend +'|' + pctBlack18Legend + '|'+ pctHisp18Legend +'|'+ pctOther18Legend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
 								$('#avg-income').html('<strong>Median family income:</strong> $' + medianFamilyIncome);
 								$('#poor-children').html('<strong>Children in poverty:</strong> ' + (childPov * 100).toFixed(2) + '%');
-								$('#single-mother-families').html('<strong>Single mother families:</strong> ' + singleMotherFamilies);
+								$('#single-mother-families').html('<strong>Single mother families:</strong> ' + singleMotherFamilies + '%');
 
 								// INVESTIGATE DATA:
 								// $('#school-perf-chart').html('<strong>Percentage Proficient and Above</strong><br/><center><img style="padding-top: 5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=290x240&cht=s&chd=t:25,' + schoolValueArray + '&chco=' + schoolHexArray + '&chdl=DC+Average|Nbhd+Schools&chf=bg,s,67676700" width="290" height="240" /></center>')
