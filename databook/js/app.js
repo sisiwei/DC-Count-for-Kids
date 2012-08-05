@@ -137,11 +137,11 @@ function buildMap(baseURL, map){
 								// schoolValueArray = d.chd;
 								// $('#school-perf').show();
 								$('#nbh-name').html(neighborhoodNames);
-								$('#total-pop').html('<strong>Population (Total):</strong> ' + pop);
-								$('#child-pop').html('<strong>Population (Under 18):</strong> ' + childPop);
+								$('#total-pop').html('<strong>Population (Total):</strong> ' + addCommas(pop));
+								$('#child-pop').html('<strong>Population (Under 18):</strong> ' + addCommas(childPop));
 								$('#adult-race-pie-chart').html('<strong>Race & ethnicity (18 and over):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=3182bd|6baed6|bdd7e7|eff3ff&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctOther +'&chdl='+ pctWhiteLegend +'|' + pctBlackLegend + '|'+ pctHispLegend +'|'+ pctOtherLegend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
 								$('#child-race-pie-chart').html('<strong>Race & ethnicity (under 18):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=e34a33|fc8d59|fdcc8a|fef0d9&chds=0,700&chd=t:'+ pctWhite18 +','+ pctBlack18 +','+ pctHisp18 +','+ pctOther18 +'&chdl='+ pctWhite18Legend +'|' + pctBlack18Legend + '|'+ pctHisp18Legend +'|'+ pctOther18Legend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
-								$('#avg-income').html('<strong>Median family income:</strong> $' + medianFamilyIncome);
+								$('#avg-income').html('<strong>Median family income:</strong> $' + addCommas(medianFamilyIncome));
 								$('#poor-children').html('<strong>Children in poverty:</strong> ' + (childPov * 100).toFixed(2) + '%');
 								$('#single-mother-families').html('<strong>Single mother families:</strong> ' + singleMotherFamilies + '%');
 
@@ -177,3 +177,18 @@ function buildMap(baseURL, map){
 		});
 	});
 };
+
+function addCommas(nStr){
+	nStr += '';
+	var x = nStr.split('.');
+	var x1 = x[0];
+	var x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	
+	while (rgx.test(x1))
+	{
+	x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	}
+	
+	return x1 + x2;
+}
