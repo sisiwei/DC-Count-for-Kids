@@ -193,13 +193,15 @@ ul#indicator-list li:hover {
 .indicator-floats {
   font-family: Arial, sans-serif;
   font-size: 12px;
-  position: relative;
-  float: left;
-  width: 140px;
+  display:none;
 }
+.indicators-floats tr { width:100%; }
+.indicator-floats .label {font-weight:bold;}
+.indicator-floats .value {text-align:right;}
 #school-perf-chart {
   padding: 5px 0px;
 }
+
 /* -----------------------------------------
    Tooltip Elements
 ----------------------------------------- */
