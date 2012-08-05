@@ -11,8 +11,9 @@ jQuery(document).ready(function ($) {
 
 		//when scroll
         $(window).scroll(function(){
+	        var bannerHeight = banner.height();
 
-            if ($(window).scrollTop() > 0){
+            if ($(window).scrollTop() > bannerHeight){
             	banner.find('#big').hide();
             	banner.find('#small').show();
 
