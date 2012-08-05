@@ -27,9 +27,7 @@ jQuery(document).ready(function ($) {
 	            banner.removeClass('fixed').next()
 	            .css('padding-top','0');
             }
-
         });
-
 	});
 
 	var indicators = $('#indicators').find('ul'),
@@ -72,7 +70,6 @@ jQuery(document).ready(function ($) {
 				on: function(feature) {
 					if (feature){
 						var d = feature.data;
-						console.log(d);
 						if (d.NBH_NAMES != undefined){
 							var neighborhoodNames = d.NBH_NAMES,
 								pop = d.PopTotal,
@@ -106,7 +103,7 @@ jQuery(document).ready(function ($) {
 								// schoolValueArray = d.chd;
 								// $('#school-perf').show();
 								$('#nbh-name').html(neighborhoodNames);
-								$('#adult-race-pie-chart').html('<strong>Race & ethnicity (18 and over):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=3e97a8|ba4147|dfb277|d2e6e6&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctOther +'&chdl='+ pctWhiteLegend +'|' + pctBlackLegend + '|'+ pctHispLegend +'|'+ pctOtherLegend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
+								$('#adult-race-pie-chart').html('<strong>Race & ethnicity (18 and over):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=3182bd|6baed6|bdd7e7|eff3ff&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctOther +'&chdl='+ pctWhiteLegend +'|' + pctBlackLegend + '|'+ pctHispLegend +'|'+ pctOtherLegend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
 								$('#child-race-pie-chart').html('<strong>Race & ethnicity (under 18):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=e34a33|fc8d59|fdcc8a|fef0d9&chds=0,700&chd=t:'+ pctWhite18 +','+ pctBlack18 +','+ pctHisp18 +','+ pctOther18 +'&chdl='+ pctWhite18Legend +'|' + pctBlack18Legend + '|'+ pctHisp18Legend +'|'+ pctOther18Legend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
 
 								$('#avg-income').html('<strong>Median family income:</strong> $' + medianFamilyIncome);
