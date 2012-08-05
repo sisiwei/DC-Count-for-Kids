@@ -1,13 +1,90 @@
 jQuery(document).ready(function ($) {
 	var mouseX = 0, mouseY = 0,
-		sidebar = $('#info');
+		sidebar = $('#info'),
+		banner = $('#banner');
 
+	var baseURL = 'dcaction.map-7j45adj0',
+		indicatorURL = [
+			'dcaction.recreation-dc', 
+			'dcaction.grocery-dc', 
+			'dcaction.neigh-pov-dc', 
+			'dcaction.no-hs-degree-25-dc', 
+			'dcaction.no-hs-degree-18to24-dc'
+		];
+
+	//=======================
+	// 	DROPDOWN NAV
+	//========================
+
+	var indicators = $('#indicator-list'),
+		selected = $('#indicators').find('.selected'),
+		iMax = indicators.find('li').length,
+		toggleTime = 250;
+
+	// INIT LOAD
+	selected.html(indicators.find('li.active').html());
+	buildMap(baseURL, indicatorURL[indicators.find('li').index(indicators.find('li.active'))]);
+
+	selected.click(function(){
+		indicators.slideToggle(toggleTime);
+	})
+
+	indicators.find('li').click(function(){
+		indicators.slideToggle(toggleTime);
+		if ('li:not(.active)'){
+			selected.html($(this).html());
+			$(this).siblings('.active').removeClass('active');
+			$(this).addClass('active');
+
+			var sIdx = indicators.find('li').index(this);
+			buildMap(baseURL, indicatorURL[sIdx]);
+		}
+	});
+
+	var arrow = $('.arrow'),
+		prevBtn = $('.arrow-left'),
+		nextBtn = $('.arrow-right');
+
+	arrow.click(function(){
+		if ($(this).hasClass('fade') == false){
+			// ADD condition about not(.fade)
+			var currIdx = indicators.find('li.active').index(),
+				newIdx = $(this).hasClass('arrow-left') ? currIdx - 1 : currIdx + 1 ;
+
+			console.log(currIdx, newIdx);
+
+			if (newIdx != -1){
+				indicators.find('li').get(newIdx).click();
+			}
+
+		}
+
+		newIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
+		newIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
+
+	});
+
+	//=======================
+	// 	MAP
+	//========================
+
+//	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
+	//var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
+	//var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
+
+	var indicatorArray = [];
+
+	for (i = 0; i < iMax; i++){
+		var elementId = indicators.find('li').get(i).id;
+		indicatorArray.push(elementId);
+	}
+
+	//====================
+	// STICKY NAV
+	//====================
 	$(document).mousemove(function(e){
     	mouseX = e.pageX - 0;
 		mouseY = e.pageY - 170;
-
-		//Sticky nav
-        var banner = $('#banner');
 
 		//when scroll
         $(window).scroll(function(){
@@ -30,54 +107,6 @@ jQuery(document).ready(function ($) {
         });
 	});
 
-	var indicators = $('#indicator-list'),
-		selected = $('#indicators').find('.selected'),
-		toggleTime = 250;
-	
-	selected.html(indicators.children('li.active').html());
-
-	selected.click(function(){
-		indicators.slideToggle(toggleTime);
-	})
-
-	indicators.find('li:not(.active)').click(function(){
-		indicators.slideToggle(toggleTime);
-		selected.html($(this).html());
-		$(this).siblings('.active').removeClass('active');
-		$(this).addClass('active');
-	});
-
-//	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
-	//var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
-	//var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
-	var baseURL = 'dcaction.map-7j45adj0',
-		rec = 'dcaction.recreation-dc',
-		grocery = 'dcaction.grocery-dc',
-		pov = 'dcaction.neigh-pov-dc',
-		noHSDegree25 = 'dcaction.no-hs-degree-25-dc',
-		noHSDegree18 = 'dcaction.no-hs-degree-18to24-dc';
-
-	buildMap(baseURL, rec);
-
-	$('#pov').click(function(){
-		buildMap(baseURL, pov);
-	});
-
-	$('#groceries').click(function(){
-		buildMap(baseURL, grocery);
-	});
-
-	$('#rec').click(function(){
-		buildMap(baseURL, rec);
-	});
-
-	$('#noHS25').click(function(){
-		buildMap(baseURL, noHSDegree25);
-	});
-
-	$('#noHS18').click(function(){
-		buildMap(baseURL, noHSDegree18);
-	});
 	
 });
 	
