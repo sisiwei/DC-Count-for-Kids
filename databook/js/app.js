@@ -71,9 +71,9 @@ jQuery(document).ready(function ($) {
 								// $('#school-perf').show();
 								$('#nbh-name').html(neighborhoodNames);
 								//$('#race-pie-chart').html('<strong>Demographics:</strong><br/><center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctAsian +'&chdl=White|Black|Hispanic|Asian&chma=|2&chf=bg,s,67676700" width="200" height="120" /></center>');
-								$('#avg-income').html('<strong>Avg. family income:</strong> $' + medianFamilyIncome);
+								$('#avg-income').html('<strong>Median family income:</strong> $' + medianFamilyIncome);
 								//$('#unemployment').html('<strong>Unemployment:</strong> ' + pctUnemployment + '%');
-								$('#poor-children').html('<strong>Children in poverty:</strong> ' + childPov + '%');
+								$('#poor-children').html('<strong>Children in poverty:</strong> ' + (childPov * 100).toFixed(2) + '%');
 
 								// INVESTIGATE DATA:
 								// $('#school-perf-chart').html('<strong>Percentage Proficient and Above</strong><br/><center><img style="padding-top: 5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=290x240&cht=s&chd=t:25,' + schoolValueArray + '&chco=' + schoolHexArray + '&chdl=DC+Average|Nbhd+Schools&chf=bg,s,67676700" width="290" height="240" /></center>')

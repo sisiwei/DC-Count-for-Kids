@@ -75,6 +75,7 @@ ul {
 }
 #indicators .selected {
   margin: 0px 20px;
+  cursor: pointer;
 }
 #indicators > ul {
   list-style-type: none;
