@@ -47,7 +47,7 @@ jQuery(document).ready(function ($) {
 
 	arrow.click(function(){
 		if ($(this).hasClass('fade') == false){
-			// ADD condition about not(.fade)
+
 			var currIdx = indicators.find('li.active').index(),
 				newIdx = $(this).hasClass('arrow-left') ? currIdx - 1 : currIdx + 1 ;
 
@@ -57,10 +57,9 @@ jQuery(document).ready(function ($) {
 				indicators.find('li').get(newIdx).click();
 			}
 
+			newIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
+			newIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
 		}
-
-		newIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
-		newIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
 
 	});
 
