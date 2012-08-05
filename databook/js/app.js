@@ -53,7 +53,9 @@ jQuery(document).ready(function ($) {
 	var baseURL = 'dcaction.map-7j45adj0',
 		rec = 'dcaction.recreation-dc',
 		grocery = 'dcaction.grocery-dc',
-		pov = 'dcaction.neigh-pov-dc';
+		pov = 'dcaction.neigh-pov-dc',
+		noHSDegree25 = 'dcaction.no-hs-degree-25-dc',
+		noHSDegree18 = 'dcaction.no-hs-degree-18to24-dc';
 
 	buildMap(baseURL, rec);
 
@@ -63,6 +65,18 @@ jQuery(document).ready(function ($) {
 
 	$('#groceries').click(function(){
 		buildMap(baseURL, grocery);
+	});
+
+	$('#rec').click(function(){
+		buildMap(baseURL, rec);
+	});
+
+	$('#noHS25').click(function(){
+		buildMap(baseURL, noHSDegree25);
+	});
+
+	$('#noHS18').click(function(){
+		buildMap(baseURL, noHSDegree18);
 	});
 	
 });
