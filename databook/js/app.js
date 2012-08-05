@@ -30,7 +30,7 @@ jQuery(document).ready(function ($) {
 	})
 
 	indicators.find('li').click(function(){
-		indicators.slideToggle(toggleTime);
+		indicators.slideUp(toggleTime);
 		if ('li:not(.active)'){
 			selected.html($(this).html());
 			$(this).siblings('.active').removeClass('active');
@@ -50,8 +50,6 @@ jQuery(document).ready(function ($) {
 
 			var currIdx = indicators.find('li.active').index(),
 				newIdx = $(this).hasClass('arrow-left') ? currIdx - 1 : currIdx + 1 ;
-
-			console.log(currIdx, newIdx);
 
 			if (newIdx != -1){
 				indicators.find('li').get(newIdx).click();
