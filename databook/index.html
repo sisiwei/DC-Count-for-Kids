@@ -24,56 +24,69 @@
 	<script src="js/app.js"></script>
 </head>
 <body>
-	<div id="container">
-		<div id="banner">
-			<a href="#"><h1><img class="left" src="images/logo.jpg" alt="DC Action for Children Databook" /></h1></a>
-			<p id="title" class="left">2012 Databook</p>
+	<div id="content">
+		<div id="banner" class="width">
+			<div id="big">
+				<a href="#"><img class="left" src="images/logo.png" alt="DC Action for Children Databook" /></a>
+				<div id="chatter" class="left">
+					<h1 id="title">2012 Databook</h1>
+					<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+				</div>
+			</div>
+			<div id="small">
+				<h1>2012 Databook</h1>
+			</div>
 			<div class="clear"></div>
 		</div>
-		<div id="primary">
-			<div id="info">
-				<div id="indicators">
-					<div class="arrow-left arrow left"></div>
-					<h2 class="selected left"></h2>
-					<ul class="left">
-						<li class="active">Concentrated neighborhood poverty</li>
-						<li>Home ownerships</li>
-						<li>Political Empowerment</li>
-						<li>Libraries</li>
-						<li>Access to food</li>
-						<li>Recreational centers</li>
-						<li>Transportation</li>
-						<li>Violent crimes</li>
-						<li>Environmental health</li>
-						<li>Youth work force</li>
-					</ul>				
-					<div class="arrow-right arrow left"></div>
-					<div class="clear"></div>
+		<div id="container" class="width">
+			<div id="primary">
+				<div id="info">
+					<div id="indicators">
+						<div class="arrow-left arrow left"></div>
+						<h2 class="selected left"></h2>
+						<ul class="left">
+							<li class="active">Concentrated neighborhood poverty</li>
+							<li>Home ownerships</li>
+							<li>Political Empowerment</li>
+							<li>Libraries</li>
+							<li>Access to food</li>
+							<li>Recreational centers</li>
+							<li>Transportation</li>
+							<li>Violent crimes</li>
+							<li>Environmental health</li>
+							<li>Youth work force</li>
+						</ul>				
+						<div class="arrow-right arrow left"></div>
+						<div class="clear"></div>
+					</div>
+					<div id="map-info-content" class="info-box">
+						<div id="nbh-label">Neighborhood</div>
+						<div id="nbh-name">Roll over any neighborhood on the map</div>
+						<div id="avg-income" class="indicator-floats"></div>
+
+						<div id="police" class="indicator-floats"></div>
+						<div id="library" class="indicator-floats"></div>
+						<div id="unemployment" class="indicator-floats"></div>
+						<div id="child-care" class="indicator-floats"></div>
+						<div id="poor-children" class="indicator-floats" style="width: 145px;"></div>
+						<div style="clear:both;"></div>
+						<div id="race-pie-chart"></div>
+						<div id="school-perf">School Performance</div>
+						<div id="school-perf-chart"></div>
+					</div>
+					<div id="school-tooltip"></div>
+		            <div id="school-data" class="school-box"></div>
+
 				</div>
-
-				<div id="map-info-content" class="info-box">
-					<div id="nbh-label">Neighborhood</div>
-					<div id="nbh-name">Roll over any neighborhood on the map</div>
-					<div id="avg-income" class="indicator-floats"></div>
-					<div id="police" class="indicator-floats"></div>
-					<div id="library" class="indicator-floats"></div>
-					<div id="unemployment" class="indicator-floats"></div>
-					<div id="child-care" class="indicator-floats"></div>
-					<div id="poor-children" class="indicator-floats" style="width: 145px;"></div>
-					<div style="clear:both;"></div>
-					<div id="race-pie-chart"></div>
-					<div id="school-perf">School Performance</div>
-					<div id="school-perf-chart"></div>
+				<div id="map-container-parent">
+						<div id="map-container-row">
+							<div id="map-container">
+								<div id="mainMap" class="map"></div>
+							</div>
+						</div>
 				</div>
-				<div id="school-tooltip"></div>
-	            <div id="school-data" class="school-box"></div>
-
+				<div class="clear"></div>
 			</div>
-			<div id="map-container-parent">
-				<div id="mainMap" class="map"></div>
-			</div>
-			<div class="clear"></div>
-
 		</div>
 	</div>
 </body>

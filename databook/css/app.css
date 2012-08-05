@@ -4,17 +4,19 @@
 body {
   font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 13px;
-  line-height: 18px;
+  line-height: 15px;
   color: #555;
   -webkit-font-smoothing: antialiased;
   margin: 0;
   padding: 0;
+  background: #eee;
 }
+h1,
 h2 {
   margin: 0;
 }
 p {
-  margin: 10px 0px;
+  margin: 5px 0;
 }
 ul {
   padding: 0;
@@ -30,11 +32,53 @@ ul {
 .right {
   float: right;
 }
-#container {
+.fixed {
+  position: fixed;
+  box-shadow: 0 2px 10px 0 #dddddd;
+  -moz-box-shadow: 0 2px 10px 0 #dddddd;
+  -webkit-box-shadow: 0 2px 10px 0 #dddddd;
+}
+/* -----------------------------------------
+   Wrapper
+----------------------------------------- */
+#content {
   position: relative;
   width: 960px;
   height: 100%;
+  background-color: white;
   margin: 0px auto;
+  padding: 0 0 25px;
+}
+.width {
+  width: 920px;
+  padding: 0 20px;
+}
+/* -----------------------------------------
+   Banner
+----------------------------------------- */
+#banner {
+  z-index: 9999;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+#chatter {
+  width: 610px;
+  margin: 5px 0 0 5px;
+}
+#title {
+  font-size: 2.5em;
+  line-height: 1em;
+}
+#small {
+  display: none;
+}
+/* -----------------------------------------
+   Primary interactive map
+----------------------------------------- */
+#container {
+  height: 100%;
 }
 #primary {
   position: relative;
@@ -45,42 +89,26 @@ ul {
    Sidebar of information
 ----------------------------------------- */
 #info {
-  z-index: 1000;
   background: white;
-  padding: 15px;
-  margin: 0 15px 0 0;
+  padding: 15px 20px 15px 0;
   float: left;
   width: 220px;
-  height: 100%;
   overflow: hidden;
-}
-#banner p {
-  font-family: Georgia, serif;
-}
-#title {
-  margin-left: 15px;
-  font-size: 2.5em;
-  line-height: 1em;
-}
-
-#map-info-content {
-    margin-top: 20px;
 }
 /* -----------------------------------------
    Option dropdown
 ----------------------------------------- */
 #indicators {
   position: relative;
-  margin-top:10px;
 }
 #indicators .selected {
-  margin: 0px 20px;
+  margin: 10px auto;
   cursor: pointer;
 }
 #indicators > ul {
   list-style-type: none;
-  margin: 10px;
-  width: 200px;
+  margin: 10px auto;
+  width: 100%;
   display: none;
 }
 #indicators > ul > li {
@@ -118,7 +146,7 @@ ul {
 ----------------------------------------- */
 #map-container-parent {
   float: left;
-  width: 690px;
+  width: 680px;
   height: 100%;
 }
 /* -----------------------------------------
@@ -138,7 +166,7 @@ ul {
   font-size: 20px;
   padding-top: 5px;
   line-height: 22px;
-  height: 125px;
+  height: 95px;
 }
 #race-pie-chart {
   padding: 5px 0px;
