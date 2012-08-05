@@ -36,9 +36,9 @@ jQuery(document).ready(function ($) {
 	selected.html(indicators.children('li.active').html());
 
 	selected.click(function(){
-		indicators.show();
+		indicators.slideToggle(300);
 	}).siblings('ul').find('li:not(.active)').click(function(){
-		indicators.hide();
+		indicators.slideToggle(300);
 		selected.html($(this).html());
 		$(this).siblings('.active').removeClass('active');
 		$(this).addClass('active');
@@ -48,9 +48,10 @@ jQuery(document).ready(function ($) {
 //	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
 	//var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
 	//var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
-	var url = 'http://a.tiles.mapbox.com/v3/dcaction.map-7j45adj0.jsonp';
+	var baseurl = 'dcaction.map-7j45adj0';
+	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseurl +',dcaction.grocery-stores-dc.jsonp';
 	
-    wax.tilejson(url, function(tilejson) {
+    wax.tilejson(mapurl, function(tilejson) {
         var tooltip = new wax.tooltip();
         var m = new mm.Map('mainMap', 
         	new wax.mm.connector(tilejson),
