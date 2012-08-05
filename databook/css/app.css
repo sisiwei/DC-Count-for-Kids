@@ -176,7 +176,7 @@ ul {
   font-weight: bold;
 }
 
-#race-pie-chart {
+#adult-race-pie-chart, #child-race-pie-chart {
   padding: 5px 0px;
   height: 140px;
 }

@@ -80,17 +80,24 @@ jQuery(document).ready(function ($) {
 								babyPop = d.PopU5,
 								pctWhite = (d.PopNHW * 100).toFixed(1),
 								pctWhiteLegend = "White: " + pctWhite + "%",
-								pctWhite18 = d.PopNHW18,
+								pctWhite18 = (d.PopNHW18 * 100).toFixed(1),
+								pctWhite18Legend = "White: " + pctWhite18 + "%",
+
 								pctBlack = (d.PopNHB * 100).toFixed(1),
 								pctBlackLegend = "Black: " + pctBlack + "%",
-								pctBlack18 = d.PopNHB18,
+								pctBlack18 = (d.PopNHB18 * 100).toFixed(1),
+								pctBlack18Legend = "Black: " + pctBlack18 + "%",
+
 								pctOther = (d.PopNHO * 100).toFixed(1),
 								pctOtherLegend = "Other: " + pctOther + "%",
-								pctOther18 = d.PopNHO18,
+								pctOther18 = (d.PopNHO18 * 100).toFixed(1),
+								pctOther18Legend = "Other: " + pctOther18 + "%",
+
 								pctHisp = (d.PopHisp * 100).toFixed(1),
 								pctHispLegend = "Hispanic: " + pctHisp + "%",
-								pctHisp18 = d.PopHisp18,
-								//pctAsian = 
+								pctHisp18 = (d.PopHisp18 * 100).toFixed(1),
+								pctHisp18Legend = "Hispanic: " + pctHisp18 + "%",
+
 								childPov = d.ChildPov,
 								medianFamilyIncome = d.MedFamIncR,
 								singleMotherFamilies = d.SingleMomF;
@@ -99,7 +106,9 @@ jQuery(document).ready(function ($) {
 								// schoolValueArray = d.chd;
 								// $('#school-perf').show();
 								$('#nbh-name').html(neighborhoodNames);
-								$('#race-pie-chart').html('<strong>Demographics:</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x140&cht=p&chco=e34a33|fc8d59|fdcc8a|fef0d9&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctOther +'&chdl='+ pctWhiteLegend +'|' + pctBlackLegend + '|'+ pctHispLegend +'|'+ pctOtherLegend+'&chma=|2&chf=bg,s,67676700" width="220" height="140" />');
+								$('#adult-race-pie-chart').html('<strong>Race & ethnicity (18 and over):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=3e97a8|ba4147|dfb277|d2e6e6&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctOther +'&chdl='+ pctWhiteLegend +'|' + pctBlackLegend + '|'+ pctHispLegend +'|'+ pctOtherLegend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
+								$('#child-race-pie-chart').html('<strong>Race & ethnicity (under 18):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=e34a33|fc8d59|fdcc8a|fef0d9&chds=0,700&chd=t:'+ pctWhite18 +','+ pctBlack18 +','+ pctHisp18 +','+ pctOther18 +'&chdl='+ pctWhite18Legend +'|' + pctBlack18Legend + '|'+ pctHisp18Legend +'|'+ pctOther18Legend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
+
 								$('#avg-income').html('<strong>Median family income:</strong> $' + medianFamilyIncome);
 								//$('#unemployment').html('<strong>Unemployment:</strong> ' + pctUnemployment + '%');
 								$('#poor-children').html('<strong>Children in poverty:</strong> ' + (childPov * 100).toFixed(2) + '%');
