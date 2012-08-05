@@ -47,7 +47,7 @@ ul {
   height: 100%;
   background-color: white;
   margin: 0px auto;
-  padding: 0 0 25px;
+  padding: 0 0 125px;
 }
 .width {
   width: 920px;
@@ -65,7 +65,7 @@ ul {
 }
 #chatter {
   width: 610px;
-  margin: 5px 0 0 5px;
+  margin: 5px 0 0 16px;
 }
 #title {
   font-size: 2.5em;
@@ -107,8 +107,8 @@ ul {
 }
 #indicators > ul {
   list-style-type: none;
-  margin: 10px auto;
-  width: 100%;
+  margin: 17px;
+  width: 182px;
   display: none;
 }
 #indicators > ul > li {
@@ -152,6 +152,11 @@ ul {
 /* -----------------------------------------
    Infobox Elements
 ----------------------------------------- */
+#map-info-content {
+  top: 24px;
+  position: relative;
+}
+
 #nbh-label,
 #school-perf {
   font-size: 11px;
@@ -161,13 +166,16 @@ ul {
 #school-perf {
   display: none;
 }
+
 #nbh-name {
-  font-family: Georgia, serif;
-  font-size: 20px;
+  font-family: 'Helvetica Neue';
+  font-size: 16px;
   padding-top: 5px;
-  line-height: 22px;
-  height: 95px;
+  line-height: 19px;
+  height: 92px;
+  font-weight: bold;
 }
+
 #race-pie-chart {
   padding: 5px 0px;
   height: 140px;

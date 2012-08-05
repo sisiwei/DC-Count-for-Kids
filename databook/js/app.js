@@ -78,13 +78,17 @@ jQuery(document).ready(function ($) {
 								pop = d.PopTotal,
 								childPop = d.PopU18,
 								babyPop = d.PopU5,
-								pctWhite = d.PopNHW,
+								pctWhite = (d.PopNHW * 100).toFixed(1),
+								pctWhiteLegend = "White: " + pctWhite + "%",
 								pctWhite18 = d.PopNHW18,
-								pctBlack = d.PopNHB,
+								pctBlack = (d.PopNHB * 100).toFixed(1),
+								pctBlackLegend = "Black: " + pctBlack + "%",
 								pctBlack18 = d.PopNHB18,
-								pctOther = d.PopNHO,
+								pctOther = (d.PopNHO * 100).toFixed(1),
+								pctOtherLegend = "Other: " + pctOther + "%",
 								pctOther18 = d.PopNHO18,
-								pctHisp = d.PopHisp,
+								pctHisp = (d.PopHisp * 100).toFixed(1),
+								pctHispLegend = "Hispanic: " + pctHisp + "%",
 								pctHisp18 = d.PopHisp18,
 								//pctAsian = 
 								childPov = d.ChildPov,
@@ -95,7 +99,7 @@ jQuery(document).ready(function ($) {
 								// schoolValueArray = d.chd;
 								// $('#school-perf').show();
 								$('#nbh-name').html(neighborhoodNames);
-								//$('#race-pie-chart').html('<strong>Demographics:</strong><br/><center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctAsian +'&chdl=White|Black|Hispanic|Asian&chma=|2&chf=bg,s,67676700" width="200" height="120" /></center>');
+								$('#race-pie-chart').html('<strong>Demographics:</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x140&cht=p&chco=e34a33|fc8d59|fdcc8a|fef0d9&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctOther +'&chdl='+ pctWhiteLegend +'|' + pctBlackLegend + '|'+ pctHispLegend +'|'+ pctOtherLegend+'&chma=|2&chf=bg,s,67676700" width="220" height="140" />');
 								$('#avg-income').html('<strong>Median family income:</strong> $' + medianFamilyIncome);
 								//$('#unemployment').html('<strong>Unemployment:</strong> ' + pctUnemployment + '%');
 								$('#poor-children').html('<strong>Children in poverty:</strong> ' + (childPov * 100).toFixed(2) + '%');
