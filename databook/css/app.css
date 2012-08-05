@@ -193,7 +193,11 @@ ul#indicator-list li:hover {
 .indicator-floats {
   font-family: Arial, sans-serif;
   font-size: 12px;
-  display:none;
+  position: relative;
+  left: -3px;
+  width: 212px;
+  margin-bottom: 15px;
+  display: none;
 }
 .indicators-floats tr { width:100%; }
 .indicator-floats .label {font-weight:bold;}
