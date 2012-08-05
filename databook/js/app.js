@@ -51,7 +51,8 @@ jQuery(document).ready(function ($) {
 	//var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
 	//var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
 	var baseurl = 'dcaction.map-7j45adj0';
-	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseurl +',dcaction.grocery-stores-dc.jsonp';
+	// http://a.tiles.mapbox.com/v3/dcaction.recreation-dc.jsonp
+	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseurl +',dcaction.recreation-dc.jsonp';
 	
     wax.tilejson(mapurl, function(tilejson) {
         var tooltip = new wax.tooltip();
@@ -106,12 +107,13 @@ jQuery(document).ready(function ($) {
 								// schoolValueArray = d.chd;
 								// $('#school-perf').show();
 								$('#nbh-name').html(neighborhoodNames);
+								$('#total-pop').html('<strong>Population (Total):</strong> ' + pop);
+								$('#child-pop').html('<strong>Population (Under 18):</strong> ' + childPop);
 								$('#adult-race-pie-chart').html('<strong>Race & ethnicity (18 and over):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=3182bd|6baed6|bdd7e7|eff3ff&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctOther +'&chdl='+ pctWhiteLegend +'|' + pctBlackLegend + '|'+ pctHispLegend +'|'+ pctOtherLegend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
 								$('#child-race-pie-chart').html('<strong>Race & ethnicity (under 18):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=e34a33|fc8d59|fdcc8a|fef0d9&chds=0,700&chd=t:'+ pctWhite18 +','+ pctBlack18 +','+ pctHisp18 +','+ pctOther18 +'&chdl='+ pctWhite18Legend +'|' + pctBlack18Legend + '|'+ pctHisp18Legend +'|'+ pctOther18Legend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
-
 								$('#avg-income').html('<strong>Median family income:</strong> $' + medianFamilyIncome);
-								//$('#unemployment').html('<strong>Unemployment:</strong> ' + pctUnemployment + '%');
 								$('#poor-children').html('<strong>Children in poverty:</strong> ' + (childPov * 100).toFixed(2) + '%');
+								$('#single-mother-families').html('<strong>Single mother families:</strong> ' + singleMotherFamilies);
 
 								// INVESTIGATE DATA:
 								// $('#school-perf-chart').html('<strong>Percentage Proficient and Above</strong><br/><center><img style="padding-top: 5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=290x240&cht=s&chd=t:25,' + schoolValueArray + '&chco=' + schoolHexArray + '&chdl=DC+Average|Nbhd+Schools&chf=bg,s,67676700" width="290" height="240" /></center>')
