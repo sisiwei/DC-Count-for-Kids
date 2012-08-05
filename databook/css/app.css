@@ -34,9 +34,9 @@ ul {
 }
 .fixed {
   position: fixed;
-  box-shadow: 0 1px 5px 0 #eeeeee;
-  -moz-box-shadow: 0 1px 5px 0 #eeeeee;
-  -webkit-box-shadow: 0 1px 5px 0 #eeeeee;
+  box-shadow: 0 2px 10px 0 #dddddd;
+  -moz-box-shadow: 0 2px 10px 0 #dddddd;
+  -webkit-box-shadow: 0 2px 10px 0 #dddddd;
 }
 /* -----------------------------------------
    Wrapper
@@ -47,7 +47,7 @@ ul {
   height: 100%;
   background-color: white;
   margin: 0px auto;
-  padding: 0 0 25px;
+  padding: 0 0 125px;
 }
 .width {
   width: 920px;
@@ -65,7 +65,7 @@ ul {
 }
 #chatter {
   width: 610px;
-  margin: 5px 0 0 5px;
+  margin: 5px 0 0 16px;
 }
 #title {
   font-size: 2.5em;
@@ -93,9 +93,7 @@ ul {
   padding: 15px 20px 15px 0;
   float: left;
   width: 220px;
-  height: 100%;
   overflow: hidden;
-  position: relative;
 }
 /* -----------------------------------------
    Option dropdown
@@ -104,7 +102,9 @@ ul {
   position: relative;
 }
 #indicators .selected {
-  margin: 10px auto;
+  margin: 0px 20px;
+  cursor: pointer;
+  line-height: 20px;
 }
 #indicators .arrow {
   position: absolute;
@@ -127,9 +127,10 @@ ul {
   left: 0;
 }
 ul#indicator-list {
-  position: absolute;
-  z-index: 100;
-  width: 100%;
+  position:absolute;
+  z-index:100;
+  margin: 17px;
+  width: 182px;
   list-style-type: none;
   display: none;
 }
@@ -140,9 +141,10 @@ ul#indicator-list > li {
   border: 1px solid #eee;
   padding: 10px 15px;
 }
-#indicator-list li:hover {
+ul#indicator-list li:hover {
   color: #f77833;
 }
+
 /* -----------------------------------------
    Map portions
 ----------------------------------------- */
@@ -154,6 +156,11 @@ ul#indicator-list > li {
 /* -----------------------------------------
    Infobox Elements
 ----------------------------------------- */
+#map-info-content {
+  top: 24px;
+  position: relative;
+}
+
 #nbh-label,
 #school-perf {
   font-size: 11px;
@@ -163,14 +170,17 @@ ul#indicator-list > li {
 #school-perf {
   display: none;
 }
+
 #nbh-name {
-  font-family: Georgia, serif;
-  font-size: 20px;
+  font-family: 'Helvetica Neue';
+  font-size: 16px;
   padding-top: 5px;
-  line-height: 22px;
-  height: 95px;
+  line-height: 19px;
+  height: 92px;
+  font-weight: bold;
 }
-#race-pie-chart {
+
+#adult-race-pie-chart, #child-race-pie-chart {
   padding: 5px 0px;
   height: 140px;
 }
