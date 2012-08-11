@@ -1,0 +1,137 @@
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+
+
+body { font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 13px; line-height: 18px; color: #555; -webkit-font-smoothing: antialiased; }
+
+h2 {
+	margin-bottom: 10px;
+}
+
+p {
+	margin: 10px 0px;
+}
+
+.label {
+	text-transform: uppercase;
+	color: black;
+}
+
+#header {
+	background-color: white;
+	padding: 8px 0px 0px 15px;
+	font-family: Helvetica, sans-serif;
+}
+
+#container {
+	width: 1000px;
+	margin: 0px auto;
+}
+
+#map-container-parent {
+	position: relative;
+}
+
+#map-container-row {
+	background-color: white;
+	position: relative;
+}
+
+#map-container {
+	background-color: white;
+	height: 750px;
+}
+
+#map-info-box-row {
+	position: absolute;
+	top: 46px;
+}
+
+#map-info-box {
+	opacity: 0.9;
+	filter: Alpha(opacity=90);
+	background-color: white;
+	-moz-box-shadow: inset 0 0 8px 3px #acacac;
+	-webkit-box-shadow: inset 0 0 8px 3px #acacac;
+	box-shadow: inset 0 0 8px 3px #acacac;
+}
+
+#map-info-content {
+	width: 280px;
+	padding: 15px;
+}
+
+.info-box {
+	height: 660px;
+	width: 310px;
+	position: absolute;
+	right: 15px;
+	top: 20px;
+}
+
+.school-box {
+	height: 270px;
+	width: 210px;
+	position: absolute;
+	left: 10px;
+	bottom: 80px;
+	background-color: white;
+    border: 1px solid black;
+	padding: 5px;
+	display: none;
+}
+
+/* -----------------------------------------
+   Infobox Elements
+----------------------------------------- */
+
+#nbh-label, #school-perf {
+	font-size: 11px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #eaeaea;
+}
+
+#school-perf {
+	display: none;
+}
+
+#nbh-name {
+	font-family: Georgia, serif;
+	font-size: 20px;
+	padding-top: 5px;
+	line-height: 22px;
+	height: 95px;
+}
+
+#race-pie-chart {
+	padding: 5px 0px;
+	height: 140px;
+}
+
+.indicator-floats {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	position: relative;
+	float: left;
+	width: 140px;
+}
+
+#school-perf-chart {
+	padding: 5px 0px;
+}
+
+/* -----------------------------------------
+   Tooltip Elements
+----------------------------------------- */
+
+#school-tooltip {
+	min-width: 100px;
+	background-color: white;
+	border: 1px solid #888;
+	position: absolute;
+	top: 0px;
+	left: 100px;
+	display: none;
+	padding: 5px 14px 5px 8px;
+}
