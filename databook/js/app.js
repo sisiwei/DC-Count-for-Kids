@@ -5,9 +5,9 @@ jQuery(document).ready(function ($) {
 
 	var baseURL = 'dcaction.map-7j45adj0',
 		indicatorURL = [
-			'dcaction.recreation-dc', 
+			'dcaction.neigh-pov-dc',
 			'dcaction.grocery-dc', 
-			'dcaction.neigh-pov-dc', 
+			'dcaction.recreation-dc', 
 			'dcaction.no-hs-degree-25-dc', 
 			'dcaction.no-hs-degree-18to24-dc'
 		];
