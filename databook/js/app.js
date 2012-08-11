@@ -4,17 +4,32 @@ jQuery(document).ready(function ($) {
 		banner = $('#banner');
 
 	var baseURL = 'dcaction.map-7j45adj0',
-		indicatorURL = [
-			'dcaction.neigh-pov-dc',
-			'dcaction.grocery-dc', 
-			'dcaction.recreation-dc', 
-			'dcaction.no-hs-degree-25-dc', 
-			'dcaction.no-hs-degree-18to24-dc'
+		indicatorData = [
+			{name:'Percent in poverty', dataTag: 'pov', mapURL: 'dcaction.neigh-pov-dc'},
+			{name:'Access to healthy food', dataTag: 'grocery', mapURL: 'dcaction.grocery-dc'}, 
+			{name:'Recreation centers', dataTag: 'rec', mapURL: 'dcaction.recreation-dc'}, 
+			{name:'Educational attainment (25+)', dataTag: 'noHSDegree25', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
+			{name:'Educational attainment (18-24)', dataTag: 'noHSDegree18', mapURL: 'dcaction.no-hs-degree-18to24-dc'},
+			{name:'Homeownership', dataTag: 'homeownership', mapURL: 'dcaction.owner-occupied-homes-dc'},
+			{name:'Youth ready to enter the workforce', dataTag: 'youth-emp', mapURL: 'dcaction.youth-employed-dc'},
+			{name:'Environmental health', dataTag: 'envHealth', mapURL: 'dcaction.asthma-dc'},
+			{name:'Violent crime', dataTag: 'crime', mapURL: 'dcaction.crime-dc'},
+			{name:'Libraries', dataTag: 'lib', mapURL: 'dcaction.libraries-dc'},
+			{name:'Institutional assets', dataTag: 'instAssets', mapURL: 'dcaction.crime-dc,dcaction.institutional_assets'},
 		];
 
 	//=======================
 	// 	DROPDOWN NAV
 	//========================
+
+	// Bulid the dropdown
+	$.each(indicatorData, function(k,v){
+		if (k == 0) {
+			$('#indicator-list').append('<li class="active" data-map="' + v.dataTag + '">' + v.name + '</li>');
+		} else {
+			$('#indicator-list').append('<li data-map="' + v.dataTag + '">' + v.name + '</li>');
+		}
+	})
 
 	var indicators = $('#indicator-list'),
 		selected = $('#indicators').find('.selected'),
@@ -26,7 +41,7 @@ jQuery(document).ready(function ($) {
 
 	// INIT LOAD
 	selected.html(indicators.find('li.active').html());
-	buildMap(baseURL, indicatorURL[indicators.find('li').index(indicators.find('li.active'))]);
+	buildMap(baseURL, indicatorData[indicators.find('li').index(indicators.find('li.active'))].mapURL);
 
 	selected.click(function(){
 		indicators.slideToggle(toggleTime);
@@ -40,7 +55,7 @@ jQuery(document).ready(function ($) {
 			$(this).addClass('active');
 
 			var sIdx = indicators.find('li').index(this);
-			buildMap(baseURL, indicatorURL[sIdx]);
+			buildMap(baseURL, indicatorData[sIdx].mapURL);
 			
 			sIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
 			sIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
@@ -66,10 +81,6 @@ jQuery(document).ready(function ($) {
 	// 	MAP
 	//========================
 
-//	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
-	//var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
-	//var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
-
 	var indicatorArray = [];
 
 	for (i = 0; i < iMax; i++){
@@ -80,6 +91,7 @@ jQuery(document).ready(function ($) {
 	//====================
 	// STICKY NAV
 	//====================
+	
 	$(document).mousemove(function(e){
     	mouseX = e.pageX - 0;
 		mouseY = e.pageY - 170;
@@ -109,8 +121,11 @@ jQuery(document).ready(function ($) {
 });
 	
 function buildMap(baseURL, map){
+	$('#mainMap').html();
+
 	var mm = com.modestmaps;
 	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + map + '.jsonp';
+
 	wax.tilejson(mapurl, function(tilejson) {
 	    var tooltip = new wax.tooltip();
 	    var m = new mm.Map('mainMap', 
