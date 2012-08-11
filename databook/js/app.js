@@ -24,7 +24,10 @@ jQuery(document).ready(function ($) {
 	var indicators = $('#indicator-list'),
 		selected = $('#indicators').find('.selected'),
 		iMax = indicators.find('li').length,
-		toggleTime = 250;
+		toggleTime = 250,
+		arrow = $('.arrow'),
+		prevBtn = $('.arrow-left'),
+		nextBtn = $('.arrow-right');
 
 	// INIT LOAD
 	selected.html(indicators.find('li.active').html());
@@ -43,12 +46,11 @@ jQuery(document).ready(function ($) {
 
 			var sIdx = indicators.find('li').index(this);
 			buildMap(baseURL, indicatorURL[sIdx]);
+			
+			sIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
+			sIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
 		}
 	});
-
-	var arrow = $('.arrow'),
-		prevBtn = $('.arrow-left'),
-		nextBtn = $('.arrow-right');
 
 	arrow.click(function(){
 		if ($(this).hasClass('fade') == false){
@@ -63,7 +65,6 @@ jQuery(document).ready(function ($) {
 			newIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
 			newIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
 		}
-
 	});
 
 	//=======================
