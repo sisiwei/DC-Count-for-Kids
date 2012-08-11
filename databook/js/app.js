@@ -5,11 +5,16 @@ jQuery(document).ready(function ($) {
 
 	var baseURL = 'dcaction.map-7j45adj0',
 		indicatorURL = [
-			'dcaction.neigh-pov-dc',
-			'dcaction.grocery-dc', 
-			'dcaction.recreation-dc', 
-			'dcaction.no-hs-degree-25-dc', 
-			'dcaction.no-hs-degree-18to24-dc'
+			{name='', dataTag = '' mapURL = 'dcaction.neigh-pov-dc'},
+			{name='', dataTag = '' mapURL = 'dcaction.grocery-dc'}, 
+			{name='', dataTag = '' mapURL = 'dcaction.recreation-dc'}, 
+			{name='', dataTag = '' mapURL = 'dcaction.no-hs-degree-25-dc'}, 
+			{name='', dataTag = '' mapURL = 'dcaction.no-hs-degree-18to24-dc'},
+			{name='', dataTag = '' mapURL = 'dcaction.owner-occupied-homes-dc'},
+			{name='', dataTag = '' mapURL = 'dcaction.youth-employed-dc'},
+			{name='', dataTag = '' mapURL = 'dcaction.asthma-dc'},
+			{name='', dataTag = '' mapURL = 'dcaction.crime-dc'},
+			{name='', dataTag = '' mapURL = 'dcaction.libraries-dc'}
 		];
 
 	//=======================
@@ -108,8 +113,11 @@ jQuery(document).ready(function ($) {
 });
 	
 function buildMap(baseURL, map){
+	$('#mainMap').html();
+
 	var mm = com.modestmaps;
 	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + map + '.jsonp';
+
 	wax.tilejson(mapurl, function(tilejson) {
 	    var tooltip = new wax.tooltip();
 	    var m = new mm.Map('mainMap', 
