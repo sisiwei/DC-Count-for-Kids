@@ -4,22 +4,33 @@ jQuery(document).ready(function ($) {
 		banner = $('#banner');
 
 	var baseURL = 'dcaction.map-7j45adj0',
-		indicatorURL = [
-			{name='', dataTag = '' mapURL = 'dcaction.neigh-pov-dc'},
-			{name='', dataTag = '' mapURL = 'dcaction.grocery-dc'}, 
-			{name='', dataTag = '' mapURL = 'dcaction.recreation-dc'}, 
-			{name='', dataTag = '' mapURL = 'dcaction.no-hs-degree-25-dc'}, 
-			{name='', dataTag = '' mapURL = 'dcaction.no-hs-degree-18to24-dc'},
-			{name='', dataTag = '' mapURL = 'dcaction.owner-occupied-homes-dc'},
-			{name='', dataTag = '' mapURL = 'dcaction.youth-employed-dc'},
-			{name='', dataTag = '' mapURL = 'dcaction.asthma-dc'},
-			{name='', dataTag = '' mapURL = 'dcaction.crime-dc'},
-			{name='', dataTag = '' mapURL = 'dcaction.libraries-dc'}
+		indicatorData = [
+			{name:'Percent in poverty', dataTag: '', mapURL: 'dcaction.neigh-pov-dc'},
+			{name:'Access to healthy food', dataTag: '', mapURL: 'dcaction.grocery-dc'}, 
+			{name:'Recreation centers', dataTag: '', mapURL: 'dcaction.recreation-dc'}, 
+			{name:'Educational attainment (25+)', dataTag: '', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
+			{name:'Educational attainment (18-24)', dataTag: '', mapURL: 'dcaction.no-hs-degree-18to24-dc'},
+			{name:'Homeownership', dataTag: '', mapURL: 'dcaction.owner-occupied-homes-dc'},
+			{name:'Youth ready to enter the workforce', dataTag: '', mapURL: 'dcaction.youth-employed-dc'},
+			{name:'Environmental health', dataTag: '', mapURL: 'dcaction.asthma-dc'},
+			{name:'Violent crime', dataTag: '', mapURL: 'dcaction.crime-dc'},
+			{name:'Libraries', dataTag: '', mapURL: 'dcaction.libraries-dc'},
+			{name:'Institutional assets', dataTag: '', mapURL: 'dcaction.crime-dc,dcaction.institutional_assets'},
 		];
 
 	//=======================
 	// 	DROPDOWN NAV
 	//========================
+
+	// Bulid the dropdown
+	$.each(indicatorData, function(k,v){
+		if (k == 0) { 
+			$('#indicator-list').append('<li class="active" data-map="' + v.dataTag + '">' + v.name + '</li>');
+		} else {
+			$('#indicator-list').append('<li data-map="' + v.dataTag + '">' + v.name + '</li>');
+		}
+	})
+
 
 	var indicators = $('#indicator-list'),
 		selected = $('#indicators').find('.selected'),
@@ -31,7 +42,7 @@ jQuery(document).ready(function ($) {
 
 	// INIT LOAD
 	selected.html(indicators.find('li.active').html());
-	buildMap(baseURL, indicatorURL[indicators.find('li').index(indicators.find('li.active'))]);
+	buildMap(baseURL, indicatorData[indicators.find('li').index(indicators.find('li.active'))].mapURL);
 
 	selected.click(function(){
 		indicators.slideToggle(toggleTime);
@@ -45,7 +56,7 @@ jQuery(document).ready(function ($) {
 			$(this).addClass('active');
 
 			var sIdx = indicators.find('li').index(this);
-			buildMap(baseURL, indicatorURL[sIdx]);
+			buildMap(baseURL, indicatorData[sIdx].mapURL);
 			
 			sIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
 			sIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
