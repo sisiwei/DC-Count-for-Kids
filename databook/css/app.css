@@ -1,0 +1,226 @@
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+body {
+  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 13px;
+  line-height: 15px;
+  color: #555;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  background: #eee;
+}
+h1, h2, h3 {
+  margin: 0;
+}
+p {
+  margin: 0 0 15px;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+.clear {
+  display: block;
+  clear: both;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.fixed {
+  position: fixed;
+  box-shadow: -1px 3px 4px #EEE;
+  -moz-box-shadow: -1px 3px 4px #EEE;
+  -webkit-box-shadow: -1px 3px 4px #EEE;
+}
+/* -----------------------------------------
+   Wrapper
+----------------------------------------- */
+#content {
+  position: relative;
+  width: 960px;
+  height: 100%;
+  background-color: white;
+  margin: 0px auto;
+  padding: 0 0 125px;
+}
+.width {
+  width: 920px;
+  padding: 0 20px;
+}
+/* -----------------------------------------
+   Banner
+----------------------------------------- */
+#banner {
+  z-index: 9999;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+#chatter {
+  width: 610px;
+  margin: 5px 0 0 16px;
+}
+#title {
+  font-size: 2.5em;
+  line-height: 1em;
+}
+#small {
+  display: none;
+}
+/* -----------------------------------------
+   Primary interactive map
+----------------------------------------- */
+#container {
+  height: 100%;
+}
+#primary {
+  position: relative;
+  width: 100%;
+  height: 750px;
+}
+/* -----------------------------------------
+   Sidebar of information
+----------------------------------------- */
+.info {
+  background: white;
+  padding: 15px 20px 15px 0;
+  float: left;
+  width: 220px;
+  overflow: hidden;
+}
+/* -----------------------------------------
+   Option dropdown
+----------------------------------------- */
+#indicators {
+  position: relative;
+}
+#indicators .selected {
+  margin: 0px 20px;
+  cursor: pointer;
+  line-height: 20px;
+}
+#indicators .arrow {
+  position: absolute;
+  top: 0;
+  cursor:pointer;
+}
+#indicators .arrow.fade {
+  opacity:0.2;
+  filter:alpha(opacity:0.2);
+  cursor:default;
+}
+#indicators .arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #ccc;
+    right: 0;
+}
+#indicators .arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #ccc;
+    left: 0;
+}
+ul#indicator-list {
+    position:absolute;
+    z-index:100;
+    margin: 17px;
+    width: 182px;
+    list-style-type: none;
+    display: none;
+}
+ul#indicator-list > li {
+    cursor: pointer;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #eee;
+    padding: 10px 15px;
+}
+ul#indicator-list li:hover {
+    color: #f77833;
+}
+
+/* -----------------------------------------
+   Map portions
+----------------------------------------- */
+#map-container-parent {
+    float: left;
+    width: 680px;
+    height: 100%;
+}
+/* -----------------------------------------
+   Infobox Elements
+----------------------------------------- */
+#map-info-content {
+    top: 24px;
+    position: relative;
+}
+
+#nbh-label,
+#school-perf {
+    font-size: 11px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eaeaea;
+}
+#school-perf {
+    display: none;
+}
+
+#nbh-name {
+    font-family: 'Helvetica Neue';
+    font-size: 16px;
+    padding-top: 5px;
+    line-height: 19px;
+    height: 92px;
+    font-weight: bold;
+}
+
+#adult-race-pie-chart, #child-race-pie-chart {
+    padding: 5px 0px;
+    height: 140px;
+}
+.indicator-floats {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    position: relative;
+    left: -3px;
+    width: 212px;
+    margin-bottom: 15px;
+    display: none;
+}
+.indicators-floats tr { width:100%; }
+.indicator-floats .label {font-weight:bold;}
+.indicator-floats .value {text-align:right;}
+#school-perf-chart {
+    padding: 5px 0px;
+}
+
+/* -----------------------------------------
+   Cross-tabs (extension of .info)
+----------------------------------------- */
+.cross-tab { margin:30px 0 0; }
+.cross-tab .info {padding-top:0px;}
+
+/* -----------------------------------------
+   Tooltip Elements
+----------------------------------------- */
+#school-tooltip {
+	min-width: 100px;
+	background-color: white;
+	border: 1px solid #888;
+	position: absolute;
+	top: 0px;
+	left: 100px;
+	display: none;
+	padding: 5px 14px 5px 8px;
+}
