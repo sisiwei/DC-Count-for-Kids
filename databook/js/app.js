@@ -5,17 +5,17 @@ jQuery(document).ready(function ($) {
 
 	var baseURL = 'dcaction.map-7j45adj0',
 		indicatorData = [
-			{name:'Percent in poverty', dataTag: '', mapURL: 'dcaction.neigh-pov-dc'},
-			{name:'Access to healthy food', dataTag: '', mapURL: 'dcaction.grocery-dc'}, 
-			{name:'Recreation centers', dataTag: '', mapURL: 'dcaction.recreation-dc'}, 
-			{name:'Educational attainment (25+)', dataTag: '', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
-			{name:'Educational attainment (18-24)', dataTag: '', mapURL: 'dcaction.no-hs-degree-18to24-dc'},
-			{name:'Homeownership', dataTag: '', mapURL: 'dcaction.owner-occupied-homes-dc'},
-			{name:'Youth ready to enter the workforce', dataTag: '', mapURL: 'dcaction.youth-employed-dc'},
-			{name:'Environmental health', dataTag: '', mapURL: 'dcaction.asthma-dc'},
-			{name:'Violent crime', dataTag: '', mapURL: 'dcaction.crime-dc'},
-			{name:'Libraries', dataTag: '', mapURL: 'dcaction.libraries-dc'},
-			{name:'Institutional assets', dataTag: '', mapURL: 'dcaction.crime-dc,dcaction.institutional_assets'},
+			{name:'Percent in poverty', dataTag: 'pov', mapURL: 'dcaction.neigh-pov-dc'},
+			{name:'Access to healthy food', dataTag: 'grocery', mapURL: 'dcaction.grocery-dc'}, 
+			{name:'Recreation centers', dataTag: 'rec', mapURL: 'dcaction.recreation-dc'}, 
+			{name:'Educational attainment (25+)', dataTag: 'noHSDegree25', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
+			{name:'Educational attainment (18-24)', dataTag: 'noHSDegree18', mapURL: 'dcaction.no-hs-degree-18to24-dc'},
+			{name:'Homeownership', dataTag: 'homeownership', mapURL: 'dcaction.owner-occupied-homes-dc'},
+			{name:'Youth ready to enter the workforce', dataTag: 'youth-emp', mapURL: 'dcaction.youth-employed-dc'},
+			{name:'Environmental health', dataTag: 'envHealth', mapURL: 'dcaction.asthma-dc'},
+			{name:'Violent crime', dataTag: 'crime', mapURL: 'dcaction.crime-dc'},
+			{name:'Libraries', dataTag: 'lib', mapURL: 'dcaction.libraries-dc'},
+			{name:'Institutional assets', dataTag: 'instAssets', mapURL: 'dcaction.crime-dc,dcaction.institutional_assets'},
 		];
 
 	//=======================
@@ -24,13 +24,12 @@ jQuery(document).ready(function ($) {
 
 	// Bulid the dropdown
 	$.each(indicatorData, function(k,v){
-		if (k == 0) { 
+		if (k == 0) {
 			$('#indicator-list').append('<li class="active" data-map="' + v.dataTag + '">' + v.name + '</li>');
 		} else {
 			$('#indicator-list').append('<li data-map="' + v.dataTag + '">' + v.name + '</li>');
 		}
 	})
-
 
 	var indicators = $('#indicator-list'),
 		selected = $('#indicators').find('.selected'),
@@ -82,10 +81,6 @@ jQuery(document).ready(function ($) {
 	// 	MAP
 	//========================
 
-//	var url = 'http://a.tiles.mapbox.com/v3/newamerica.dc-kids6.jsonp';
-	//var url = 'http://a.tiles.mapbox.com/v3/newamerica.map-y2lhm4ps.jsonp';
-	//var url = 'http://a.tiles.mapbox.com/v3/dcaction.conc-child-poverty-rank.jsonp';
-
 	var indicatorArray = [];
 
 	for (i = 0; i < iMax; i++){
@@ -96,6 +91,7 @@ jQuery(document).ready(function ($) {
 	//====================
 	// STICKY NAV
 	//====================
+	
 	$(document).mousemove(function(e){
     	mouseX = e.pageX - 0;
 		mouseY = e.pageY - 170;
