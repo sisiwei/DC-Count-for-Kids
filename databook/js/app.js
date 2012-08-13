@@ -16,6 +16,7 @@ jQuery(document).ready(function ($) {
 			{name:'Violent crime', dataTag: 'crime', mapURL: 'dcaction.crime-dc'},
 			{name:'Libraries', dataTag: 'lib', mapURL: 'dcaction.libraries-dc'},
 			{name:'Institutional assets', dataTag: 'instAssets', mapURL: 'dcaction.owner-occupied-homes-dc,dcaction.institutional_assets-crime'},
+			{name:'School locations', dataTag: 'schools', mapURL: 'dcaction.school-locations'}
 		];
 
 	//=======================
