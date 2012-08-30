@@ -37,11 +37,6 @@ a:hover {
     text-decoration:none;
     /*color:#6aadd3;*/
 }
-
-.clear {
-  display: block;
-  clear: both;
-}
 .left {
   float: left;
 }
@@ -57,11 +52,22 @@ a:hover {
 .margin-top-30 {
     margin-top: 30px;
 }
+.margin-none {
+    margin:0;
+}
 .fixed {
   position: fixed;
   box-shadow: 0px 0px 5px #aaa;
   -moz-box-shadow: 0px 0px 5px #aaa;
   -webkit-box-shadow: 0px 0px 5px #aaa;
+}
+a.disabled {
+    color:#ccc !important;
+    cursor:default;
+}
+.uppercase {
+    text-transform:uppercase;
+    font-weight:bold;
 }
 /* -----------------------------------------
    Wrapper
@@ -88,9 +94,15 @@ a:hover {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+#chatter,
+.crosstab-nav-wrapper {
+    width:854px;
+}
 #chatter {
-  width: 610px;
   margin: 5px 0 0 16px;
+}
+#chatter > p {
+    margin-bottom:10px;
 }
 #title {
   font-size: 2.5em;
@@ -101,7 +113,6 @@ a:hover {
 }
 #banner ul.crosstab-nav {
     list-style-type:none;
-    float:right;
 }
 #banner li {
     display:inline;
@@ -289,6 +300,8 @@ ul#indicator-list li:hover {
 }
 
 /* DIV CLEARS */
+#chatter:after,
+.crosstab-nav-wrapper:after,
 .banner:after,
 .row:after { 
     content: "."; 

@@ -123,14 +123,22 @@ jQuery(document).ready(function ($) {
 	// SCROLL TO 
 	//==========================
 
-	banner.find('li').children('a').click(function(){
+	banner.find('li').children('a').click(function(e){
+		e.preventDefault();
 		var thisId = $(this).attr('href'),
-			object = $(thisId);
+			object = $(thisId),
+			scrollSpeed = 500;
 
-		$.scrollTo( object, 500, {
-			axis:'y',
-			offset: -(banner.find('#small').height() + 10)
-		});
+		if (thisId == '#'){
+			$.scrollTo($('#content'), scrollSpeed, {
+				axis:'y'
+			});
+		} else {
+			$.scrollTo( object, scrollSpeed, {
+				axis:'y',
+				offset: -(banner.find('#small').height() + 10)
+			});			
+		}
 	});
 
 	
