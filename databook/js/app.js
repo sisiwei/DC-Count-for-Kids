@@ -17,14 +17,10 @@ jQuery(document).ready(function ($) {
 			{name:'Libraries', dataTag: 'lib', mapURL: 'dcaction.libraries-dc'},
 			{name:'Institutional assets', dataTag: 'instAssets', mapURL: 'dcaction.owner-occupied-homes-dc,dcaction.institutional_assets-crime'},
 			{name:'School locations', dataTag: 'schools', mapURL: 'dcaction.school-locations'},
-<<<<<<< HEAD
-			{name:'Single mother households', dataTag: 'singlemother', mapURL: 'dcaction.single_mother'}
-=======
 			{name:'Single mother households', dataTag: 'singlemother', mapURL: 'dcaction.single_mother'},
 			{name:'Math scores', dataTag: 'math', mapURL: 'dcaction.math_scores'},
 			{name:'Reading scores', dataTag: 'reading', mapURL: 'dcaction.reading_scores'},
 			{name:'Graduation rates', dataTag: 'graduation', mapURL: 'dcaction.graduation_rates'},
->>>>>>> master
 		];
 
 	//=======================
@@ -147,6 +143,7 @@ jQuery(document).ready(function ($) {
 			});			
 		}
 	});
+
 	
 });
 	
@@ -222,6 +219,7 @@ function buildMap(baseURL, map){
 								// INVESTIGATE DATA:
 								// $('#school-perf-chart').html('<strong>Percentage Proficient and Above</strong><br/><center><img style="padding-top: 5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=290x240&cht=s&chd=t:25,' + schoolValueArray + '&chco=' + schoolHexArray + '&chdl=DC+Average|Nbhd+Schools&chf=bg,s,67676700" width="290" height="240" /></center>')
 						} else {
+							console.log('here');
 							var schoolName = d.Name,
 								address = d.StreetAddress,
 								la = d.Latitude,
