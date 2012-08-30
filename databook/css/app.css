@@ -11,8 +11,14 @@ body {
   padding: 0;
   background: #eee;
 }
-h1, h2, h3 {
+h1, h2, h3, h4 {
   margin: 0;
+}
+h3 {
+    font-size:20px;
+}
+h4 {
+    font-size:14px;
 }
 p {
   margin: 0 0 15px;
@@ -31,11 +37,17 @@ ul {
 .right {
   float: right;
 }
+.border-top {
+    border-top: 1px solid #eee;
+}
+.border-bottom {
+  border-bottom: 1px solid #eee;
+}
 .fixed {
   position: fixed;
-  box-shadow: -1px 3px 4px #EEE;
-  -moz-box-shadow: -1px 3px 4px #EEE;
-  -webkit-box-shadow: -1px 3px 4px #EEE;
+  box-shadow: 0px 0px 5px #aaa;
+  -moz-box-shadow: 0px 0px 5px #aaa;
+  -webkit-box-shadow: 0px 0px 5px #aaa;
 }
 /* -----------------------------------------
    Wrapper
@@ -47,6 +59,7 @@ ul {
   background-color: white;
   margin: 0px auto;
   padding: 0 0 125px;
+  overflow: hidden;
 }
 .width {
   width: 920px;
@@ -60,7 +73,6 @@ ul {
   background-color: white;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
 }
 #chatter {
   width: 610px;
@@ -208,8 +220,38 @@ ul#indicator-list li:hover {
 /* -----------------------------------------
    Cross-tabs (extension of .info)
 ----------------------------------------- */
-.cross-tab { margin:30px 0 0; }
-.cross-tab .info {padding-top:0px;}
+.secondary {
+    margin:30px 0 0;
+    padding:30px 0 0;
+}
+.secondary:after { 
+    content: "."; 
+    visibility: hidden; 
+    display: block; 
+    height: 0; 
+    clear: both;
+}
+.cross-tab { 
+    float: left;
+    width: 288px;
+    margin: 0 14px;
+}
+.cross-tab.first {
+    margin-left: 0;
+}
+.cross-tab.last {
+    margin-right: 0;
+}
+.cross-tab img { width:100%; }
+.cross-tab .blurb p {
+    margin:0;
+}
+.secondary h3 {
+    margin: 0 0 10px 0;    
+}
+.secondary h4 {
+    margin: 5px 0;
+}
 
 /* -----------------------------------------
    Tooltip Elements
