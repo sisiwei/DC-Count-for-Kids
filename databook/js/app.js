@@ -119,6 +119,20 @@ jQuery(document).ready(function ($) {
         });
 	});
 
+	//=========================
+	// SCROLL TO 
+	//==========================
+
+	banner.find('li').children('a').click(function(){
+		var thisId = $(this).attr('href'),
+			object = $(thisId);
+
+		$.scrollTo( object, 500, {
+			axis:'y',
+			offset: -(banner.find('#small').height() + 10)
+		});
+	});
+
 	
 });
 	
