@@ -11,9 +11,21 @@ body {
   padding: 0;
   background: #eee;
 }
+<<<<<<< HEAD
 h1, h2, h3 {
   margin: 0;
 }
+=======
+h1, h2, h3, h4 {
+  margin: 0;
+}
+h3 {
+    font-size:20px;
+}
+h4 {
+    font-size:14px;
+}
+>>>>>>> 23876cae8131d5194e901ecadb6232a0122178ba
 p {
   margin: 0 0 15px;
 }
@@ -21,9 +33,21 @@ ul {
   padding: 0;
   margin: 0;
 }
+<<<<<<< HEAD
 .clear {
   display: block;
   clear: both;
+=======
+a:link,
+a:visited,
+a:active {
+    text-decoration:underline;
+    color:#3180ba;
+}
+a:hover {
+    text-decoration:none;
+    /*color:#6aadd3;*/
+>>>>>>> 23876cae8131d5194e901ecadb6232a0122178ba
 }
 .left {
   float: left;
@@ -31,11 +55,39 @@ ul {
 .right {
   float: right;
 }
+<<<<<<< HEAD
 .fixed {
   position: fixed;
   box-shadow: -1px 3px 4px #EEE;
   -moz-box-shadow: -1px 3px 4px #EEE;
   -webkit-box-shadow: -1px 3px 4px #EEE;
+=======
+.border-top {
+    border-top: 1px solid #eee;
+}
+.border-bottom {
+  border-bottom: 1px solid #eee;
+}
+.margin-top-30 {
+    margin-top: 30px;
+}
+.margin-none {
+    margin:0;
+}
+.fixed {
+  position: fixed;
+  box-shadow: 0px 0px 5px #aaa;
+  -moz-box-shadow: 0px 0px 5px #aaa;
+  -webkit-box-shadow: 0px 0px 5px #aaa;
+}
+a.disabled {
+    color:#ccc !important;
+    cursor:default;
+}
+.uppercase {
+    text-transform:uppercase;
+    font-weight:bold;
+>>>>>>> 23876cae8131d5194e901ecadb6232a0122178ba
 }
 /* -----------------------------------------
    Wrapper
@@ -47,6 +99,10 @@ ul {
   background-color: white;
   margin: 0px auto;
   padding: 0 0 125px;
+<<<<<<< HEAD
+=======
+  overflow: hidden;
+>>>>>>> 23876cae8131d5194e901ecadb6232a0122178ba
 }
 .width {
   width: 920px;
@@ -60,12 +116,26 @@ ul {
   background-color: white;
   padding-top: 10px;
   padding-bottom: 10px;
+<<<<<<< HEAD
   border-bottom: 1px solid #eee;
 }
 #chatter {
   width: 610px;
   margin: 5px 0 0 16px;
 }
+=======
+}
+#chatter,
+.crosstab-nav-wrapper {
+    width:854px;
+}
+#chatter {
+  margin: 5px 0 0 16px;
+}
+#chatter > p {
+    margin-bottom:10px;
+}
+>>>>>>> 23876cae8131d5194e901ecadb6232a0122178ba
 #title {
   font-size: 2.5em;
   line-height: 1em;
@@ -73,6 +143,22 @@ ul {
 #small {
   display: none;
 }
+<<<<<<< HEAD
+=======
+#banner ul.crosstab-nav {
+    list-style-type:none;
+}
+#banner li {
+    display:inline;
+}
+#banner li a {
+    text-decoration:none;
+    color:#555;
+    padding-left: 20px;
+    margin-left: 20px;
+    border-left: 1px solid #DDD;
+}
+>>>>>>> 23876cae8131d5194e901ecadb6232a0122178ba
 /* -----------------------------------------
    Primary interactive map
 ----------------------------------------- */
@@ -208,8 +294,36 @@ ul#indicator-list li:hover {
 /* -----------------------------------------
    Cross-tabs (extension of .info)
 ----------------------------------------- */
+<<<<<<< HEAD
 .cross-tab { margin:30px 0 0; }
 .cross-tab .info {padding-top:0px;}
+=======
+.secondary {
+    margin:30px 0 0;
+    padding:30px 0 0;
+}
+.secondary h3 {
+    margin: 0 0 10px 0;    
+}
+.secondary h4 {
+    margin: 5px 0;
+}
+.cross-tab { 
+    float: left;
+    width: 288px;
+    margin: 0 14px;
+}
+.cross-tab.first {
+    margin-left: 0;
+}
+.cross-tab.last {
+    margin-right: 0;
+}
+.cross-tab img { width:100%; }
+.cross-tab .blurb p {
+    margin:0;
+}
+>>>>>>> 23876cae8131d5194e901ecadb6232a0122178ba
 
 /* -----------------------------------------
    Tooltip Elements
@@ -223,4 +337,19 @@ ul#indicator-list li:hover {
 	left: 100px;
 	display: none;
 	padding: 5px 14px 5px 8px;
+<<<<<<< HEAD
+=======
+}
+
+/* DIV CLEARS */
+#chatter:after,
+.crosstab-nav-wrapper:after,
+.banner:after,
+.row:after { 
+    content: "."; 
+    visibility: hidden; 
+    display: block; 
+    height: 0; 
+    clear: both;
+>>>>>>> 23876cae8131d5194e901ecadb6232a0122178ba
 }

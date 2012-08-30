@@ -5,7 +5,7 @@ jQuery(document).ready(function ($) {
 
 	var baseURL = 'dcaction.map-7j45adj0',
 		indicatorData = [
-			{name:'Percent in poverty', dataTag: 'pov', mapURL: 'dcaction.neigh-pov-dc'},
+			{name:'High poverty neighborhoods', dataTag: 'pov', mapURL: 'dcaction.neigh-pov-dc'},
 			{name:'Access to healthy food', dataTag: 'grocery', mapURL: 'dcaction.grocery-dc'}, 
 			{name:'Recreation centers', dataTag: 'rec', mapURL: 'dcaction.recreation-dc'}, 
 			{name:'Educational attainment (25+)', dataTag: 'noHSDegree25', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
@@ -16,6 +16,8 @@ jQuery(document).ready(function ($) {
 			{name:'Violent crime', dataTag: 'crime', mapURL: 'dcaction.crime-dc'},
 			{name:'Libraries', dataTag: 'lib', mapURL: 'dcaction.libraries-dc'},
 			{name:'Institutional assets', dataTag: 'instAssets', mapURL: 'dcaction.owner-occupied-homes-dc,dcaction.institutional_assets-crime'},
+			{name:'School locations', dataTag: 'schools', mapURL: 'dcaction.school-locations'},
+			{name:'Single mother households', dataTag: 'singlemother', mapURL: 'dcaction.single_mother'}
 		];
 
 	//=======================
@@ -117,6 +119,27 @@ jQuery(document).ready(function ($) {
         });
 	});
 
+	//=========================
+	// SCROLL TO 
+	//==========================
+
+	banner.find('li').children('a').click(function(e){
+		e.preventDefault();
+		var thisId = $(this).attr('href'),
+			object = $(thisId),
+			scrollSpeed = 500;
+
+		if (thisId == '#'){
+			$.scrollTo($('#content'), scrollSpeed, {
+				axis:'y'
+			});
+		} else {
+			$.scrollTo( object, scrollSpeed, {
+				axis:'y',
+				offset: -(banner.find('#small').height() + 10)
+			});			
+		}
+	});
 	
 });
 	
@@ -184,7 +207,7 @@ function buildMap(baseURL, map){
 								$('#total-pop .value').html(addCommas(pop));
 								$('#child-pop .value').html(addCommas(childPop));
 								$('#avg-income .value').html('$' + addCommas(medianFamilyIncome));
-								$('#poor-children .value').html((childPov * 100).toFixed(2) + '%');
+								$('#poor-children .value').html((childPov * 100).toFixed(1) + '%');
 								$('#single-mother-families .value').html(singleMotherFamilies + '%');
 								$('#adult-race-pie-chart').html('<strong>Race & ethnicity (18 and over):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=3182bd|6baed6|bdd7e7|eff3ff&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctOther +'&chdl='+ pctWhiteLegend +'|' + pctBlackLegend + '|'+ pctHispLegend +'|'+ pctOtherLegend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
 								$('#child-race-pie-chart').html('<strong>Race & ethnicity (under 18):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=e34a33|fc8d59|fdcc8a|fef0d9&chds=0,700&chd=t:'+ pctWhite18 +','+ pctBlack18 +','+ pctHisp18 +','+ pctOther18 +'&chdl='+ pctWhite18Legend +'|' + pctBlack18Legend + '|'+ pctHisp18Legend +'|'+ pctOther18Legend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
