@@ -27,6 +27,17 @@ ul {
   padding: 0;
   margin: 0;
 }
+a:link,
+a:visited,
+a:active {
+    text-decoration:underline;
+    color:#3180ba;
+}
+a:hover {
+    text-decoration:none;
+    /*color:#6aadd3;*/
+}
+
 .clear {
   display: block;
   clear: both;
@@ -42,6 +53,9 @@ ul {
 }
 .border-bottom {
   border-bottom: 1px solid #eee;
+}
+.margin-top-30 {
+    margin-top: 30px;
 }
 .fixed {
   position: fixed;
@@ -84,6 +98,20 @@ ul {
 }
 #small {
   display: none;
+}
+#banner ul.crosstab-nav {
+    list-style-type:none;
+    float:right;
+}
+#banner li {
+    display:inline;
+}
+#banner li a {
+    text-decoration:none;
+    color:#555;
+    padding-left: 20px;
+    margin-left: 20px;
+    border-left: 1px solid #DDD;
 }
 /* -----------------------------------------
    Primary interactive map
@@ -224,12 +252,11 @@ ul#indicator-list li:hover {
     margin:30px 0 0;
     padding:30px 0 0;
 }
-.secondary:after { 
-    content: "."; 
-    visibility: hidden; 
-    display: block; 
-    height: 0; 
-    clear: both;
+.secondary h3 {
+    margin: 0 0 10px 0;    
+}
+.secondary h4 {
+    margin: 5px 0;
 }
 .cross-tab { 
     float: left;
@@ -246,12 +273,6 @@ ul#indicator-list li:hover {
 .cross-tab .blurb p {
     margin:0;
 }
-.secondary h3 {
-    margin: 0 0 10px 0;    
-}
-.secondary h4 {
-    margin: 5px 0;
-}
 
 /* -----------------------------------------
    Tooltip Elements
@@ -265,4 +286,14 @@ ul#indicator-list li:hover {
 	left: 100px;
 	display: none;
 	padding: 5px 14px 5px 8px;
+}
+
+/* DIV CLEARS */
+.banner:after,
+.row:after { 
+    content: "."; 
+    visibility: hidden; 
+    display: block; 
+    height: 0; 
+    clear: both;
 }
