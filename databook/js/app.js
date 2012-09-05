@@ -8,7 +8,7 @@ jQuery(document).ready(function ($) {
 			{name:'High poverty neighborhoods', dataTag: 'pov', mapURL: 'dcaction.neigh-pov-dc'},
 			{name:'Access to healthy food', dataTag: 'grocery', mapURL: 'dcaction.grocery-dc'}, 
 			{name:'Recreation centers', dataTag: 'rec', mapURL: 'dcaction.recreation-dc'}, 
-			{name:'Educational attainment (25+)', dataTag: 'noHSDegree25', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
+			// {name:'Educational attainment (25+)', dataTag: 'noHSDegree25', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
 			{name:'Educational attainment (18-24)', dataTag: 'noHSDegree18', mapURL: 'dcaction.no-hs-degree-18to24-dc'},
 			{name:'Homeownership', dataTag: 'homeownership', mapURL: 'dcaction.owner-occupied-homes-dc'},
 			{name:'Youth ready to enter the workforce', dataTag: 'youth-emp', mapURL: 'dcaction.youth-employed-dc'},
