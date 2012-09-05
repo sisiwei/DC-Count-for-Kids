@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
 			{name:'Environmental health', dataTag: 'envHealth', mapURL: 'dcaction.asthma-dc'},
 			{name:'Violent crime', dataTag: 'crime', mapURL: 'dcaction.crime-dc'},
 			{name:'Libraries', dataTag: 'lib', mapURL: 'dcaction.libraries-dc'},
-			{name:'Institutional assets', dataTag: 'instAssets', mapURL: 'dcaction.owner-occupied-homes-dc,dcaction.institutional_assets-crime'},
+			{name:'Assets', dataTag: 'instAssets', mapURL: 'dcaction.owner-occupied-homes-dc,dcaction.institutional_assets-crime'},
 			{name:'School locations', dataTag: 'schools', mapURL: 'dcaction.school-locations'},
 			{name:'Single mother households', dataTag: 'singlemother', mapURL: 'dcaction.single_mother'},
 			{name:'Math scores', dataTag: 'math', mapURL: 'dcaction.math_scores'},
