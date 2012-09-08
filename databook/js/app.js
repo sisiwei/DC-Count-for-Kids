@@ -1,7 +1,10 @@
 jQuery(document).ready(function ($) {
+
 	var mouseX = 0, mouseY = 0,
 		sidebar = $('#info'),
-		banner = $('#banner');
+		banner = $('#banner'),
+		map,
+		currentMap;
 
 	var baseURL = 'dcaction.map-7j45adj0',
 		indicatorData = [
@@ -47,6 +50,7 @@ jQuery(document).ready(function ($) {
 	// INIT LOAD
 	selected.html(indicators.find('li.active').html());
 	buildMap(baseURL, indicatorData[indicators.find('li').index(indicators.find('li.active'))].mapURL);
+	//callMap();
 
 	selected.click(function(){
 		indicators.slideToggle(toggleTime);
@@ -60,7 +64,7 @@ jQuery(document).ready(function ($) {
 			$(this).addClass('active');
 
 			var sIdx = indicators.find('li').index(this);
-			buildMap(baseURL, indicatorData[sIdx].mapURL);
+			callMap(indicatorData[sIdx].mapURL);
 			
 			sIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
 			sIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
@@ -166,27 +170,26 @@ jQuery(document).ready(function ($) {
 	
 });
 	
-function buildMap(baseURL, map){
+function buildMap(baseURL, initialMap){
 	$('#mainMap').html('');
+    map = mapbox.map('mainMap', null, null,[MM.DragHandler(), MM.DoubleClickHandler()]);
 
+	map.addLayer(mapbox.layer().id(baseURL));
+	map.addLayer(mapbox.layer().id(initialMap));
+	currentMap = initialMap;
+
+  	map.centerzoom({lat: 38.900,lon: -77.020}, 12);
+  	map.ui.zoomer.add();
+  	map.setZoomRange(11,16);
+  	map.setPanLimits([{ lat: 39.008, lon: -77.165 }, { lat: 38.782, lon: -76.874 }]);
+
+  	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + initialMap + '.jsonp';
 	var mm = com.modestmaps;
-	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + map + '.jsonp';
 
 	wax.tilejson(mapurl, function(tilejson) {
 	    var tooltip = new wax.tooltip();
-	    var m = new mm.Map('mainMap', 
-	    	new wax.mm.connector(tilejson),
-	        new mm.Point(680, 750));
-	        
-	    m.setCenterZoom(new mm.Location(
-			38.900, //tilejson.center[1], lon
-			-77.020), //tilejson.center[0]), lat
-	        12); // zoom
-
-	    wax.mm.zoomer(m).appendTo(m.parent);
-
 		wax.mm.interaction()
-			.map(m)
+			.map(map)
 			.tilejson(tilejson)
 			.on({
 				on: function(feature) {
@@ -268,6 +271,11 @@ function buildMap(baseURL, map){
 		});
 	});
 };
+
+function callMap(newMap){
+	map.removeLayerAt(1);
+	map.addLayer(mapbox.layer().id(newMap));
+}
 
 function addCommas(nStr){
 	nStr += '';
