@@ -94,6 +94,9 @@ a.disabled {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+#banner h1 {
+  cursor:pointer;
+}
 #chatter,
 .crosstab-nav-wrapper {
     width:854px;

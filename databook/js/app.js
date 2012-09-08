@@ -132,12 +132,12 @@ jQuery(document).ready(function ($) {
 	//=========================
 	// SCROLL TO 
 	//==========================
+	var scrollSpeed = 500;
 
 	banner.find('li').children('a').click(function(e){
 		e.preventDefault();
 		var thisId = $(this).attr('href'),
-			object = $(thisId),
-			scrollSpeed = 500;
+			object = $(thisId);
 
 		if (thisId == '#'){
 			$.scrollTo($('#content'), scrollSpeed, {
@@ -149,6 +149,13 @@ jQuery(document).ready(function ($) {
 				offset: -(banner.find('#small').height() + 10)
 			});			
 		}
+	});
+
+	banner.find('h1').click(function(e){
+		e.preventDefault();
+		$.scrollTo($('#content'), scrollSpeed, {
+			axis:'y'
+		});
 	});
 
 	
