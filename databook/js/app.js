@@ -163,7 +163,7 @@ jQuery(document).ready(function ($) {
 	
 function buildMap(baseURL, initialMap){
 	$('#mainMap').html('');
-    map = mapbox.map('mainMap');
+    map = mapbox.map('mainMap', null, null,[MM.DragHandler(), MM.DoubleClickHandler()]);
 
 	map.addLayer(mapbox.layer().id(baseURL));
 	map.addLayer(mapbox.layer().id(initialMap));
@@ -171,6 +171,7 @@ function buildMap(baseURL, initialMap){
   	map.centerzoom({lat: 38.900,lon: -77.020}, 12);
   	map.ui.zoomer.add();
   	map.setZoomRange(11,16);
+  	map.setPanLimits([{ lat: 39.008, lon: -77.165 }, { lat: 38.782, lon: -76.874 }]);
 
   	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + initialMap + '.jsonp';
 	var mm = com.modestmaps;
