@@ -27,7 +27,7 @@ jQuery(document).ready(function ($) {
 			{name:'Graduation rates', dataTag: 'graduation', mapURL: 'dcaction.graduation_rates'},
 		];
 
-	buildDropdown(indicatorData);
+	// INFOBOX SETTINGS AND INIT
 
 	var indicators = $('#indicator-list'),
 		selected = $('#indicators').find('.selected'),
@@ -37,10 +37,8 @@ jQuery(document).ready(function ($) {
 		prevBtn = $('.arrow-left'),
 		nextBtn = $('.arrow-right');
 
-	// INIT LOAD
+	buildDropdown(indicatorData);
 	selected.html(indicators.find('li.active').html());
-	buildMap(baseURL, indicatorData[indicators.find('li').index(indicators.find('li.active'))].mapURL);
-	//callMap();
 
 	selected.click(function(){
 		indicators.slideToggle(toggleTime);
@@ -76,24 +74,11 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
-	//=======================
-	// 	MAP
-	//========================
-
-	var indicatorArray = [];
-
-	for (i = 0; i < iMax; i++){
-		var elementId = indicators.find('li').get(i).id;
-		indicatorArray.push(elementId);
-	}
-
-
-    $(window).scroll(function(){
-		stickyNav(banner);
-    });
-
+    $(window).scroll(function(){ stickyNav(banner); });
 	scrollToFunc(banner);
-	
+
+	// BUILD THE MAP ITSELF
+	buildMap(baseURL, indicatorData[indicators.find('li').index(indicators.find('li.active'))].mapURL);
 });
 	
 function buildMap(baseURL, initialMap){
@@ -214,7 +199,7 @@ function buildDropdown(data){
 		} else {
 			$('#indicator-list').append('<li data-map="' + v.dataTag + '">' + v.name + '</li>');
 		}
-	})	
+	})
 }
 
 function scrollToFunc(banner){
