@@ -101,34 +101,29 @@ jQuery(document).ready(function ($) {
 	// STICKY NAV
 	//====================
 
-	$(document).mousemove(function(e){
-    	mouseX = e.pageX - 0;
-		mouseY = e.pageY - 170;
+	//when scroll
+    $(window).scroll(function(){
+        var bannerHeight = banner.height();
 
-		//when scroll
-        $(window).scroll(function(){
-	        var bannerHeight = banner.height();
+        if ($(window).scrollTop() > bannerHeight){
+        	banner.find('img').hide();
+        	banner.find('#intro').hide();
+        	banner.find('#crosstab-title').hide();
+        	banner.find('#scrollTo-top').removeClass('disabled');
 
-            if ($(window).scrollTop() > bannerHeight){
-            	banner.find('img').hide();
-            	banner.find('#intro').hide();
-            	banner.find('#crosstab-title').hide();
-            	banner.find('#scrollTo-top').removeClass('disabled');
+            banner.addClass('fixed small').css('top','0').next()
+            .css('padding-top','60px');
 
-	            banner.addClass('fixed small').css('top','0').next()
-	            .css('padding-top','60px');
+        } else {
+			banner.find('img').show();
+        	banner.find('#intro').show();
+        	banner.find('#crosstab-title').show();
+        	banner.find('#scrollTo-top').addClass('disabled');
 
-            } else {
-				banner.find('img').show();
-            	banner.find('#intro').show();
-            	banner.find('#crosstab-title').show();
-            	banner.find('#scrollTo-top').addClass('disabled');
-
-	            banner.removeClass('fixed small').next()
-	            .css('padding-top','0');
-            }
-        });
-	});
+            banner.removeClass('fixed small').next()
+            .css('padding-top','0');
+        }
+    });
 
 	//=========================
 	// SCROLL TO 
