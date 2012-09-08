@@ -111,9 +111,6 @@ a.disabled {
   font-size: 2.5em;
   line-height: 1em;
 }
-#small {
-  display: none;
-}
 #banner ul.crosstab-nav {
     list-style-type:none;
 }
@@ -126,6 +123,26 @@ a.disabled {
     padding-left: 20px;
     margin-left: 20px;
     border-left: 1px solid #DDD;
+}
+#banner li a:hover {
+    color:#3180ba;
+}
+#banner li a.selected {
+    color:#3180ba;
+    cursor:default;
+}
+
+.small #chatter {
+    width:100%;
+    margin:0;
+}
+.small .crosstab-nav-wrapper {
+    width:600px;
+    float:right;
+    margin-top:3px;
+}
+.small #title {
+    font-size:1.8em;
 }
 /* -----------------------------------------
    Primary interactive map
@@ -305,7 +322,7 @@ ul#indicator-list li:hover {
 /* DIV CLEARS */
 #chatter:after,
 .crosstab-nav-wrapper:after,
-.banner:after,
+#banner:after,
 .row:after { 
     content: "."; 
     visibility: hidden; 

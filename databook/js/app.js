@@ -106,17 +106,21 @@ jQuery(document).ready(function ($) {
 	        var bannerHeight = banner.height();
 
             if ($(window).scrollTop() > bannerHeight){
-            	banner.find('#big').hide();
-            	banner.find('#small').show();
+            	banner.find('img').hide();
+            	banner.find('#intro').hide();
+            	banner.find('#crosstab-title').hide();
+            	banner.find('#scrollTo-top').removeClass('disabled');
 
-	            banner.addClass('fixed').css('top','0').next()
+	            banner.addClass('fixed small').css('top','0').next()
 	            .css('padding-top','60px');
 
             } else {
-            	banner.find('#small').hide();
-				banner.find('#big').show();
-            	
-	            banner.removeClass('fixed').next()
+				banner.find('img').show();
+            	banner.find('#intro').show();
+            	banner.find('#crosstab-title').show();
+            	banner.find('#scrollTo-top').addClass('disabled');
+
+	            banner.removeClass('fixed small').next()
 	            .css('padding-top','0');
             }
         });
@@ -129,18 +133,26 @@ jQuery(document).ready(function ($) {
 
 	banner.find('li').children('a').click(function(e){
 		e.preventDefault();
-		var thisId = $(this).attr('href'),
-			object = $(thisId);
 
-		if (thisId == '#'){
-			$.scrollTo($('#content'), scrollSpeed, {
-				axis:'y'
-			});
-		} else {
-			$.scrollTo( object, scrollSpeed, {
-				axis:'y',
-				offset: -(banner.find('#small').height() + 10)
-			});			
+		if (!$(this).hasClass('selected')){
+			var thisId = $(this).attr('href'),
+				object = $(thisId);
+
+			$(this).parent().parent().find('a').removeClass('selected');
+
+			if (thisId == '#'){
+				$.scrollTo($('#content'), scrollSpeed, {
+					axis:'y'
+				});
+
+			} else {
+				$.scrollTo( object, scrollSpeed, {
+					axis:'y',
+					offset: -(banner.height() + 10)
+				});			
+				$(this).addClass('selected');
+
+			}			
 		}
 	});
 
