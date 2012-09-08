@@ -1,7 +1,10 @@
 jQuery(document).ready(function ($) {
+
 	var mouseX = 0, mouseY = 0,
 		sidebar = $('#info'),
-		banner = $('#banner');
+		banner = $('#banner'),
+		map,
+		allMaps = [];
 
 	var baseURL = 'dcaction.map-7j45adj0',
 		indicatorData = [
@@ -34,6 +37,9 @@ jQuery(document).ready(function ($) {
 		} else {
 			$('#indicator-list').append('<li data-map="' + v.dataTag + '">' + v.name + '</li>');
 		}
+
+		allMaps.push(v.mapURL);
+		//Build the maps array
 	})
 
 	var indicators = $('#indicator-list'),
@@ -47,6 +53,7 @@ jQuery(document).ready(function ($) {
 	// INIT LOAD
 	selected.html(indicators.find('li.active').html());
 	buildMap(baseURL, indicatorData[indicators.find('li').index(indicators.find('li.active'))].mapURL);
+	//callMap();
 
 	selected.click(function(){
 		indicators.slideToggle(toggleTime);
@@ -147,27 +154,24 @@ jQuery(document).ready(function ($) {
 	
 });
 	
-function buildMap(baseURL, map){
+function buildMap(baseURL, initialMap){
 	$('#mainMap').html('');
+    map = mapbox.map('mainMap');
 
+	map.addLayer(mapbox.layer().id(baseURL));
+	map.addLayer(mapbox.layer().id(initialMap));
+
+  	map.centerzoom({lat: 38.900,lon: -77.020}, 12);
+  	map.ui.zoomer.add();
+  	map.setZoomRange(11,16);
+
+  	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + initialMap + '.jsonp';
 	var mm = com.modestmaps;
-	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + map + '.jsonp';
 
 	wax.tilejson(mapurl, function(tilejson) {
 	    var tooltip = new wax.tooltip();
-	    var m = new mm.Map('mainMap', 
-	    	new wax.mm.connector(tilejson),
-	        new mm.Point(680, 750));
-	        
-	    m.setCenterZoom(new mm.Location(
-			38.900, //tilejson.center[1], lon
-			-77.020), //tilejson.center[0]), lat
-	        12); // zoom
-
-	    wax.mm.zoomer(m).appendTo(m.parent);
-
 		wax.mm.interaction()
-			.map(m)
+			.map(map)
 			.tilejson(tilejson)
 			.on({
 				on: function(feature) {
@@ -249,6 +253,10 @@ function buildMap(baseURL, map){
 		});
 	});
 };
+
+function callMap(activeMap){
+
+}
 
 function addCommas(nStr){
 	nStr += '';
