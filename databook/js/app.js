@@ -4,7 +4,7 @@ jQuery(document).ready(function ($) {
 		sidebar = $('#info'),
 		banner = $('#banner'),
 		map,
-		allMaps = [];
+		currentMap;
 
 	var baseURL = 'dcaction.map-7j45adj0',
 		indicatorData = [
@@ -37,9 +37,6 @@ jQuery(document).ready(function ($) {
 		} else {
 			$('#indicator-list').append('<li data-map="' + v.dataTag + '">' + v.name + '</li>');
 		}
-
-		allMaps.push(v.mapURL);
-		//Build the maps array
 	})
 
 	var indicators = $('#indicator-list'),
@@ -67,7 +64,7 @@ jQuery(document).ready(function ($) {
 			$(this).addClass('active');
 
 			var sIdx = indicators.find('li').index(this);
-			buildMap(baseURL, indicatorData[sIdx].mapURL);
+			callMap(indicatorData[sIdx].mapURL);
 			
 			sIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
 			sIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
@@ -167,6 +164,7 @@ function buildMap(baseURL, initialMap){
 
 	map.addLayer(mapbox.layer().id(baseURL));
 	map.addLayer(mapbox.layer().id(initialMap));
+	currentMap = initialMap;
 
   	map.centerzoom({lat: 38.900,lon: -77.020}, 12);
   	map.ui.zoomer.add();
@@ -262,8 +260,9 @@ function buildMap(baseURL, initialMap){
 	});
 };
 
-function callMap(activeMap){
-
+function callMap(newMap){
+	map.removeLayerAt(1);
+	map.addLayer(mapbox.layer().id(newMap));
 }
 
 function addCommas(nStr){
