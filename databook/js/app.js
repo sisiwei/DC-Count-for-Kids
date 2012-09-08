@@ -1,4 +1,5 @@
 jQuery(document).ready(function ($) {
+	//SimpleTable.init( { key: '0AntoWTCD8D_UdEdsLUxEVnlxZXdjRThLeS1oS1pXRHc', callback: contentFill } );
 
 	var mouseX = 0, mouseY = 0,
 		sidebar = $('#info'),
@@ -270,6 +271,10 @@ function buildMap(baseURL, initialMap){
 function callMap(newMap){
 	map.removeLayerAt(1);
 	map.addLayer(mapbox.layer().id(newMap));
+}
+
+function contentFill(c){
+	console.log(c);
 }
 
 function addCommas(nStr){
