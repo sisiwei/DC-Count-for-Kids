@@ -97,6 +97,11 @@ a.disabled {
 #banner h1 {
   cursor:pointer;
 }
+#banner img {
+  display: block;
+  top: 3px;
+  position: relative;
+}
 #chatter {
     width:854px;
     margin: 5px 0 0 16px;
@@ -309,6 +314,8 @@ ul#indicator-list li:hover {
 .cross-tab .blurb p {
     margin:0;
 }
+
+.summary ul { padding: 10px 0px 10px 40px }
 
 /* -----------------------------------------
    Tooltip Elements
