@@ -1,5 +1,4 @@
 jQuery(document).ready(function ($) {
-	//SimpleTable.init( { key: '0AntoWTCD8D_UdEdsLUxEVnlxZXdjRThLeS1oS1pXRHc', callback: contentFill } );
 
 	var mouseX = 0, mouseY = 0,
 		sidebar = $('#info'),
@@ -19,7 +18,7 @@ jQuery(document).ready(function ($) {
 			{name:'Environmental health', dataTag: 'envHealth', mapURL: 'dcaction.asthma-dc'},
 			{name:'Violent crime', dataTag: 'crime', mapURL: 'dcaction.crime-dc'},
 			{name:'Libraries', dataTag: 'lib', mapURL: 'dcaction.libraries-dc'},
-			{name:'Assets', dataTag: 'instAssets', mapURL: 'dcaction.owner-occupied-homes-dc,dcaction.institutional_assets-crime'},
+			{name:'Neighborhood Assets', dataTag: 'instAssets', mapURL: 'dcaction.owner-occupied-homes-dc,dcaction.institutional_assets-crime'},
 			{name:'School locations', dataTag: 'schools', mapURL: 'dcaction.school-locations'},
 			{name:'Single mother households', dataTag: 'singlemother', mapURL: 'dcaction.single_mother'},
 			{name:'Math scores', dataTag: 'math', mapURL: 'dcaction.math_scores'},
@@ -27,8 +26,10 @@ jQuery(document).ready(function ($) {
 			{name:'Graduation rates', dataTag: 'graduation', mapURL: 'dcaction.graduation_rates'},
 		];
 
-	// INFOBOX SETTINGS AND INIT
+	// LOADING ALL CONTENT
+	SimpleTable.init( { key: '0AntoWTCD8D_UdEdsLUxEVnlxZXdjRThLeS1oS1pXRHc', callback: contentFill } );
 
+	// INFOBOX SETTINGS AND INIT
 	var indicators = $('#indicator-list'),
 		selected = $('#indicators').find('.selected'),
 		iMax = indicators.find('li').length,
@@ -88,6 +89,7 @@ function buildMap(baseURL, initialMap){
 	map.addLayer(mapbox.layer().id(baseURL));
 	map.addLayer(mapbox.layer().id(initialMap));
 	currentMap = initialMap;
+	console.log(map.layers);
 
   	map.centerzoom({lat: 38.900,lon: -77.020}, 12);
   	map.ui.zoomer.add();
@@ -124,9 +126,9 @@ function buildMap(baseURL, initialMap){
 								pctBlack18Legend = "Black: " + pctBlack18 + "%",
 
 								pctOther = (d.PopNHO * 100).toFixed(1),
-								pctOtherLegend = "Other: " + pctOther + "%",
+								pctOtherLegend = "Asian/Other: " + pctOther + "%",
 								pctOther18 = (d.PopNHO18 * 100).toFixed(1),
-								pctOther18Legend = "Other: " + pctOther18 + "%",
+								pctOther18Legend = "Asian/Other: " + pctOther18 + "%",
 
 								pctHisp = (d.PopHisp * 100).toFixed(1),
 								pctHispLegend = "Hispanic: " + pctHisp + "%",
@@ -186,6 +188,7 @@ function buildMap(baseURL, initialMap){
 function callMap(newMap){
 	map.removeLayerAt(1);
 	map.addLayer(mapbox.layer().id(newMap));
+	currentMap = newMap;
 }
 
 function contentFill(c){
