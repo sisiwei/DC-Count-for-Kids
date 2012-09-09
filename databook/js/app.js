@@ -93,7 +93,7 @@ function buildMap(baseURL, initialMap){
 	map.addLayer(mapbox.layer().id(baseURL));
 	map.addLayer(mapbox.layer().id(initialMap));
 	currentMap = initialMap;
-	console.log(map.layers);
+	// console.log(map.layers);
 
   	map.centerzoom({lat: 38.900,lon: -77.020}, 12);
   	map.ui.zoomer.add();
