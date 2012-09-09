@@ -198,7 +198,6 @@ function callMap(newMap){
 function contentFill(c){
 	// Write all the data:
 	$.each(c, function(k,v){
-		console.log(v);
 		$('#' + v.section).find(v.h).html(v.head);
 		$('#' + v.section).find(v.s).html(v.subhead);
 	})
