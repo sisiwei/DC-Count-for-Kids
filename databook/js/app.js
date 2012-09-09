@@ -192,7 +192,11 @@ function callMap(newMap){
 }
 
 function contentFill(c){
-	console.log(c);
+	var s = c[0];
+	console.log(s);
+	$('#title').html(s.maintitle);
+	$('#intro').html(s.subhead);
+
 }
 
 function buildDropdown(data){
