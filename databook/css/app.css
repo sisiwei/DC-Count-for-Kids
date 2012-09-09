@@ -97,12 +97,9 @@ a.disabled {
 #banner h1 {
   cursor:pointer;
 }
-#chatter,
-.crosstab-nav-wrapper {
-    width:854px;
-}
 #chatter {
-  margin: 5px 0 0 16px;
+    width:854px;
+    margin: 5px 0 0 16px;
 }
 #chatter > p {
     margin-bottom:10px;
@@ -110,6 +107,9 @@ a.disabled {
 #title {
   font-size: 2.5em;
   line-height: 1em;
+}
+.crosstab-nav-wrapper {
+  width:100%;
 }
 #banner ul.crosstab-nav {
     list-style-type:none;
@@ -137,8 +137,7 @@ a.disabled {
     margin:0;
 }
 .small .crosstab-nav-wrapper {
-    width:600px;
-    float:right;
+    width:100%;
     margin-top:3px;
 }
 .small #title {
@@ -326,9 +325,8 @@ ul#indicator-list li:hover {
 }
 
 /* DIV CLEARS */
-#chatter:after,
+#chatter-wrapper:after,
 .crosstab-nav-wrapper:after,
-#banner:after,
 .row:after { 
     content: "."; 
     visibility: hidden; 

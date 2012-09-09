@@ -251,8 +251,7 @@ function stickyNav(banner, crossTabPos){
 
     if ($(window).scrollTop() > bannerHeight){
     	banner.find('img').hide();
-    	banner.find('#intro').hide();
-    	banner.find('#crosstab-title').hide();
+    	banner.find('#chatter').hide();
     	banner.find('#scrollTo-top').removeClass('disabled');
 
         banner.addClass('fixed small').css('top','0').next()
@@ -260,8 +259,7 @@ function stickyNav(banner, crossTabPos){
 
     } else {
 		banner.find('img').show();
-    	banner.find('#intro').show();
-    	banner.find('#crosstab-title').show();
+    	banner.find('#chatter').show();
     	banner.find('#scrollTo-top').addClass('disabled');
 
         banner.removeClass('fixed small').next()
