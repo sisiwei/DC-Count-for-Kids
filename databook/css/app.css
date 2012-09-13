@@ -88,7 +88,8 @@ a.disabled {
 /* -----------------------------------------
    Banner
 ----------------------------------------- */
-#banner {
+#banner,
+.crosstab-nav-wrapper {
   z-index: 9999;
   background-color: white;
   padding-top: 10px;
@@ -113,30 +114,27 @@ a.disabled {
   font-size: 2.5em;
   line-height: 1em;
 }
-.crosstab-nav-wrapper {
-  width:100%;
-}
-#banner ul.crosstab-nav {
+.crosstab-nav-wrapper ul.crosstab-nav {
     list-style-type:none;
 }
-#banner li {
+.crosstab-nav-wrapper li {
     display:inline;
 }
-#banner li a {
+.crosstab-nav-wrapper li a {
     text-decoration:none;
     color:#555;
     padding-left: 20px;
     margin-left: 20px;
     border-left: 1px solid #DDD;
 }
-#banner li a:hover {
+.crosstab-nav-wrapper li a:hover {
     color:#3180ba;
 }
-#banner li a.selected {
+.crosstab-nav-wrapper li a.selected {
     color:#3180ba;
     cursor:default;
 }
-
+/*
 .small #chatter {
     width:100%;
     margin:0;
@@ -148,7 +146,7 @@ a.disabled {
 .small #title {
     font-size:1.8em;
 }
-/* -----------------------------------------
+*//* -----------------------------------------
    Primary interactive map
 ----------------------------------------- */
 #container {
