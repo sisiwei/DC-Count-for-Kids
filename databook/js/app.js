@@ -9,13 +9,13 @@ jQuery(document).ready(function ($) {
 
 	var baseURL = 'dcaction.map-7j45adj0',
 		indicatorData = [
-			{name:'High poverty neighborhoods', dataTag: 'pov', mapURL: 'dcaction.neigh-pov-dc'},
+			{name:'High poverty', dataTag: 'pov', mapURL: 'dcaction.neigh-pov-dc'},
 			{name:'Access to healthy food', dataTag: 'grocery', mapURL: 'dcaction.grocery-dc'}, 
 			{name:'Recreation centers', dataTag: 'rec', mapURL: 'dcaction.recreation-dc'}, 
-			// {name:'Educational attainment (25+)', dataTag: 'noHSDegree25', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
-			{name:'Educational attainment (18-24)', dataTag: 'noHSDegree18', mapURL: 'dcaction.no-hs-degree-18to24-dc'},
+			{name:'Education (25+)', dataTag: 'noHSDegree25', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
+			{name:'Education (18-24)', dataTag: 'noHSDegree18', mapURL: 'dcaction.no-hs-degree-18to24-dc'},
 			{name:'Homeownership', dataTag: 'homeownership', mapURL: 'dcaction.owner-occupied-homes-dc'},
-			{name:'Youth ready to enter the workforce', dataTag: 'youth-emp', mapURL: 'dcaction.youth-employed-dc'},
+			{name:'Youth ready to work', dataTag: 'youth-emp', mapURL: 'dcaction.youth-employed-dc'},
 			{name:'Environmental health', dataTag: 'envHealth', mapURL: 'dcaction.asthma-dc'},
 			{name:'Violent crime', dataTag: 'crime', mapURL: 'dcaction.crime-dc'},
 			{name:'Libraries', dataTag: 'lib', mapURL: 'dcaction.libraries-dc'},
