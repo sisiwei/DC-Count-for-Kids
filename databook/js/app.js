@@ -1,21 +1,25 @@
 jQuery(document).ready(function ($) {
+
 	var mouseX = 0, mouseY = 0,
 		sidebar = $('#info'),
-		banner = $('#banner');
+		banner = $('#banner'),
+		map,
+		currentMap,
+		crossTabPos = [];
 
 	var baseURL = 'dcaction.map-7j45adj0',
 		indicatorData = [
-			{name:'High poverty neighborhoods', dataTag: 'pov', mapURL: 'dcaction.neigh-pov-dc'},
+			{name:'High poverty', dataTag: 'pov', mapURL: 'dcaction.neigh-pov-dc'},
 			{name:'Access to healthy food', dataTag: 'grocery', mapURL: 'dcaction.grocery-dc'}, 
 			{name:'Recreation centers', dataTag: 'rec', mapURL: 'dcaction.recreation-dc'}, 
-			{name:'Educational attainment (25+)', dataTag: 'noHSDegree25', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
-			{name:'Educational attainment (18-24)', dataTag: 'noHSDegree18', mapURL: 'dcaction.no-hs-degree-18to24-dc'},
+			{name:'Education (25+)', dataTag: 'noHSDegree25', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
+			{name:'Education (18-24)', dataTag: 'noHSDegree18', mapURL: 'dcaction.no-hs-degree-18to24-dc'},
 			{name:'Homeownership', dataTag: 'homeownership', mapURL: 'dcaction.owner-occupied-homes-dc'},
-			{name:'Youth ready to enter the workforce', dataTag: 'youth-emp', mapURL: 'dcaction.youth-employed-dc'},
+			{name:'Youth ready to work', dataTag: 'youth-emp', mapURL: 'dcaction.youth-employed-dc'},
 			{name:'Environmental health', dataTag: 'envHealth', mapURL: 'dcaction.asthma-dc'},
 			{name:'Violent crime', dataTag: 'crime', mapURL: 'dcaction.crime-dc'},
 			{name:'Libraries', dataTag: 'lib', mapURL: 'dcaction.libraries-dc'},
-			{name:'Institutional assets', dataTag: 'instAssets', mapURL: 'dcaction.owner-occupied-homes-dc,dcaction.institutional_assets-crime'},
+			{name:'Neighborhood Assets', dataTag: 'instAssets', mapURL: 'dcaction.owner-occupied-homes-dc,dcaction.institutional_assets-crime'},
 			{name:'School locations', dataTag: 'schools', mapURL: 'dcaction.school-locations'},
 			{name:'Single mother households', dataTag: 'singlemother', mapURL: 'dcaction.single_mother'},
 			{name:'Math scores', dataTag: 'math', mapURL: 'dcaction.math_scores'},
@@ -23,19 +27,10 @@ jQuery(document).ready(function ($) {
 			{name:'Graduation rates', dataTag: 'graduation', mapURL: 'dcaction.graduation_rates'},
 		];
 
-	//=======================
-	// 	DROPDOWN NAV
-	//========================
+	// LOADING ALL CONTENT
+	SimpleTable.init( { key: '0AntoWTCD8D_UdEdsLUxEVnlxZXdjRThLeS1oS1pXRHc', callback: contentFill } );
 
-	// Bulid the dropdown
-	$.each(indicatorData, function(k,v){
-		if (k == 0) {
-			$('#indicator-list').append('<li class="active" data-map="' + v.dataTag + '">' + v.name + '</li>');
-		} else {
-			$('#indicator-list').append('<li data-map="' + v.dataTag + '">' + v.name + '</li>');
-		}
-	})
-
+	// INFOBOX SETTINGS AND INIT
 	var indicators = $('#indicator-list'),
 		selected = $('#indicators').find('.selected'),
 		iMax = indicators.find('li').length,
@@ -44,9 +39,8 @@ jQuery(document).ready(function ($) {
 		prevBtn = $('.arrow-left'),
 		nextBtn = $('.arrow-right');
 
-	// INIT LOAD
+	buildDropdown(indicatorData);
 	selected.html(indicators.find('li.active').html());
-	buildMap(baseURL, indicatorData[indicators.find('li').index(indicators.find('li.active'))].mapURL);
 
 	selected.click(function(){
 		indicators.slideToggle(toggleTime);
@@ -60,7 +54,7 @@ jQuery(document).ready(function ($) {
 			$(this).addClass('active');
 
 			var sIdx = indicators.find('li').index(this);
-			buildMap(baseURL, indicatorData[sIdx].mapURL);
+			callMap(indicatorData[sIdx].mapURL);
 			
 			sIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
 			sIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
@@ -82,92 +76,37 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
-	//=======================
-	// 	MAP
-	//========================
+	buildCrossTabObj(crossTabPos);
+	scrollToFunc(banner);
 
-	var indicatorArray = [];
+    $(window).scroll(function(){ stickyNav(banner); });
 
-	for (i = 0; i < iMax; i++){
-		var elementId = indicators.find('li').get(i).id;
-		indicatorArray.push(elementId);
-	}
-
-	//====================
-	// STICKY NAV
-	//====================
-
-	$(document).mousemove(function(e){
-    	mouseX = e.pageX - 0;
-		mouseY = e.pageY - 170;
-
-		//when scroll
-        $(window).scroll(function(){
-	        var bannerHeight = banner.height();
-
-            if ($(window).scrollTop() > bannerHeight){
-            	banner.find('#big').hide();
-            	banner.find('#small').show();
-
-	            banner.addClass('fixed').css('top','0').next()
-	            .css('padding-top','60px');
-
-            } else {
-            	banner.find('#small').hide();
-				banner.find('#big').show();
-            	
-	            banner.removeClass('fixed').next()
-	            .css('padding-top','0');
-            }
-        });
-	});
-
-	//=========================
-	// SCROLL TO 
-	//==========================
-
-	banner.find('li').children('a').click(function(e){
-		e.preventDefault();
-		var thisId = $(this).attr('href'),
-			object = $(thisId),
-			scrollSpeed = 500;
-
-		if (thisId == '#'){
-			$.scrollTo($('#content'), scrollSpeed, {
-				axis:'y'
-			});
-		} else {
-			$.scrollTo( object, scrollSpeed, {
-				axis:'y',
-				offset: -(banner.find('#small').height() + 10)
-			});			
-		}
-	});
-
+	// BUILD THE MAP ITSELF
+	buildMap(baseURL, indicatorData[indicators.find('li').index(indicators.find('li.active'))].mapURL);
 	
-});
+}); // end document ready
 	
-function buildMap(baseURL, map){
+function buildMap(baseURL, initialMap){
 	$('#mainMap').html('');
+    map = mapbox.map('mainMap', null, null,[MM.DragHandler(), MM.DoubleClickHandler()]);
 
+	map.addLayer(mapbox.layer().id(baseURL));
+	map.addLayer(mapbox.layer().id(initialMap));
+	currentMap = initialMap;
+	// console.log(map.layers);
+
+  	map.centerzoom({lat: 38.900,lon: -77.020}, 12);
+  	map.ui.zoomer.add();
+  	map.setZoomRange(11,16);
+  	map.setPanLimits([{ lat: 39.008, lon: -77.165 }, { lat: 38.782, lon: -76.874 }]);
+
+  	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + initialMap + '.jsonp';
 	var mm = com.modestmaps;
-	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + map + '.jsonp';
 
 	wax.tilejson(mapurl, function(tilejson) {
 	    var tooltip = new wax.tooltip();
-	    var m = new mm.Map('mainMap', 
-	    	new wax.mm.connector(tilejson),
-	        new mm.Point(680, 750));
-	        
-	    m.setCenterZoom(new mm.Location(
-			38.900, //tilejson.center[1], lon
-			-77.020), //tilejson.center[0]), lat
-	        12); // zoom
-
-	    wax.mm.zoomer(m).appendTo(m.parent);
-
 		wax.mm.interaction()
-			.map(m)
+			.map(map)
 			.tilejson(tilejson)
 			.on({
 				on: function(feature) {
@@ -191,9 +130,9 @@ function buildMap(baseURL, map){
 								pctBlack18Legend = "Black: " + pctBlack18 + "%",
 
 								pctOther = (d.PopNHO * 100).toFixed(1),
-								pctOtherLegend = "Other: " + pctOther + "%",
+								pctOtherLegend = "Asian/Other: " + pctOther + "%",
 								pctOther18 = (d.PopNHO18 * 100).toFixed(1),
-								pctOther18Legend = "Other: " + pctOther18 + "%",
+								pctOther18Legend = "Asian/Other: " + pctOther18 + "%",
 
 								pctHisp = (d.PopHisp * 100).toFixed(1),
 								pctHispLegend = "Hispanic: " + pctHisp + "%",
@@ -249,6 +188,109 @@ function buildMap(baseURL, map){
 		});
 	});
 };
+
+function callMap(newMap){
+	map.removeLayerAt(1);
+	map.addLayer(mapbox.layer().id(newMap));
+	currentMap = newMap;
+}
+
+function contentFill(c){
+	// Write all the data:
+	$.each(c, function(k,v){
+		$('#' + v.section).find(v.h).html(v.head);
+		$('#' + v.section).find(v.s).html(v.subhead);
+	})
+}
+
+function buildDropdown(data){
+	$.each(data, function(k,v){
+		if (k == 0) {
+			$('#indicator-list').append('<li class="active" data-map="' + v.dataTag + '">' + v.name + '</li>');
+		} else {
+			$('#indicator-list').append('<li data-map="' + v.dataTag + '">' + v.name + '</li>');
+		}
+	})
+}
+
+function scrollToFunc(banner){
+	// scrollTo
+	var scrollSpeed = 500;
+
+	banner.find('li').children('a').click(function(e){
+		e.preventDefault();
+
+		if (!$(this).hasClass('selected')){
+			var thisId = $(this).attr('href'),
+				object = $(thisId);
+
+			if (thisId == '#'){
+				$.scrollTo($('#content'), scrollSpeed, {
+					axis:'y'
+				});
+
+			} else {
+				$.scrollTo( object, scrollSpeed, {
+					axis:'y',
+					offset: -58
+				});
+			}			
+		}
+	});
+
+	banner.find('h1').click(function(e){
+		e.preventDefault();
+		$.scrollTo($('#content'), scrollSpeed, {
+			axis:'y'
+		});
+	});
+}
+
+function stickyNav(banner, crossTabPos){
+    var bannerHeight = banner.height();
+
+    if ($(window).scrollTop() > bannerHeight){
+    	banner.find('img').hide();
+    	banner.find('#chatter').hide();
+    	banner.find('#scrollTo-top').removeClass('disabled');
+
+        banner.addClass('fixed small').css('top','0').next()
+        .css('padding-top','60px');
+
+    } else {
+		banner.find('img').show();
+    	banner.find('#chatter').show();
+    	banner.find('#scrollTo-top').addClass('disabled');
+
+        banner.removeClass('fixed small').next()
+        .css('padding-top','0');
+    }	
+
+    console.log($(window).scrollTop());
+
+	// highlight navigation with normal scrolling
+	$.each(crossTabPos, function(k, v){
+		if ($(window).scrollTop() > v.topY && $(window).scrollTop() < v.bottomY){
+			banner.find('a').removeClass('selected');
+			banner.find('.crosstab-nav').find('li:eq('+ k +')').find('a').addClass('selected');
+		}
+	})    
+
+}
+function buildCrossTabObj(crossTabPos){
+	$.each($('.secondary'), function(i, el){
+		var top = $('#' + el.id).position().top - 58;
+		crossTabPos.push({
+			'id': el.id,
+			'topY': top,
+			'bottomY': top + $('#' + el.id).height()
+		})
+	});	
+    console.log(crossTabPos);
+}
+//==========
+// UTILS
+//==========
 
 function addCommas(nStr){
 	nStr += '';

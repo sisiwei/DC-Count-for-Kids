@@ -94,12 +94,17 @@ a.disabled {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-#chatter,
-.crosstab-nav-wrapper {
-    width:854px;
+#banner h1 {
+  cursor:pointer;
+}
+#banner img {
+  display: block;
+  top: 3px;
+  position: relative;
 }
 #chatter {
-  margin: 5px 0 0 16px;
+    width:854px;
+    margin: 5px 0 0 16px;
 }
 #chatter > p {
     margin-bottom:10px;
@@ -108,8 +113,8 @@ a.disabled {
   font-size: 2.5em;
   line-height: 1em;
 }
-#small {
-  display: none;
+.crosstab-nav-wrapper {
+  width:100%;
 }
 #banner ul.crosstab-nav {
     list-style-type:none;
@@ -123,6 +128,25 @@ a.disabled {
     padding-left: 20px;
     margin-left: 20px;
     border-left: 1px solid #DDD;
+}
+#banner li a:hover {
+    color:#3180ba;
+}
+#banner li a.selected {
+    color:#3180ba;
+    cursor:default;
+}
+
+.small #chatter {
+    width:100%;
+    margin:0;
+}
+.small .crosstab-nav-wrapper {
+    width:100%;
+    margin-top:3px;
+}
+.small #title {
+    font-size:1.8em;
 }
 /* -----------------------------------------
    Primary interactive map
@@ -207,8 +231,14 @@ ul#indicator-list li:hover {
 #map-container-parent {
     float: left;
     width: 680px;
-    height: 100%;
+    height: 750px;
+    position: relative;
 }
+
+#mainMap {
+  position: absolute; top:0; left:0; width:100%; height: 100%;
+}
+
 /* -----------------------------------------
    Infobox Elements
 ----------------------------------------- */
@@ -285,6 +315,8 @@ ul#indicator-list li:hover {
     margin:0;
 }
 
+.summary ul { padding: 10px 0px 10px 40px }
+
 /* -----------------------------------------
    Tooltip Elements
 ----------------------------------------- */
@@ -300,9 +332,8 @@ ul#indicator-list li:hover {
 }
 
 /* DIV CLEARS */
-#chatter:after,
+#chatter-wrapper:after,
 .crosstab-nav-wrapper:after,
-.banner:after,
 .row:after { 
     content: "."; 
     visibility: hidden; 
