@@ -14,6 +14,15 @@ body {
 h1, h2, h3, h4 {
   margin: 0;
 }
+h2 {
+    font-size:16px;
+}
+
+h2.selected {
+    width: 170px;
+    background-color: #EDF4E4;
+    padding: 5px;
+}
 h3 {
     font-size:20px;
 }
@@ -167,11 +176,18 @@ a.disabled {
   width: 220px;
   overflow: hidden;
 }
+
+#definition {
+  margin: 30px 0px 20px 0px;
+}
+
+
 /* -----------------------------------------
    Option dropdown
 ----------------------------------------- */
 #indicators {
   position: relative;
+  margin-top: 10px;
 }
 #indicators .selected {
   margin: 0px 20px;
@@ -180,7 +196,7 @@ a.disabled {
 }
 #indicators .arrow {
   position: absolute;
-  top: 0;
+  top: 5px;
   cursor:pointer;
 }
 #indicators .arrow.fade {
@@ -208,16 +224,18 @@ ul#indicator-list {
     position:absolute;
     z-index:100;
     margin: 17px;
-    width: 182px;
+    width: 179px;
     list-style-type: none;
     display: none;
+    left: 3px;
+    border: 1px solid #EEE;
 }
 ul#indicator-list > li {
-    cursor: pointer;
-    text-align: center;
-    background-color: white;
-    border: 1px solid #eee;
-    padding: 10px 15px;
+  cursor: pointer;
+  text-align: center;
+  background-color: white;
+  border-top: 1px solid #EEE;
+  padding: 8px 15px;
 }
 ul#indicator-list li:hover {
     color: #f77833;
@@ -246,7 +264,7 @@ ul#indicator-list li:hover {
 }
 
 #nbh-label,
-#school-perf {
+#school-perf, #indicator-label {
     font-size: 11px;
     text-transform: uppercase;
     border-bottom: 1px solid #eaeaea;
