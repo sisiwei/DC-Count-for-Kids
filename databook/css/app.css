@@ -229,6 +229,7 @@ ul#indicator-list {
     display: none;
     left: 3px;
     border: 1px solid #EEE;
+    top: 54px;
 }
 ul#indicator-list > li {
   cursor: pointer;
