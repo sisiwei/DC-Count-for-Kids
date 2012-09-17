@@ -216,12 +216,14 @@ function buildDropdown(data){
 
 function scrollToFunc(crossTabNav){
 	// scrollTo
-	var scrollSpeed = 500;
+	var scrollSpeed = 500,
+		navArrow = crossTabNav.find('.arrow-wrapper');
 
 	crossTabNav.find('li').children('a').click(function(e){
 		e.preventDefault();
 
 		if (!$(this).hasClass('selected')){
+
 			var thisId = $(this).attr('href'),
 				object = $(thisId);
 
@@ -229,13 +231,23 @@ function scrollToFunc(crossTabNav){
 				$.scrollTo($('#content'), scrollSpeed, {
 					axis:'y'
 				});
+				crossTabNav.find('.selected').removeClass('selected');
+				navArrow.hide();
 
 			} else {
 				$.scrollTo( object, scrollSpeed, {
 					axis:'y',
 					offset: -crossTabNav.height()
 				});
-			}			
+
+				var navObjWidth = $(this).width(),
+					navObjCenter = $(this).position().left + ($(this).outerWidth()/2) + 10;
+
+				navArrow.animate({
+					left: navObjCenter
+				});
+				navArrow.show();
+			}
 		}
 	});
 
@@ -252,21 +264,15 @@ function stickyNav(banner, crossTabPos){
     var crossTabNav = $('.crosstab-nav-wrapper');
 
     if ($(window).scrollTop() > bannerHeight){
-    	// banner.hide();
-    	
     	crossTabNav.find('#scrollTo-top').removeClass('disabled');
         crossTabNav.addClass('fixed').css('top','0').next()
         .css('padding-top','60px');
 
     } else {
-		// banner.show();
-
     	crossTabNav.find('#scrollTo-top').addClass('disabled');
         crossTabNav.removeClass('fixed').next()
         .css('padding-top','0');
     }	
-
-    // console.log($(window).scrollTop());
 
 	// highlight navigation with normal scrolling
 	$.each(crossTabPos, function(k, v){
