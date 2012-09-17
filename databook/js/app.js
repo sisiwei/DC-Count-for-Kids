@@ -10,13 +10,13 @@ jQuery(document).ready(function ($) {
 
 	var baseURL = 'dcaction.map-7j45adj0',
 		indicatorData = [
-			{name:'High poverty', dataTag: 'pov', mapURL: 'dcaction.neigh-pov-dc'},
+			{name:'High poverty', dataTag: 'pov', mapURL: 'dcaction.poverty2-dc'}, //dcaction.neigh-pov-dc
 			{name:'Access to healthy food', dataTag: 'grocery', mapURL: 'dcaction.grocery-dc'}, 
 			{name:'Recreation centers', dataTag: 'rec', mapURL: 'dcaction.recreation-dc'}, 
 			{name:'Education (25+)', dataTag: 'noHSDegree25', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
 			{name:'Education (18-24)', dataTag: 'noHSDegree18', mapURL: 'dcaction.no-hs-degree-18to24-dc'},
 			{name:'Homeownership', dataTag: 'homeownership', mapURL: 'dcaction.owner-occupied-homes-dc'},
-			{name:'Youth ready to work', dataTag: 'youth-emp', mapURL: 'dcaction.youth-employed-dc'},
+			{name:'Youth ready to work', dataTag: 'youth-emp', mapURL: 'dcaction.youth-employed2-dc'},
 			{name:'Environmental health', dataTag: 'envHealth', mapURL: 'dcaction.asthma-dc'},
 			{name:'Violent crime', dataTag: 'crime', mapURL: 'dcaction.crime-dc'},
 			{name:'Libraries', dataTag: 'lib', mapURL: 'dcaction.libraries-dc'},
@@ -101,7 +101,7 @@ function buildMap(baseURL, initialMap){
   	map.setZoomRange(11,16);
   	map.setPanLimits([{ lat: 39.008, lon: -77.165 }, { lat: 38.782, lon: -76.874 }]);
 
-  	var mapurl = 'http://a.tiles.mapbox.com/v3/'+ baseURL +',' + initialMap + '.jsonp';
+  	var mapurl = 'http://a.tiles.mapbox.com/v3/dcaction.transparent-dc.jsonp';
 	var mm = com.modestmaps;
 
 	wax.tilejson(mapurl, function(tilejson) {
@@ -216,14 +216,12 @@ function buildDropdown(data){
 
 function scrollToFunc(crossTabNav){
 	// scrollTo
-	var scrollSpeed = 500,
-		navArrow = crossTabNav.find('.arrow-wrapper');
+	var scrollSpeed = 500;
 
 	crossTabNav.find('li').children('a').click(function(e){
 		e.preventDefault();
 
 		if (!$(this).hasClass('selected')){
-
 			var thisId = $(this).attr('href'),
 				object = $(thisId);
 
@@ -231,23 +229,13 @@ function scrollToFunc(crossTabNav){
 				$.scrollTo($('#content'), scrollSpeed, {
 					axis:'y'
 				});
-				crossTabNav.find('.selected').removeClass('selected');
-				navArrow.hide();
 
 			} else {
 				$.scrollTo( object, scrollSpeed, {
 					axis:'y',
 					offset: -crossTabNav.height()
 				});
-
-				var navObjWidth = $(this).width(),
-					navObjCenter = $(this).position().left + ($(this).outerWidth()/2) + 10;
-
-				navArrow.animate({
-					left: navObjCenter
-				});
-				navArrow.show();
-			}
+			}			
 		}
 	});
 
@@ -264,15 +252,21 @@ function stickyNav(banner, crossTabPos){
     var crossTabNav = $('.crosstab-nav-wrapper');
 
     if ($(window).scrollTop() > bannerHeight){
+    	// banner.hide();
+    	
     	crossTabNav.find('#scrollTo-top').removeClass('disabled');
         crossTabNav.addClass('fixed').css('top','0').next()
         .css('padding-top','60px');
 
     } else {
+		// banner.show();
+
     	crossTabNav.find('#scrollTo-top').addClass('disabled');
         crossTabNav.removeClass('fixed').next()
         .css('padding-top','0');
     }	
+
+    // console.log($(window).scrollTop());
 
 	// highlight navigation with normal scrolling
 	$.each(crossTabPos, function(k, v){
