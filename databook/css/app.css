@@ -2,9 +2,9 @@
    Shared Styles
 ----------------------------------------- */
 body {
-  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 13px;
-  line-height: 15px;
+  font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
   color: #555;
   -webkit-font-smoothing: antialiased;
   margin: 0;
