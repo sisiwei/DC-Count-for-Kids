@@ -72,6 +72,9 @@ a.disabled {
     text-transform:uppercase;
     font-weight:bold;
 }
+.pointer {
+  cursor: pointer;
+}
 
 /* -----------------------------------------
    Wrapper
