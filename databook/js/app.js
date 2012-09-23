@@ -10,25 +10,7 @@ jQuery(document).ready(function ($) {
 		map,
 		currentMap;
 
-	var baseURL = 'dcaction.map-7j45adj0',
-		indicatorData = [
-			{name:'High poverty', dataTag: 'pov', mapURL: 'dcaction.poverty2-dc'}, //dcaction.neigh-pov-dc
-			{name:'Access to healthy food', dataTag: 'grocery', mapURL: 'dcaction.grocery-dc'}, 
-			{name:'Recreation centers', dataTag: 'rec', mapURL: 'dcaction.recreation-dc'}, 
-			{name:'Education (25+)', dataTag: 'noHSDegree25', mapURL: 'dcaction.no-hs-degree-25-dc'}, 
-			{name:'Education (18-24)', dataTag: 'noHSDegree18', mapURL: 'dcaction.no-hs-degree-18to24-dc'},
-			{name:'Homeownership', dataTag: 'homeownership', mapURL: 'dcaction.owner-occupied-homes-dc'},
-			{name:'Youth ready to work', dataTag: 'youth-emp', mapURL: 'dcaction.youth-employed2-dc'},
-			{name:'Environmental health', dataTag: 'envHealth', mapURL: 'dcaction.asthma-dc'},
-			{name:'Violent crime', dataTag: 'crime', mapURL: 'dcaction.crime-dc'},
-			{name:'Libraries', dataTag: 'lib', mapURL: 'dcaction.libraries-dc'},
-			{name:'Neighborhood Assets', dataTag: 'instAssets', mapURL: 'dcaction.owner-occupied-homes-dc,dcaction.institutional_assets-crime'},
-			{name:'School locations', dataTag: 'schools', mapURL: 'dcaction.school-locations'},
-			{name:'Single mother families', dataTag: 'singlemother', mapURL: 'dcaction.single_mother'},
-			{name:'Math scores', dataTag: 'math', mapURL: 'dcaction.math_scores'},
-			{name:'Reading scores', dataTag: 'reading', mapURL: 'dcaction.reading_scores'},
-			{name:'Graduation rates', dataTag: 'graduation', mapURL: 'dcaction.graduation_rates'},
-		];
+	var baseURL = 'dcaction.map-7j45adj0';
 
 	// LOADING ALL CONTENT
 	SimpleTable.init( { key: '0AntoWTCD8D_UdEdsLUxEVnlxZXdjRThLeS1oS1pXRHc', callback: contentFill } );
@@ -36,7 +18,6 @@ jQuery(document).ready(function ($) {
 	// INFOBOX SETTINGS AND INIT
 	var indicators = $('#indicator-list'),
 		selected = $('#indicators').find('.selected'),
-		iMax = indicators.find('li').length,
 		toggleTime = 250,
 		arrow = $('.arrow'),
 		prevBtn = $('.arrow-left'),
@@ -46,26 +27,27 @@ jQuery(document).ready(function ($) {
 	selected.html(indicators.find('li.active').html());
 
 	selected.click(function(){
-		indicators.slideToggle(toggleTime);
+		indicators.slideToggle(toggleTime, 'linear');
 	})
 
 	indicators.find('li').click(function(){
-		indicators.slideUp(toggleTime);
-		if ('li:not(.active)'){
+		indicators.slideUp(toggleTime, 'linear');
+		if (!$(this).hasClass('active')){
 			selected.html($(this).html());
 			$(this).siblings('.active').removeClass('active');
 			$(this).addClass('active');
 
 			var sIdx = indicators.find('li').index(this);
 			callMap(indicatorData[sIdx].mapURL);
-			
-			sIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
-			sIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
+			legendFill(indicatorData[sIdx]);
+
+			sIdx == 0 ? prevBtn.removeClass('hover').addClass('fade') : prevBtn.removeClass('fade').addClass('hover');
+			sIdx == indicators.find('li').length - 1 ? nextBtn.removeClass('hover').addClass('fade') : nextBtn.removeClass('fade').addClass('hover');
 		}
 	});
 
 	arrow.click(function(){
-		if ($(this).hasClass('fade') == false){
+		if (!$(this).hasClass('fade')){
 
 			var currIdx = indicators.find('li.active').index(),
 				newIdx = $(this).hasClass('arrow-left') ? currIdx - 1 : currIdx + 1 ;
@@ -75,7 +57,7 @@ jQuery(document).ready(function ($) {
 			}
 
 			newIdx == 0 ? prevBtn.addClass('fade') : prevBtn.removeClass('fade');
-			newIdx == iMax - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
+			newIdx == indicators.find('li').length - 1 ? nextBtn.addClass('fade') : nextBtn.removeClass('fade');
 		}
 	});
 
@@ -84,8 +66,10 @@ jQuery(document).ready(function ($) {
     $(window).scroll(function(){ stickyNav(banner); });
 
 	// BUILD THE MAP ITSELF
-	buildMap(baseURL, indicatorData[indicators.find('li').index(indicators.find('li.active'))].mapURL);
-	
+	var initIdx = indicators.find('li').index(indicators.find('li.active'));
+	buildMap(baseURL, indicatorData[initIdx].mapURL);
+	legendFill(indicatorData[initIdx]);
+
 }); // end document ready
 	
 function buildMap(baseURL, initialMap){
@@ -195,6 +179,23 @@ function callMap(newMap){
 	map.removeLayerAt(1);
 	map.addLayer(mapbox.layer().id(newMap));
 	currentMap = newMap;
+}
+
+function legendFill(obj){
+	var legend = $('#legend');
+
+	$.each(legend.find('.label'), function(k, v){
+		if (obj.cutPoints[k] != null){			
+			var txt = k == 0 ? 'More than ' + obj.cutPoints[k] + obj.cutPointLabel
+				: k == legend.find('.label').length - 1 ? 'Less than ' + obj.cutPoints[k-1]
+				: obj.cutPoints[k-1] + ' to ' + obj.cutPoints[k];
+			$(v).html(txt);
+			legend.show();
+		} else {
+			legend.hide();
+		}
+	});
+
 }
 
 function contentFill(c){

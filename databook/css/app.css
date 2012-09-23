@@ -1,80 +1,33 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-body {
-  font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 14px;
-  line-height: 16px;
-  color: #555;
-  -webkit-font-smoothing: antialiased;
-  margin: 0;
-  padding: 0;
-  background: #eee;
-}
-h1, h2, h3, h4 {
-  margin: 0;
-}
-h2 {
-    font-size:16px;
-}
-
+body { font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 14px; line-height: 16px; color: #555; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; background: #eee; }
+h1, h2, h3, h4 { margin: 0; }
+h2 { font-size:16px; }
 h2.selected {
     width: 170px;
     background-color: #EDF4E4;
-    padding: 5px;
+    padding: 5px 5px 7px 5px;
+    text-align:center;
 }
-h3 {
-    font-size:20px;
-}
-h4 {
-    font-size:14px;
-}
-p {
-  margin: 0 0 15px;
-}
-ul {
-  padding: 0;
-  margin: 0;
-}
+h3 { font-size:20px; }
+h4 { font-size:14px; }
+p { margin: 0 0 15px; }
+ul { padding: 0; margin: 0; }
 a:link,
 a:visited,
-a:active {
-    text-decoration:underline;
-    color:#3180ba;
-}
-a:hover {
-    text-decoration:none;
-    /*color:#6aadd3;*/
-}
-.left {
-  float: left;
-}
-.right {
-  float: right;
-}
-.border-top {
-    border-top: 1px solid #eee;
-}
-.border-bottom {
-  border-bottom: 1px solid #eee;
-}
-.margin-top-30 {
-    margin-top: 30px;
-}
-.margin-none {
-    margin:0;
-}
-a.disabled {
-    color:#ccc !important;
-    cursor:default;
-}
-.uppercase {
-    text-transform:uppercase;
-    font-weight:bold;
-}
-.pointer {
-  cursor: pointer;
-}
+a:active { text-decoration:underline; color:#3180ba; }
+a:hover { text-decoration:none; /*color:#6aadd3;*/ }
+a.disabled { color:#ccc !important; cursor:default; }
+.border { border: 1px solid #eee; }
+.border-bottom { border-bottom: 1px solid #eee; }
+.border-top { border-top: 1px solid #eee; }
+.margin-none { margin:0; }
+.margin-top-30 { margin-top: 30px; }
+.left { float: left; }
+.right { float: right; }
+.pointer { cursor: pointer; }
+.uppercase { text-transform:uppercase; font-weight:bold; }
 
 /* -----------------------------------------
    Wrapper
@@ -101,9 +54,6 @@ a.disabled {
   background-color: white;
   padding-top: 10px;
   padding-bottom: 10px;
-}
-#banner h1 {
-  cursor:pointer;
 }
 #banner img {
   display: block;
@@ -168,19 +118,7 @@ a.disabled {
     left:1px;
     z-index:17;
 }
-/*
-.small #chatter {
-    width:100%;
-    margin:0;
-}
-.small .crosstab-nav-wrapper {
-    width:100%;
-    margin-top:3px;
-}
-.small #title {
-    font-size:1.8em;
-}
-*//* -----------------------------------------
+/* -----------------------------------------
    Primary interactive map
 ----------------------------------------- */
 #container {
@@ -196,7 +134,7 @@ a.disabled {
 ----------------------------------------- */
 .info {
   background: white;
-  padding: 15px 20px 15px 0;
+  padding: 0 20px 15px 0;
   float: left;
   width: 220px;
   overflow: hidden;
@@ -222,7 +160,6 @@ a.disabled {
 #indicators .arrow {
   position: absolute;
   top: 5px;
-  cursor:pointer;
 }
 #indicators .arrow.fade {
   opacity:0.2;
@@ -237,6 +174,9 @@ a.disabled {
     border-left: 10px solid #ccc;
     right: 0;
 }
+#indicators .arrow-right.hover:hover {
+    border-left: 10px solid #6a6a6a;
+}
 #indicators .arrow-left {
     width: 0;
     height: 0;
@@ -244,6 +184,9 @@ a.disabled {
     border-bottom: 10px solid transparent;
     border-right: 10px solid #ccc;
     left: 0;
+}
+#indicators .arrow-left.hover:hover {
+    border-right: 10px solid #6a6a6a;
 }
 ul#indicator-list {
     position:absolute;
@@ -254,7 +197,7 @@ ul#indicator-list {
     display: none;
     left: 3px;
     border: 1px solid #EEE;
-    top: 54px;
+    top: 25px;
 }
 ul#indicator-list > li {
   cursor: pointer;
@@ -264,8 +207,28 @@ ul#indicator-list > li {
   padding: 8px 15px;
 }
 ul#indicator-list li:hover {
-    color: #f77833;
+    color: #3180ba;
 }
+
+/*---------------
+LEGEND
+----------------*/
+#legend {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 50;
+  background-color: white;
+  padding: 10px 15px 0;
+}
+#legend p { margin-bottom:10px; }
+#legend .color { width: 12px; height: 12px; margin-right: 10px; display:block; }
+#legend .label { max-width: 100px; }
+.icon-4 .color { background-color:#6e843f; }
+.icon-3 .color { background-color:#9ad363; }
+.icon-2 .color { background-color:#bbef8e; }
+.icon-1 .color { background-color:#d9fcb9; }
+.icon-0 .color { background-color:#f0ffe1; }
 
 /* -----------------------------------------
    Map portions
@@ -276,7 +239,6 @@ ul#indicator-list li:hover {
     height: 750px;
     position: relative;
 }
-
 #mainMap {
   position: absolute; top:0; left:0; width:100%; height: 100%;
 }
@@ -393,3 +355,14 @@ STICKY NAV
   -moz-box-shadow: 0px 0px 5px #aaa;
   -webkit-box-shadow: 0px 0px 5px #aaa;
 }
+
+/*----------
+CLEAR FLOATS
+----------*/
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.cf:after { clear: both; } 
+.cf { *zoom: 1; }

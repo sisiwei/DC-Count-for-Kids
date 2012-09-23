@@ -26,6 +26,7 @@
 	<script src='js/mapGraphInit.js' type='text/javascript'></script>
 	<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.5/mapbox.js'></script>
 	<script src='js/simpletable.js'></script>
+	<script src="js/indicators.js"></script>
 	<script src="js/app.js"></script>
 
 </head>
@@ -35,7 +36,7 @@
 			<div id="chatter-wrapper">
 				<img class="left" src="images/logo.png" alt="DC Action for Children Databook" />
 				<div id="chatter" class="left">
-					<h1 id="title" class="left">2012 Databook</h1>
+					<h1 id="title" class="left pointer">2012 Databook</h1>
 					<p id="intro" class="left">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper.</p>
 				</div>
 			</div>
@@ -56,11 +57,11 @@
 		<div id="container" class="width">
 			<div id="primary">
 				<div class="info">
-					<div id="indicator-label">Select an indicator</div>
-					<div id="indicators">
-						<div class="arrow-left arrow left fade"></div>
-						<h2 class="selected left"></h2>
-						<div class="arrow-right arrow left"></div>
+					<!-- <div id="indicator-label">Select an indicator</div> -->
+					<div id="indicators" class="cf">
+						<div class="arrow-left arrow pointer left fade"></div>
+						<h2 class="selected left border"></h2>
+						<div class="arrow-right arrow pointer left hover"></div>
 						<div class="clear"></div>
 					</div>
 					<ul id="indicator-list"></ul>				
@@ -108,6 +109,13 @@
 		            <div id="school-data" class="school-box"></div>
 
 				</div><!-- /info -->
+				<div id="legend" class="border cf">
+					<p class="icon-4 cf"><span class="color left"></span><span class="left label"></span></p>
+					<p class="icon-3 cf"><span class="color left"></span><span class="left label"></span></p>
+					<p class="icon-2 cf"><span class="color left"></span><span class="left label"></span></p>
+					<p class="icon-1 cf"><span class="color left"></span><span class="left label"></span></p>
+					<p class="icon-0 cf"><span class="color left"></span><span class="left label"></span></p>
+				</div>
 				<div id="map-container-parent">
 					<div id="mainMap" class="map"></div>
 				</div><!-- /map-container-parent -->
