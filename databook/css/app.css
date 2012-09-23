@@ -220,6 +220,7 @@ LEGEND
   z-index: 50;
   background-color: white;
   padding: 10px 15px 0;
+  border-color: #ccc;
 }
 #legend p { margin-bottom:10px; }
 #legend .color { width: 12px; height: 12px; margin-right: 10px; display:block; }
