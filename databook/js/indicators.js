@@ -7,8 +7,7 @@ indicatorData = [
 			0: 0.38,
 			1: 0.3,
 			2: 0.17,
-			3: 0.1,
-			4: 0
+			3: 0.1
 		},
 		cutPointLabel: '%'
 	}, //dcaction.neigh-pov-dc
@@ -20,8 +19,7 @@ indicatorData = [
 			0: null,
 			1: null,
 			2: null,
-			3: null,
-			4: null
+			3: null
 		},
 		cutPointLabel: '%'
 	}, 
@@ -33,8 +31,7 @@ indicatorData = [
 			0: null,
 			1: null,
 			2: null,
-			3: null,
-			4: null
+			3: null
 		},
 		cutPointLabel: '%'
 	}, 
@@ -46,8 +43,7 @@ indicatorData = [
 			0: .23,
 			1: .19,
 			2: .14,
-			3: .06,
-			4: 0
+			3: .06
 		},
 		cutPointLabel: '%'
 	}, 
@@ -59,8 +55,7 @@ indicatorData = [
 			0: .07, 
 			1: .04, 
 			2: .025, 
-			3: .013,
-			4: 0
+			3: .013
 		},
 		cutPointLabel: '%'
 	},
@@ -72,8 +67,7 @@ indicatorData = [
 			0: .75, 
 			1: .55,
 			2: .42,
-			3: .3,
-			4: 0
+			3: .3
 		},
 		cutPointLabel: '%'
 	},
@@ -85,8 +79,7 @@ indicatorData = [
 			0: .34, 
 			1: .21, 
 			2: .16, 
-			3: .1,
-			4: 0
+			3: .1
 		},
 		cutPointLabel: '%'
 	},
@@ -98,8 +91,7 @@ indicatorData = [
 			0: 875, 
 			1: 675,
 			2: 425,
-			3: 225,
-			4: 0
+			3: 225
 		},
 		cutPointLabel: ' per 10,000 children'
 	},
@@ -111,8 +103,7 @@ indicatorData = [
 			0: 22, 
 			1: 15, 
 			2: 10, 
-			3: 6,
-			4: 0
+			3: 6
 		},
 		cutPointLabel: ' per 1,000 pop'
 	},
@@ -124,8 +115,7 @@ indicatorData = [
 			0: null,
 			1: null,
 			2: null,
-			3: null,
-			4: null
+			3: null
 		},
 		cutPointLabel: '%'
 	},
@@ -138,7 +128,7 @@ indicatorData = [
 	// 		1: null,
 	// 		2: null,
 	// 		3: null,
-	//		4: null
+
 	// 	},
 	//	cutPointLabel: '%'
 	// },
@@ -150,8 +140,7 @@ indicatorData = [
 			0: null,
 			1: null,
 			2: null,
-			3: null,
-			4: null
+			3: null
 		},
 		cutPointLabel: '%'
 	},
@@ -163,8 +152,7 @@ indicatorData = [
 			0: .37, 
 			1: .2,
 			2: .15,
-			3: .12,
-			4: 0
+			3: .12
 		},
 		cutPointLabel: '%'
 	},
@@ -176,8 +164,7 @@ indicatorData = [
 			0: .66,
 			1: .5,
 			2: .33,
-			3: .2,
-			4: 0
+			3: .2
 		},
 		cutPointLabel: '%'
 	},
@@ -189,8 +176,7 @@ indicatorData = [
 			0: .66,
 			1: .5,
 			2: .33,
-			3: .2,
-			4: 0
+			3: .2
 		},
 		cutPointLabel: '%'
 	},
@@ -202,8 +188,7 @@ indicatorData = [
 			0: .89,
 			1: .78,
 			2: .67,
-			3: .5,
-			4: 0
+			3: .5
 		},
 		cutPointLabel: '%'
 	}
