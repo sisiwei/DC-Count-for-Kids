@@ -320,7 +320,7 @@ LEGEND
     margin:0;
 }
 
-.summary ul { padding: 10px 0px 10px 40px }
+.summary ul, .cross-tab ul { padding: 10px 0px 10px 40px }
 
 /* -----------------------------------------
    Tooltip Elements
