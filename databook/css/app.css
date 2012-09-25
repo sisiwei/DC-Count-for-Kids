@@ -316,9 +316,6 @@ LEGEND
     margin-right: 0;
 }
 .cross-tab img { width:100%; }
-.cross-tab .blurb p {
-    margin:0;
-}
 
 .summary ul, .cross-tab ul { padding: 10px 0px 10px 40px }
 
