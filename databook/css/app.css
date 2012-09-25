@@ -323,6 +323,16 @@ LEGEND
 .summary ul, .cross-tab ul { padding: 10px 0px 10px 40px }
 
 /* -----------------------------------------
+ Social Share icons
+----------------------------------------- */
+
+.social-share { margin: 12px 20px 0; }
+.social-icon { cursor:pointer; width:16px; height:15px; margin:0 5px; background: url('../images/share-btns.png') no-repeat; }
+.twitter { background-position:0px 0px; }
+.fb { background-position:0px -16px; }
+.email { background-position:0px -33px; }
+
+/* -----------------------------------------
    Tooltip Elements
 ----------------------------------------- */
 #school-tooltip {
