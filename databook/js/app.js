@@ -109,7 +109,6 @@ function buildMap(baseURL, initialMap){
 						if (d.NBH_NAMES != undefined){
 							$('.indicator-floats').show();
 							$('#floating-tooltip').show();
-
 							var neighborhoodNames = d.NBH_NAMES,
 								indicatorVal = d[currentIndicator.dataTag],
 								displayNum = (currentIndicator.multiplier != 1) ? (indicatorVal * currentIndicator.multiplier).toFixed(1) : (indicatorVal * currentIndicator.multiplier).toFixed(0),
@@ -145,7 +144,7 @@ function buildMap(baseURL, initialMap){
 								// $('#school-perf').show();
 
 								$('#nbh-name').html(neighborhoodNames);
-								$('#definition').html(currentIndicator.label);
+								//$('#definition').html(currentIndicator.label);
 								$('#floating-tooltip').html( displayNum + currentIndicator.labelEnd);
 								$('#total-pop .value').html(addCommas(pop));
 								$('#child-pop .value').html(addCommas(childPop));
@@ -158,7 +157,6 @@ function buildMap(baseURL, initialMap){
 								// INVESTIGATE DATA:
 								// $('#school-perf-chart').html('<strong>Percentage Proficient and Above</strong><br/><center><img style="padding-top: 5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=290x240&cht=s&chd=t:25,' + schoolValueArray + '&chco=' + schoolHexArray + '&chdl=DC+Average|Nbhd+Schools&chf=bg,s,67676700" width="290" height="240" /></center>')
 						} else {
-							console.log('here');
 							var schoolName = d.Name,
 								address = d.StreetAddress,
 								la = d.Latitude,

@@ -225,11 +225,16 @@ LEGEND
 #legend p { margin-bottom:10px; }
 #legend .color { width: 12px; height: 12px; margin-right: 10px; display:block; }
 #legend .label { max-width: 100px; }
-.icon-4 .color { background-color:#6e843f; opacity: 0.9;}
+/*.icon-4 .color { background-color:#6e843f; opacity: 0.9;}
 .icon-3 .color { background-color:#9ad363; }
 .icon-2 .color { background-color:#bbef8e; }
 .icon-1 .color { background-color:#d9fcb9; }
-.icon-0 .color { background-color:#f0ffe1; }
+.icon-0 .color { background-color:#f0ffe1; }*/
+.icon-4 .color { background-color:#a0cc80; }
+.icon-3 .color { background-color:#bade96; }
+.icon-2 .color { background-color:#d3f2b8; }
+.icon-1 .color { background-color:#e3f7ce; }
+.icon-0 .color { background-color:#ecfbd9; }
 
 /* -----------------------------------------
    Map portions
@@ -253,6 +258,7 @@ LEGEND
   -moz-box-shadow: 2px 2px 8px #888; 
   -webkit-box-shadow: 2px 2px 8px #888; 
   box-shadow: 2px 2px 8px #888;
+  display:none;
 }
 
 /* -----------------------------------------
@@ -317,8 +323,8 @@ LEGEND
 }
 .cross-tab { 
     float: left;
-    width: 288px;
-    margin: 0 14px;
+    width: 445px;
+    margin: 0 15px;
 }
 .cross-tab.first {
     margin-left: 0;
@@ -335,7 +341,7 @@ LEGEND
 ----------------------------------------- */
 
 .social-share { margin: 12px 20px 0; }
-.social-icon { cursor:pointer; width:16px; height:15px; margin:0 5px; background: url('../images/share-btns.png') no-repeat; }
+.social-icon { cursor:pointer; width:16px; height:17px; margin:0 5px; background: url('../images/share-btns.png') no-repeat; }
 .twitter { background-position:0px 0px; }
 .fb { background-position:0px -16px; }
 .email { background-position:0px -33px; }

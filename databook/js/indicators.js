@@ -48,6 +48,7 @@ indicatorData = [
 		name:'Education (25+)', 
 		dataTag: 'noHSDegree25', 
 		mapURL: 'dcaction.no-hs-degree-25-dc',
+		multiplier: 100,
 		cutPoints: {
 			0: .23,
 			1: .19,
@@ -60,6 +61,7 @@ indicatorData = [
 		name:'Education (18-24)',
 		dataTag: 'noHSDegree18',
 		mapURL: 'dcaction.no-hs-degree-18to24-dc',
+		multiplier: 100,
 		cutPoints: {
 			0: .07, 
 			1: .04, 
@@ -156,18 +158,18 @@ indicatorData = [
 	// 	},
 	//	cutPointLabel: '%'
 	// },
-	{
-		name:'School locations', 
-		dataTag: 'schools', 
-		mapURL: 'dcaction.school-locations',
-		cutPoints: {
-			0: null,
-			1: null,
-			2: null,
-			3: null
-		},
-		cutPointLabel: '%'
-	},
+	// {
+	// 	name:'School locations', 
+	// 	dataTag: 'schools', 
+	// 	mapURL: 'dcaction.school-locations',
+	// 	cutPoints: {
+	// 		0: null,
+	// 		1: null,
+	// 		2: null,
+	// 		3: null
+	// 	},
+	// 	cutPointLabel: '%'
+	// },
 	{
 		name:'Single mother families', 
 		dataTag: 'SingleMomF', 
@@ -187,6 +189,7 @@ indicatorData = [
 		name:'Math scores', 
 		dataTag: 'math', 
 		mapURL: 'dcaction.math_scores',
+		multiplier: 100,
 		cutPoints: {
 			0: .66,
 			1: .5,
@@ -199,6 +202,7 @@ indicatorData = [
 		name:'Reading scores', 
 		dataTag: 'reading', 
 		mapURL: 'dcaction.reading_scores',
+		multiplier: 100,
 		cutPoints: {
 			0: .66,
 			1: .5,
@@ -211,6 +215,7 @@ indicatorData = [
 		name:'Graduation rates', 
 		dataTag: 'graduation', 
 		mapURL: 'dcaction.graduation_rates',
+		multiplier: 100,
 		cutPoints: {
 			0: .89,
 			1: .78,
