@@ -323,8 +323,8 @@ LEGEND
 }
 .cross-tab { 
     float: left;
-    width: 288px;
-    margin: 0 14px;
+    width: 445px;
+    margin: 0 15px;
 }
 .cross-tab.first {
     margin-left: 0;
@@ -341,7 +341,7 @@ LEGEND
 ----------------------------------------- */
 
 .social-share { margin: 12px 20px 0; }
-.social-icon { cursor:pointer; width:16px; height:15px; margin:0 5px; background: url('../images/share-btns.png') no-repeat; }
+.social-icon { cursor:pointer; width:16px; height:17px; margin:0 5px; background: url('../images/share-btns.png') no-repeat; }
 .twitter { background-position:0px 0px; }
 .fb { background-position:0px -16px; }
 .email { background-position:0px -33px; }
