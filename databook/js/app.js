@@ -145,7 +145,7 @@ function buildMap(baseURL, initialMap){
 								// $('#school-perf').show();
 
 								$('#nbh-name').html(neighborhoodNames);
-								$('#definition').html(currentIndicator.label);
+								//$('#definition').html(currentIndicator.label);
 								$('#floating-tooltip').html( displayNum + currentIndicator.labelEnd);
 								$('#total-pop .value').html(addCommas(pop));
 								$('#child-pop .value').html(addCommas(childPop));
