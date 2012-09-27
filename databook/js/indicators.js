@@ -48,6 +48,7 @@ indicatorData = [
 		name:'Education (25+)', 
 		dataTag: 'noHSDegree25', 
 		mapURL: 'dcaction.no-hs-degree-25-dc',
+		multiplier: 100,
 		cutPoints: {
 			0: .23,
 			1: .19,
@@ -60,6 +61,7 @@ indicatorData = [
 		name:'Education (18-24)',
 		dataTag: 'noHSDegree18',
 		mapURL: 'dcaction.no-hs-degree-18to24-dc',
+		multiplier: 100,
 		cutPoints: {
 			0: .07, 
 			1: .04, 
