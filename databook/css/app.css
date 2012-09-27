@@ -28,6 +28,7 @@ a.disabled { color:#ccc !important; cursor:default; }
 .right { float: right; }
 .pointer { cursor: pointer; }
 .uppercase { text-transform:uppercase; font-weight:bold; }
+.hidden { display:none; }
 
 /* -----------------------------------------
    Wrapper
@@ -345,6 +346,7 @@ LEGEND
 .twitter { background-position:0px 0px; }
 .fb { background-position:0px -16px; }
 .email { background-position:0px -33px; }
+.crosstab-nav-wrapper .social-share { margin: 0 10px; }
 
 /* -----------------------------------------
    Tooltip Elements
