@@ -3,7 +3,6 @@ var clickScroll = false,
 	currentIndicator;
 
 jQuery(document).ready(function ($) {
-
 	var mouseX = 0, mouseY = 0,
 		sidebar = $('#info'),
 		banner = $('#banner'),
@@ -92,6 +91,12 @@ function buildMap(baseURL, initialMap){
   	var mapurl = 'http://a.tiles.mapbox.com/v3/dcaction.transparent-dc.jsonp';
 	var mm = com.modestmaps;
 
+	$("#mainMap").mousemove(function(e){
+		var x = e.pageX - 510;
+		var y = e.pageY - 230;
+	    $('#floating-tooltip').css({'left':x, 'top':y});
+    });
+
 	wax.tilejson(mapurl, function(tilejson) {
 	    var tooltip = new wax.tooltip();
 		wax.mm.interaction()
@@ -103,6 +108,7 @@ function buildMap(baseURL, initialMap){
 						var d = feature.data;
 						if (d.NBH_NAMES != undefined){
 							$('.indicator-floats').show();
+							$('#floating-tooltip').show();
 
 							var neighborhoodNames = d.NBH_NAMES,
 								indicatorVal = d[currentIndicator.dataTag],
@@ -138,7 +144,8 @@ function buildMap(baseURL, initialMap){
 								// $('#school-perf').show();
 
 								$('#nbh-name').html(neighborhoodNames);
-								$('#definition').html(currentIndicator.label + (indicatorVal * currentIndicator.multiplier).toFixed(1) + currentIndicator.labelEnd);
+								$('#definition').html(currentIndicator.label);
+								$('#floating-tooltip').html( (indicatorVal * currentIndicator.multiplier).toFixed(1) + currentIndicator.labelEnd);
 								$('#total-pop .value').html(addCommas(pop));
 								$('#child-pop .value').html(addCommas(childPop));
 								$('#avg-income .value').html('$' + addCommas(medianFamilyIncome));
@@ -176,6 +183,7 @@ function buildMap(baseURL, initialMap){
 				off: function(feature) {
 					$('#school-tooltip').fadeOut(100);
 					$('#school-data').fadeOut(100);
+					$('#floating-tooltip').fadeOut(100);
 				}
 		});
 	});
@@ -192,9 +200,9 @@ function legendFill(obj){
 
 	$.each(legend.find('.label'), function(k, v){
 		if (obj.cutPoints[0] != null){			
-			var txt = k == 0 ? 'More than ' + obj.cutPoints[k] + obj.cutPointLabel
-				: k == legend.find('.label').length - 1 ? 'Less than ' + obj.cutPoints[k-1]
-				: obj.cutPoints[k-1] + ' to ' + obj.cutPoints[k];
+			var txt = k == 0 ? 'More than ' + (obj.cutPoints[k] * obj.multiplier) + obj.cutPointLabel
+				: k == legend.find('.label').length - 1 ? 'Less than ' + (obj.cutPoints[k-1] * obj.multiplier)
+				: (obj.cutPoints[k-1] * obj.multiplier) + ' to ' + (obj.cutPoints[k] * obj.multiplier);
 			$(v).html(txt);
 			legend.show();
 		} else {
