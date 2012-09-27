@@ -2,7 +2,7 @@ indicatorData = [
 	{
 		name:'High poverty',
 		dataTag: 'ConcPov',
-		label: 'Poverty rate: ',
+		label: 'Poverty rate',
 		multiplier: 100,
 		labelEnd: '%',
 		mapURL: 'dcaction.poverty2-dc',
@@ -17,9 +17,9 @@ indicatorData = [
 	{
 		name:'Access to healthy food', 
 		dataTag: 'Grocery_St', 
-		label: 'Number of grocery stores: ',
+		label: 'Number of grocery stores',
 		multiplier: 1,
-		labelEnd: '',
+		labelEnd: ' grocery stores',
 		mapURL: 'dcaction.grocery-dc',
 		cutPoints: {
 			0: null,
@@ -32,9 +32,9 @@ indicatorData = [
 	{
 		name:'Recreation centers',
 		dataTag: 'Rec_Center',
-		label: 'Number of recreation centers: ',
+		label: 'Number of recreation centers',
 		multiplier: 1,
-		labelEnd: '',
+		labelEnd: ' recreation centers',
 		mapURL: 'dcaction.recreation-dc',
 		cutPoints: {
 			0: null,
@@ -71,7 +71,7 @@ indicatorData = [
 	{
 		name:'Homeownership', 
 		dataTag: 'HomeOwn',
-		label: 'Homeownership: ',
+		label: 'Homeownership',
 		multiplier: 100,
 		labelEnd: '%',
 		mapURL: 'dcaction.owner-occupied-homes-dc',
@@ -131,9 +131,9 @@ indicatorData = [
 	{
 		name:'Libraries',
 		dataTag: 'Library',
-		label: 'Libraries: ',
+		label: 'Number of libraries',
 		multiplier: 1,
-		labelEnd: '',
+		labelEnd: ' libraries',
 		mapURL: 'dcaction.libraries-dc',
 		cutPoints: {
 			0: null,

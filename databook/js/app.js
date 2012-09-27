@@ -112,6 +112,7 @@ function buildMap(baseURL, initialMap){
 
 							var neighborhoodNames = d.NBH_NAMES,
 								indicatorVal = d[currentIndicator.dataTag],
+								displayNum = (currentIndicator.multiplier != 1) ? (indicatorVal * currentIndicator.multiplier).toFixed(1) : (indicatorVal * currentIndicator.multiplier).toFixed(0),
 								pop = d.PopTotal,
 								childPop = (d.PopU18).toFixed(0),
 								babyPop = d.PopU5,
@@ -145,7 +146,7 @@ function buildMap(baseURL, initialMap){
 
 								$('#nbh-name').html(neighborhoodNames);
 								$('#definition').html(currentIndicator.label);
-								$('#floating-tooltip').html( (indicatorVal * currentIndicator.multiplier).toFixed(1) + currentIndicator.labelEnd);
+								$('#floating-tooltip').html( displayNum + currentIndicator.labelEnd);
 								$('#total-pop .value').html(addCommas(pop));
 								$('#child-pop .value').html(addCommas(childPop));
 								$('#avg-income .value').html('$' + addCommas(medianFamilyIncome));
@@ -200,9 +201,9 @@ function legendFill(obj){
 
 	$.each(legend.find('.label'), function(k, v){
 		if (obj.cutPoints[0] != null){			
-			var txt = k == 0 ? 'More than ' + (obj.cutPoints[k] * obj.multiplier) + obj.cutPointLabel
-				: k == legend.find('.label').length - 1 ? 'Less than ' + (obj.cutPoints[k-1] * obj.multiplier)
-				: (obj.cutPoints[k-1] * obj.multiplier) + ' to ' + (obj.cutPoints[k] * obj.multiplier);
+			var txt = k == 0 ? 'More than ' + (obj.cutPoints[k] * obj.multiplier).toFixed(0) + obj.cutPointLabel
+				: k == legend.find('.label').length - 1 ? 'Less than ' + (obj.cutPoints[k-1] * obj.multiplier).toFixed(0)
+				: (obj.cutPoints[k-1] * obj.multiplier).toFixed(0) + ' to ' + (obj.cutPoints[k] * obj.multiplier).toFixed(0);
 			$(v).html(txt);
 			legend.show();
 		} else {
