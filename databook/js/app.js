@@ -1,5 +1,6 @@
 var clickScroll = false,
-	eventOffset = 50;
+	eventOffset = 50,
+	currentIndicator;
 
 jQuery(document).ready(function ($) {
 
@@ -38,6 +39,7 @@ jQuery(document).ready(function ($) {
 			$(this).addClass('active');
 
 			var sIdx = indicators.find('li').index(this);
+			currentIndicator = indicatorData[sIdx];
 			callMap(indicatorData[sIdx].mapURL);
 			legendFill(indicatorData[sIdx]);
 
@@ -67,6 +69,7 @@ jQuery(document).ready(function ($) {
 
 	// BUILD THE MAP ITSELF
 	var initIdx = indicators.find('li').index(indicators.find('li.active'));
+	currentIndicator = indicatorData[initIdx];
 	buildMap(baseURL, indicatorData[initIdx].mapURL);
 	legendFill(indicatorData[initIdx]);
 
@@ -102,6 +105,7 @@ function buildMap(baseURL, initialMap){
 							$('.indicator-floats').show();
 
 							var neighborhoodNames = d.NBH_NAMES,
+								indicatorVal = d[currentIndicator.dataTag],
 								pop = d.PopTotal,
 								childPop = (d.PopU18).toFixed(0),
 								babyPop = d.PopU5,
@@ -132,7 +136,9 @@ function buildMap(baseURL, initialMap){
 								// schoolHexArray = d.chco,
 								// schoolValueArray = d.chd;
 								// $('#school-perf').show();
+
 								$('#nbh-name').html(neighborhoodNames);
+								$('#definition').html(currentIndicator.label + (indicatorVal * currentIndicator.multiplier).toFixed(1) + currentIndicator.labelEnd);
 								$('#total-pop .value').html(addCommas(pop));
 								$('#child-pop .value').html(addCommas(childPop));
 								$('#avg-income .value').html('$' + addCommas(medianFamilyIncome));

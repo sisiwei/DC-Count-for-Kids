@@ -1,7 +1,10 @@
 indicatorData = [
 	{
 		name:'High poverty',
-		dataTag: 'pov',
+		dataTag: 'ConcPov',
+		label: 'Poverty rate: ',
+		multiplier: 100,
+		labelEnd: '%',
 		mapURL: 'dcaction.poverty2-dc',
 		cutPoints: { // from most conc. to less conc
 			0: 0.38,
@@ -10,10 +13,13 @@ indicatorData = [
 			3: 0.1
 		},
 		cutPointLabel: '%'
-	}, //dcaction.neigh-pov-dc
+	},
 	{
 		name:'Access to healthy food', 
-		dataTag: 'grocery', 
+		dataTag: 'Grocery_St', 
+		label: 'Number of grocery stores: ',
+		multiplier: 1,
+		labelEnd: '',
 		mapURL: 'dcaction.grocery-dc',
 		cutPoints: {
 			0: null,
@@ -25,7 +31,10 @@ indicatorData = [
 	}, 
 	{
 		name:'Recreation centers',
-		dataTag: 'rec',
+		dataTag: 'Rec_Center',
+		label: 'Number of recreation centers: ',
+		multiplier: 1,
+		labelEnd: '',
 		mapURL: 'dcaction.recreation-dc',
 		cutPoints: {
 			0: null,
@@ -61,7 +70,10 @@ indicatorData = [
 	},
 	{
 		name:'Homeownership', 
-		dataTag: 'homeownership', 
+		dataTag: 'HomeOwn',
+		label: 'Homeownership: ',
+		multiplier: 100,
+		labelEnd: '%',
 		mapURL: 'dcaction.owner-occupied-homes-dc',
 		cutPoints: {
 			0: .75, 
@@ -73,7 +85,10 @@ indicatorData = [
 	},
 	{
 		name:'Youth ready to work', 
-		dataTag: 'youth-emp', 
+		dataTag: 'Employ1624', 
+		label: 'Employment (ages 16-24): ',
+		multiplier: 100,
+		labelEnd: '%',
 		mapURL: 'dcaction.youth-employed2-dc',
 		cutPoints: {
 			0: .34, 
@@ -85,7 +100,10 @@ indicatorData = [
 	},
 	{
 		name:'Environmental health', 
-		dataTag: 'envHealth', 
+		dataTag: 'Rate_Asthm', 
+		label: 'Asthma rate: ',
+		multiplier: 1,
+		labelEnd: ' per 10,000 children',
 		mapURL: 'dcaction.asthma-dc',
 		cutPoints: {
 			0: 875, 
@@ -97,7 +115,10 @@ indicatorData = [
 	},
 	{
 		name:'Violent crime', 
-		dataTag: 'crime', 
+		dataTag: 'Crime_rate',
+		label: 'Crime rate: : ',
+		multiplier: 1,
+		labelEnd: '%',
 		mapURL: 'dcaction.crime-dc',
 		cutPoints: {
 			0: 22, 
@@ -109,7 +130,10 @@ indicatorData = [
 	},
 	{
 		name:'Libraries',
-		dataTag: 'lib',
+		dataTag: 'Library',
+		label: 'Libraries: ',
+		multiplier: 1,
+		labelEnd: '',
 		mapURL: 'dcaction.libraries-dc',
 		cutPoints: {
 			0: null,
@@ -146,7 +170,10 @@ indicatorData = [
 	},
 	{
 		name:'Single mother families', 
-		dataTag: 'singlemother', 
+		dataTag: 'SingleMomF', 
+		label: 'Percent single mother families: ',
+		multiplier: 100,
+		labelEnd: '%',
 		mapURL: 'dcaction.single_mother',
 		cutPoints: {
 			0: .37, 
