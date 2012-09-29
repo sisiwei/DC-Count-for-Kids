@@ -1,7 +1,7 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-body#databook-body { font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 14px; line-height: 16px; color: #555; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; background: #eee; }
+body { font-size: 14px; line-height: 16px; color: #555; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; background: #eee; }
 h1,
 h2,
 h3,
@@ -13,25 +13,25 @@ h2.selected {
     padding: 5px 5px 7px 5px;
     text-align:center;
 }
-#databook-body h3 { font-size:30px; }
-#databook-body h4 { font-size:18px; }
-#databook-body p { margin: 0 0 15px; }
+h3 { font-size:30px; }
+h4 { font-size:18px; }
+p { margin: 0 0 15px; }
 ul { padding: 0; margin: 0; }
 a:link,
 a:visited,
 a:active { text-decoration:underline; color:#3180ba; }
 a:hover { text-decoration:none; /*color:#6aadd3;*/ }
 a.disabled { color:#ccc !important; cursor:default; }
-#databook-body .border { border: 1px solid #eee; }
-#databook-body .border-bottom { border-bottom: 1px solid #eee; }
-#databook-body .border-top { border-top: 1px solid #eee; }
-#databook-body .margin-none { margin:0; }
-#databook-body .margin-top-30 { margin-top: 30px; }
-#databook-body .left { float: left; }
-#databook-body .right { float: right; }
-#databook-body .pointer { cursor: pointer; }
-#databook-body .uppercase { text-transform:uppercase; font-weight:bold; }
-#databook-body .hidden { display:none; }
+.border { border: 1px solid #eee; }
+.border-bottom { border-bottom: 1px solid #eee; }
+.border-top { border-top: 1px solid #eee; }
+.margin-none { margin:0; }
+.margin-top-30 { margin-top: 30px; }
+.left { float: left; }
+.right { float: right; }
+.pointer { cursor: pointer; }
+.uppercase { text-transform:uppercase; font-weight:bold; }
+.hidden { display:none; }
 
 /* -----------------------------------------
    Wrapper
@@ -44,6 +44,7 @@ a.disabled { color:#ccc !important; cursor:default; }
   margin: 0px auto;
   padding: 0 0 125px;
   overflow: hidden;
+  font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 .width { width: 920px; padding: 0 10px; }
 /* -----------------------------------------
