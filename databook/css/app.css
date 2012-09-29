@@ -375,10 +375,26 @@ STICKY NAV
 ------------------------------*/
 .fixed {
   position: fixed;
-  box-shadow: 0px 0px 5px #aaa;
+/*  box-shadow: 0px 0px 5px #aaa;
   -moz-box-shadow: 0px 0px 5px #aaa;
   -webkit-box-shadow: 0px 0px 5px #aaa;
+  border-bottom: 2px solid #888;*/
+}
+
+#new-border {
+  position: absolute;
+  bottom: 0px;
+}
+
+.fixed #new-border {
+  position: absolute;
+  bottom: 0px;
+  box-shadow: 0px 2px 4px #AAA;
+  -moz-box-shadow: 0px 2px 4px #aaa;
+  -webkit-box-shadow: 0px 2px 4px #AAA;
   border-bottom: 2px solid #888;
+  width: 900px;
+  height: 0px;
 }
 
 /*----------
