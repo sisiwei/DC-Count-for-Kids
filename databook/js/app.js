@@ -12,6 +12,33 @@ jQuery(document).ready(function ($) {
 
 	var baseURL = 'dcaction.map-7j45adj0';
 
+    // mousemove
+    $(window).mousemove(function(e) {
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+
+        var windowWidth = $(window).width();
+        var windowHeight = $('#mainMap').height();
+        if (mouseX > windowWidth/2) {
+            mouseX = mouseX - $('.tooltip').width() - 50;
+        }
+
+        if (mouseY > (windowHeight/4 * 3)){
+            mouseY = mouseY - $('.tooltip').height();
+        }
+
+        $('.tooltip').stop().css({
+            left: mouseX + 20,
+            top:  mouseY - 14
+        });
+
+        if ($('.tooltip').is(':visible')){
+	        console.log(mouseX, mouseY);
+        	console.log($('.tooltip').position().top, $('.tooltip').position().left);
+        }
+
+    });
+
 	// LOADING ALL CONTENT
 	SimpleTable.init( { key: '0AntoWTCD8D_UdEdsLUxEVnlxZXdjRThLeS1oS1pXRHc', callback: contentFill } );
 
@@ -91,12 +118,6 @@ function buildMap(baseURL, initialMap){
   	var mapurl = 'http://a.tiles.mapbox.com/v3/dcaction.transparent-dc,dcaction.graduation_rates.jsonp';
 	var mm = com.modestmaps;
 
-	$("#mainMap").mousemove(function(e){
-		mouseX = e.pageX - 510;
-		mouseY = e.pageY - 230;
-	    $('#floating-tooltip').css({'left':mouseX, 'top':mouseY});
-    });
-
 	wax.tilejson(mapurl, function(tilejson) {
 	    var tooltip = new wax.tooltip();
 		wax.mm.interaction()
@@ -157,7 +178,7 @@ function buildMap(baseURL, initialMap){
 						} else {
 							var floater = '<strong>' + d.schoolname + '</strong><br/>Graduation rate: ' + (d.gradrate * 100).toFixed(1) + '%';
 							$('#school-tooltip').html(floater);
-							$('#school-tooltip').css({"top": mouseY - 10, "left": mouseX + 200})
+							// $('#school-tooltip').css({"top": mouseY - 10, "left": mouseX + 200})
 							$('#school-tooltip').fadeIn(150);
 
 							// var schoolName = d.Name,

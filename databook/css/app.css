@@ -249,7 +249,8 @@ LEGEND
 #mainMap {
   position: absolute; top:0; left:0; width:100%; height: 100%;
 }
-#floating-tooltip, #school-tooltip {
+.tooltip {
+  min-width:150px;
   position: absolute;
   top: 10px;
   border: 1px solid #ccc;
@@ -348,14 +349,10 @@ LEGEND
 .email { background-position:0px -33px; }
 .crosstab-nav-wrapper .social-share { margin: 0 10px; }
 
-/* -----------------------------------------
-   Tooltip Elements
------------------------------------------ */
-
 /* DIV CLEARS */
 #chatter-wrapper:after,
 .crosstab-nav-wrapper:after,
-.row:after { 
+.row:after {
     content: "."; 
     visibility: hidden; 
     display: block; 
