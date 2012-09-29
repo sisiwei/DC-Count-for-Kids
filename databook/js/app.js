@@ -235,6 +235,7 @@ function scrollToFunc(crossTabNav){
 
 	crossTabNav.find('li').children('a').click(function(e){
 		e.preventDefault();
+		$('.tooltip').hide();
 
 		if (!$(this).hasClass('selected')){
 			var thisId = $(this).attr('href'),
@@ -263,6 +264,8 @@ function scrollToFunc(crossTabNav){
 
 	crossTabNav.find('#crosstab-title').click(function(e){
 		e.preventDefault();
+		$('.tooltip').hide();
+				
 		$.scrollTo($('#content'), scrollSpeed, {
 			axis:'y',
 			onAfter:function() {
