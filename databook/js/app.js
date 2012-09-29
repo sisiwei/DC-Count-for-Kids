@@ -88,13 +88,13 @@ function buildMap(baseURL, initialMap){
   	map.setZoomRange(11,16);
   	map.setPanLimits([{ lat: 39.008, lon: -77.165 }, { lat: 38.782, lon: -76.874 }]);
 
-  	var mapurl = 'http://a.tiles.mapbox.com/v3/dcaction.transparent-dc.jsonp';
+  	var mapurl = 'http://a.tiles.mapbox.com/v3/dcaction.transparent-dc,dcaction.graduation_rates.jsonp';
 	var mm = com.modestmaps;
 
 	$("#mainMap").mousemove(function(e){
-		var x = e.pageX - 510;
-		var y = e.pageY - 230;
-	    $('#floating-tooltip').css({'left':x, 'top':y});
+		mouseX = e.pageX - 510;
+		mouseY = e.pageY - 230;
+	    $('#floating-tooltip').css({'left':mouseX, 'top':mouseY});
     });
 
 	wax.tilejson(mapurl, function(tilejson) {
@@ -106,9 +106,12 @@ function buildMap(baseURL, initialMap){
 				on: function(feature) {
 					if (feature){
 						var d = feature.data;
+
 						if (d.NBH_NAMES != undefined){
 							$('.indicator-floats').show();
-							$('#floating-tooltip').show();
+							if (currentIndicator.dataTag != 'graduation'){
+								$('#floating-tooltip').stop().show();
+							}							
 							var neighborhoodNames = d.NBH_NAMES,
 								indicatorVal = d[currentIndicator.dataTag],
 								displayNum = (currentIndicator.multiplier != 1) ? (indicatorVal * currentIndicator.multiplier).toFixed(1) : (indicatorVal * currentIndicator.multiplier).toFixed(0),
@@ -139,10 +142,6 @@ function buildMap(baseURL, initialMap){
 								medianFamilyIncome = d.MedFamIncR,
 								singleMotherFamilies = (d.SingleMomF * 100).toFixed(1);
 
-								// schoolHexArray = d.chco,
-								// schoolValueArray = d.chd;
-								// $('#school-perf').show();
-
 								$('#nbh-name').html(neighborhoodNames);
 								//$('#definition').html(currentIndicator.label);
 								$('#floating-tooltip').html( displayNum + currentIndicator.labelEnd);
@@ -154,35 +153,39 @@ function buildMap(baseURL, initialMap){
 								$('#adult-race-pie-chart').html('<strong>Race & ethnicity (18 and over):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=3182bd|6baed6|bdd7e7|eff3ff&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctOther +'&chdl='+ pctWhiteLegend +'|' + pctBlackLegend + '|'+ pctHispLegend +'|'+ pctOtherLegend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
 								$('#child-race-pie-chart').html('<strong>Race & ethnicity (under 18):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=e34a33|fc8d59|fdcc8a|fef0d9&chds=0,700&chd=t:'+ pctWhite18 +','+ pctBlack18 +','+ pctHisp18 +','+ pctOther18 +'&chdl='+ pctWhite18Legend +'|' + pctBlack18Legend + '|'+ pctHisp18Legend +'|'+ pctOther18Legend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
 
-								// INVESTIGATE DATA:
-								// $('#school-perf-chart').html('<strong>Percentage Proficient and Above</strong><br/><center><img style="padding-top: 5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=290x240&cht=s&chd=t:25,' + schoolValueArray + '&chco=' + schoolHexArray + '&chdl=DC+Average|Nbhd+Schools&chf=bg,s,67676700" width="290" height="240" /></center>')
+								$('#school-tooltip').fadeOut(150);
 						} else {
-							var schoolName = d.Name,
-								address = d.StreetAddress,
-								la = d.Latitude,
-								lo = d.Longitude,
-								countFreeLunch = d.Count_FreeLunch,
-								countRedPriceLunch = d.Count_RedPriceLunch,
-								countFreeOrReduced = d.Count_FreeOrRedPriceLunch,
-								totalStudents = d.TotalStudents,
-								pctFreeOrReduced = d.Pct_FreeOrRedPriceLunch,
-								countNonFreeOrReduced = d.Count_NonFreeOrRedPriceLunch,
-								elemOrSec = d.ElemOrSec,
-								mathPct = d.Math_Pct_ProficientOrAdvanced,
-								readingPct = d.Read_Pct_ProficientOrAdvanced;
-							$('#school-data').show();
-							$('#school-data').html('<strong>School details</strong><br/><strong>Lunches</strong><center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ countFreeLunch +','+ countRedPriceLunch +','+ countNonFreeOrReduced +'&chdl=Free|Reduce|Other&chma=|2&chf=bg,s,67676700" width="175" height="100" /></center><strong>Percentage Proficient and Above</strong><center><img style="padding-top:5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=190x100&cht=s&chd=t:25,75|'+ mathPct +','+ readingPct +'&chco=9970AB&chf=bg,s,67676700" width="190" height="100" /></center>');
-							$('#school-data').fadeIn(150);
-							$('#school-tooltip').html('<strong>' + schoolName + '</strong><br/>Total students: '+ totalStudents);
-							$('#school-tooltip').css({"top": mouseY, "left": mouseX-225})
+							var floater = '<strong>' + d.schoolname + '</strong><br/>Graduation rate: ' + (d.gradrate * 100).toFixed(1) + '%';
+							$('#school-tooltip').html(floater);
+							$('#school-tooltip').css({"top": mouseY - 10, "left": mouseX + 200})
 							$('#school-tooltip').fadeIn(150);
+
+							// var schoolName = d.Name,
+							// 	address = d.StreetAddress,
+							// 	la = d.Latitude,
+							// 	lo = d.Longitude,
+							// 	countFreeLunch = d.Count_FreeLunch,
+							// 	countRedPriceLunch = d.Count_RedPriceLunch,
+							// 	countFreeOrReduced = d.Count_FreeOrRedPriceLunch,
+							// 	totalStudents = d.TotalStudents,
+							// 	pctFreeOrReduced = d.Pct_FreeOrRedPriceLunch,
+							// 	countNonFreeOrReduced = d.Count_NonFreeOrRedPriceLunch,
+							// 	elemOrSec = d.ElemOrSec,
+							// 	mathPct = d.Math_Pct_ProficientOrAdvanced,
+							// 	readingPct = d.Read_Pct_ProficientOrAdvanced;
+							// $('#school-data').show();
+							// $('#school-data').html('<strong>School details</strong><br/><strong>Lunches</strong><center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ countFreeLunch +','+ countRedPriceLunch +','+ countNonFreeOrReduced +'&chdl=Free|Reduce|Other&chma=|2&chf=bg,s,67676700" width="175" height="100" /></center><strong>Percentage Proficient and Above</strong><center><img style="padding-top:5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=190x100&cht=s&chd=t:25,75|'+ mathPct +','+ readingPct +'&chco=9970AB&chf=bg,s,67676700" width="190" height="100" /></center>');
+							// $('#school-data').fadeIn(150);
+							// $('#floating-tooltip').html('<strong>' + schoolName + '</strong><br/>Total students: '+ totalStudents);
+							// $('#floating-tooltip').css({"top": mouseY, "left": mouseX-225})
+							// $('#floating-tooltip').fadeIn(150);
 						}							
 					}
 				},
 				off: function(feature) {
-					$('#school-tooltip').fadeOut(100);
-					$('#school-data').fadeOut(100);
-					$('#floating-tooltip').fadeOut(100);
+					$('#school-tooltip').fadeOut(150);
+					//$('#school-data').fadeOut(100);
+					$('#floating-tooltip').fadeOut(150);
 				}
 		});
 	});
