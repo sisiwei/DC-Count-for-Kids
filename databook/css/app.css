@@ -220,12 +220,12 @@ LEGEND
   top: 10px;
   z-index: 50;
   background-color: white;
-  padding: 10px 15px 0;
+  padding: 10px 15px;
   border-color: #ccc;
 }
-#legend p { margin-bottom:10px; }
-#legend .color { width: 12px; height: 12px; margin-right: 10px; display:block; }
-#legend .label { max-width: 100px; }
+#legend p { margin-bottom: 1px; }
+#legend .color { width: 20px; height: 20px; margin-right: 10px; display:block; }
+#legend .label { max-width: 100px; line-height: 19px; font-size: 14px;}
 /*.icon-4 .color { background-color:#6e843f; opacity: 0.9;}
 .icon-3 .color { background-color:#9ad363; }
 .icon-2 .color { background-color:#bbef8e; }
