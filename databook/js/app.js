@@ -200,8 +200,8 @@ function legendFill(obj){
 	$.each(legend.find('.label'), function(k, v){
 		if (obj.cutPoints[0] != null){			
 			var txt = k == 0 ? 'More than ' + (obj.cutPoints[k] * obj.multiplier).toFixed(0) + obj.cutPointLabel
-				: k == legend.find('.label').length - 1 ? 'Less than ' + (obj.cutPoints[k-1] * obj.multiplier).toFixed(0)
-				: (obj.cutPoints[k-1] * obj.multiplier).toFixed(0) + ' to ' + (obj.cutPoints[k] * obj.multiplier).toFixed(0);
+				: k == legend.find('.label').length - 1 ? 'Less than ' + (obj.cutPoints[k-1] * obj.multiplier).toFixed(0) + obj.cutPointLabel
+				: (obj.cutPoints[k] * obj.multiplier).toFixed(0) + ' to ' + (obj.cutPoints[k-1] * obj.multiplier).toFixed(0) + obj.cutPointLabel;
 			$(v).html(txt);
 			legend.show();
 		} else {
