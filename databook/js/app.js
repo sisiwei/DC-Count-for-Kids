@@ -155,10 +155,13 @@ function buildMap(baseURL, initialMap){
 
 								$('#school-tooltip').fadeOut(150);
 						} else {
-							var floater = '<strong>' + d.schoolname + '</strong><br/>Graduation rate: ' + (d.gradrate * 100).toFixed(1) + '%';
-							$('#school-tooltip').html(floater);
-							$('#school-tooltip').css({"top": mouseY - 10, "left": mouseX + 200})
-							$('#school-tooltip').fadeIn(150);
+							if (currentIndicator.dataTag == 'graduation'){
+								var floater = '<strong>' + d.schoolname + '</strong><br/>Graduation rate: ' + (d.gradrate * 100).toFixed(1) + '%';
+								$('#school-tooltip').html(floater);
+								$('#school-tooltip').css({"top": mouseY - 10, "left": mouseX + 200})
+								$('#school-tooltip').fadeIn(150);
+							}	
+							
 
 							// var schoolName = d.Name,
 							// 	address = d.StreetAddress,
