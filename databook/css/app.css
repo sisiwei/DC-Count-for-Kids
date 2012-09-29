@@ -2,7 +2,7 @@
    Shared Styles
 ----------------------------------------- */
 body { font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 14px; line-height: 16px; color: #555; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; background: #eee; }
-h1, h2, h3, h4 { margin: 0; }
+h1, h2, h3, h4 { margin: 0; color:#222; }
 h2 { font-size:16px; }
 h2.selected {
     width: 170px;
@@ -10,8 +10,8 @@ h2.selected {
     padding: 5px 5px 7px 5px;
     text-align:center;
 }
-h3 { font-size:20px; }
-h4 { font-size:14px; }
+h3 { font-size:30px; }
+h4 { font-size:18px; }
 p { margin: 0 0 15px; }
 ul { padding: 0; margin: 0; }
 a:link,
@@ -42,10 +42,7 @@ a.disabled { color:#ccc !important; cursor:default; }
   padding: 0 0 125px;
   overflow: hidden;
 }
-.width {
-  width: 920px;
-  padding: 0 10px;
-}
+.width { width: 920px; padding: 0 10px; }
 /* -----------------------------------------
    Banner
 ----------------------------------------- */
@@ -89,6 +86,7 @@ a.disabled { color:#ccc !important; cursor:default; }
     margin-left: 20px;
     border-left: 1px solid #DDD;
 }
+
 .crosstab-nav-wrapper li a:hover {
     color:#3180ba;
 }
@@ -96,6 +94,17 @@ a.disabled { color:#ccc !important; cursor:default; }
     color:#3180ba;
     cursor:default;
 }
+.crosstab-nav-wrapper li a.crosstab-btn { padding-left: 40px; background: url('../images/crosstabs-mini.png') no-repeat; }
+.crosstab-nav-wrapper li a.crosstab-btn#distressed-nbhds-btn { background-position: 14px 1px; }
+.crosstab-nav-wrapper li a.crosstab-btn#child-success-btn { background-position: 14px -16px; }
+.crosstab-nav-wrapper li a.crosstab-btn#assets-btn { background-position: 14px -33px; }
+.crosstab-nav-wrapper li a.selected#distressed-nbhds-btn, 
+.crosstab-nav-wrapper li a.crosstab-btn#distressed-nbhds-btn:hover { background-position: 14px -50px; }
+.crosstab-nav-wrapper li a.selected#child-success-btn, 
+.crosstab-nav-wrapper li a.crosstab-btn#child-success-btn:hover { background-position: 14px -67px; }
+.crosstab-nav-wrapper li a.selected#assets-btn, 
+.crosstab-nav-wrapper li a.crosstab-btn#assets-btn:hover { background-position: 14px -84px; }
+
 .crosstab-nav-wrapper .arrow-wrapper {
     position: absolute;
     bottom: 0px;
@@ -123,9 +132,7 @@ a.disabled { color:#ccc !important; cursor:default; }
 /* -----------------------------------------
    Primary interactive map
 ----------------------------------------- */
-#container {
-  height: 100%;
-}
+#container { height: 100%; }
 #primary {
   position: relative;
   width: 100%;
@@ -142,10 +149,7 @@ a.disabled { color:#ccc !important; cursor:default; }
   overflow: hidden;
 }
 
-#definition {
-  margin: 0 0px 20px;
-}
-
+#definition { margin: 0 0px 20px; }
 
 /* -----------------------------------------
    Option dropdown
@@ -227,11 +231,6 @@ LEGEND
 #legend p { margin-bottom: 1px; }
 #legend .color { width: 20px; height: 20px; margin-right: 10px; display:block; }
 #legend .label { max-width: 100px; line-height: 19px; font-size: 14px;}
-/*.icon-4 .color { background-color:#6e843f; opacity: 0.9;}
-.icon-3 .color { background-color:#9ad363; }
-.icon-2 .color { background-color:#bbef8e; }
-.icon-1 .color { background-color:#d9fcb9; }
-.icon-0 .color { background-color:#f0ffe1; }*/
 .icon-4 .color { background-color:#a0cc80; }
 .icon-3 .color { background-color:#bade96; }
 .icon-2 .color { background-color:#d3f2b8; }
@@ -278,10 +277,7 @@ LEGEND
     text-transform: uppercase;
     border-bottom: 1px solid #eaeaea;
 }
-#school-perf {
-    display: none;
-}
-
+#school-perf { display: none; }
 #nbh-name {
     font-family: 'Helvetica Neue';
     font-size: 16px;
@@ -319,22 +315,22 @@ LEGEND
     padding:30px 0 0;
 }
 .secondary h3 {
-    margin: 0 0 10px 0;    
+    margin: 0 0 10px 0;
+    padding:10px 0 10px 48px; 
+    background: url('../images/crosstabs.png') no-repeat;
 }
-.secondary h4 {
-    margin: 5px 0;
-}
-.cross-tab { 
+#distressed-nbhds h3 { background-position: 0 0; }
+#child-success h3 { background-position: 0 -32px; }
+#neigh-assets h3 { background-position: 0 -66px; }
+.secondary h4 { margin: 10px 0; } 
+
+.cross-tab {
     float: left;
     width: 445px;
     margin: 0 15px;
 }
-.cross-tab.first {
-    margin-left: 0;
-}
-.cross-tab.last {
-    margin-right: 0;
-}
+.cross-tab.first { margin-left: 0; }
+.cross-tab.last { margin-right: 0; }
 .cross-tab img { width:100%; }
 
 .summary ul, .cross-tab ul { padding: 10px 0px 10px 40px }
@@ -374,10 +370,6 @@ STICKY NAV
 /*----------
 CLEAR FLOATS
 ----------*/
-.cf:before,
-.cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-.cf:after { clear: both; } 
+.cf:before, .cf:after { content: " "; /* 1 */ display: table; /* 2 */ }
+.cf:after { clear: both; }
 .cf { *zoom: 1; }
