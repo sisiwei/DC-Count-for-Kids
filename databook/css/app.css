@@ -46,6 +46,10 @@ a.disabled { color:#ccc !important; cursor:default; }
   overflow: hidden;
   font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
+
+#databook-content h1 {
+  font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
 .width { width: 920px; padding: 0 10px; }
 /* -----------------------------------------
    Banner
