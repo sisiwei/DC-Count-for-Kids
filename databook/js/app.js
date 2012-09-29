@@ -176,36 +176,17 @@ function buildMap(baseURL, initialMap){
 
 								$('#school-tooltip').fadeOut(150);
 						} else {
-							var floater = '<strong>' + d.schoolname + '</strong><br/>Graduation rate: ' + (d.gradrate * 100).toFixed(1) + '%';
-							$('#school-tooltip').html(floater);
-							// $('#school-tooltip').css({"top": mouseY - 10, "left": mouseX + 200})
-							$('#school-tooltip').fadeIn(150);
-
-							// var schoolName = d.Name,
-							// 	address = d.StreetAddress,
-							// 	la = d.Latitude,
-							// 	lo = d.Longitude,
-							// 	countFreeLunch = d.Count_FreeLunch,
-							// 	countRedPriceLunch = d.Count_RedPriceLunch,
-							// 	countFreeOrReduced = d.Count_FreeOrRedPriceLunch,
-							// 	totalStudents = d.TotalStudents,
-							// 	pctFreeOrReduced = d.Pct_FreeOrRedPriceLunch,
-							// 	countNonFreeOrReduced = d.Count_NonFreeOrRedPriceLunch,
-							// 	elemOrSec = d.ElemOrSec,
-							// 	mathPct = d.Math_Pct_ProficientOrAdvanced,
-							// 	readingPct = d.Read_Pct_ProficientOrAdvanced;
-							// $('#school-data').show();
-							// $('#school-data').html('<strong>School details</strong><br/><strong>Lunches</strong><center><img src="http://chart.apis.google.com/chart?chs=200x120&cht=p&chco=0000FF|6633FF|6699FF|66FFFF&chds=0,700&chd=t:'+ countFreeLunch +','+ countRedPriceLunch +','+ countNonFreeOrReduced +'&chdl=Free|Reduce|Other&chma=|2&chf=bg,s,67676700" width="175" height="100" /></center><strong>Percentage Proficient and Above</strong><center><img style="padding-top:5px" src="http://chart.googleapis.com/chart?chxt=x,y&chxl=0:|Reading|Math&chxp=0,25,75&chs=190x100&cht=s&chd=t:25,75|'+ mathPct +','+ readingPct +'&chco=9970AB&chf=bg,s,67676700" width="190" height="100" /></center>');
-							// $('#school-data').fadeIn(150);
-							// $('#floating-tooltip').html('<strong>' + schoolName + '</strong><br/>Total students: '+ totalStudents);
-							// $('#floating-tooltip').css({"top": mouseY, "left": mouseX-225})
-							// $('#floating-tooltip').fadeIn(150);
+							if (currentIndicator.dataTag == 'graduation'){
+								var floater = '<strong>' + d.schoolname + '</strong><br/>Graduation rate: ' + (d.gradrate * 100).toFixed(1) + '%';
+								$('#school-tooltip').html(floater);
+								$('#school-tooltip').css({"top": mouseY - 10, "left": mouseX + 200})
+								$('#school-tooltip').fadeIn(150);
+							}	
 						}							
 					}
 				},
 				off: function(feature) {
 					$('#school-tooltip').fadeOut(150);
-					//$('#school-data').fadeOut(100);
 					$('#floating-tooltip').fadeOut(150);
 				}
 		});
