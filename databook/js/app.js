@@ -28,7 +28,7 @@ jQuery(document).ready(function ($) {
 
 	selected.click(function(){
 		indicators.slideToggle(toggleTime, 'linear');
-	})
+	});
 
 	indicators.find('li').click(function(){
 		indicators.slideUp(toggleTime, 'linear');
@@ -64,6 +64,10 @@ jQuery(document).ready(function ($) {
 	scrollToFunc(crossTabNav);
 
     $(window).scroll(function(){ stickyNav(banner); });
+
+	$('.secondary').mouseover(function(e){
+       	$('.tooltip').hide();
+	});
 
 	// BUILD THE MAP ITSELF
 	var initIdx = indicators.find('li').index(indicators.find('li.active'));
