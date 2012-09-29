@@ -12,33 +12,6 @@ jQuery(document).ready(function ($) {
 
 	var baseURL = 'dcaction.map-7j45adj0';
 
-    // mousemove
-    $(window).mousemove(function(e) {
-        mouseX = e.pageX;
-        mouseY = e.pageY;
-
-        var windowWidth = $(window).width();
-        var windowHeight = $('#mainMap').height();
-        if (mouseX > windowWidth/2) {
-            mouseX = mouseX - $('.tooltip').width() - 50;
-        }
-
-        if (mouseY > (windowHeight/4 * 3)){
-            mouseY = mouseY - $('.tooltip').height();
-        }
-
-        $('.tooltip').stop().css({
-            left: mouseX + 20,
-            top:  mouseY - 14
-        });
-
-        if ($('.tooltip').is(':visible')){
-	        console.log(mouseX, mouseY);
-        	console.log($('.tooltip').position().top, $('.tooltip').position().left);
-        }
-
-    });
-
 	// LOADING ALL CONTENT
 	SimpleTable.init( { key: '0AntoWTCD8D_UdEdsLUxEVnlxZXdjRThLeS1oS1pXRHc', callback: contentFill } );
 
@@ -118,6 +91,29 @@ function buildMap(baseURL, initialMap){
   	var mapurl = 'http://a.tiles.mapbox.com/v3/dcaction.transparent-dc,dcaction.graduation_rates.jsonp';
 	var mm = com.modestmaps;
 
+	    // mousemove
+    $(window).mousemove(function(e) {
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+
+        var windowWidth = $(window).width();
+        var windowHeight = $('#mainMap').height();
+        if (mouseX > windowWidth/5 * 3) {
+        	mouseX = currentIndicator.dataTag != 'graduation'
+        			?  mouseX = mouseX - $('#floating-tooltip').width() - 50
+					: mouseX = mouseX - $('#school-tooltip').width() - 50;
+        }
+
+        if (mouseY > (windowHeight/4 * 3)){
+            mouseY = mouseY - $('.tooltip').height();
+        }
+
+        $('.tooltip').stop().css({
+            left: mouseX + 20,
+            top:  mouseY - 14
+        });
+    });
+
 	wax.tilejson(mapurl, function(tilejson) {
 	    var tooltip = new wax.tooltip();
 		wax.mm.interaction()
@@ -131,7 +127,7 @@ function buildMap(baseURL, initialMap){
 						if (d.NBH_NAMES != undefined){
 							$('.indicator-floats').show();
 							if (currentIndicator.dataTag != 'graduation'){
-								$('#floating-tooltip').stop().show();
+								$('#floating-tooltip').show();
 							}							
 							var neighborhoodNames = d.NBH_NAMES,
 								indicatorVal = d[currentIndicator.dataTag],
@@ -174,20 +170,19 @@ function buildMap(baseURL, initialMap){
 								$('#adult-race-pie-chart').html('<strong>Race & ethnicity (18 and over):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=3182bd|6baed6|bdd7e7|eff3ff&chds=0,700&chd=t:'+ pctWhite +','+ pctBlack +','+ pctHisp +','+ pctOther +'&chdl='+ pctWhiteLegend +'|' + pctBlackLegend + '|'+ pctHispLegend +'|'+ pctOtherLegend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
 								$('#child-race-pie-chart').html('<strong>Race & ethnicity (under 18):</strong><br/><img src="http://chart.apis.google.com/chart?chs=220x120&cht=p&chco=e34a33|fc8d59|fdcc8a|fef0d9&chds=0,700&chd=t:'+ pctWhite18 +','+ pctBlack18 +','+ pctHisp18 +','+ pctOther18 +'&chdl='+ pctWhite18Legend +'|' + pctBlack18Legend + '|'+ pctHisp18Legend +'|'+ pctOther18Legend+'&chma=|2&chf=bg,s,67676700" width="220" height="120" />');
 
-								$('#school-tooltip').fadeOut(150);
+								$('#school-tooltip').hide();
 						} else {
 							if (currentIndicator.dataTag == 'graduation'){
 								var floater = '<strong>' + d.schoolname + '</strong><br/>Graduation rate: ' + (d.gradrate * 100).toFixed(1) + '%';
 								$('#school-tooltip').html(floater);
-								$('#school-tooltip').css({"top": mouseY - 10, "left": mouseX + 200})
-								$('#school-tooltip').fadeIn(150);
+								$('#school-tooltip').show();
 							}	
 						}							
 					}
 				},
 				off: function(feature) {
-					$('#school-tooltip').fadeOut(150);
-					$('#floating-tooltip').fadeOut(150);
+					$('#school-tooltip').hide();
+					$('#floating-tooltip').hide();
 				}
 		});
 	});
