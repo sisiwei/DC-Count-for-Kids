@@ -69,7 +69,8 @@ jQuery(document).ready(function ($) {
 	// BUILD THE MAP ITSELF
 	var initIdx = indicators.find('li').index(indicators.find('li.active'));
 	currentIndicator = indicatorData[initIdx];
-	buildMap(baseURL, indicatorData[initIdx].mapURL);
+	buildMap(baseURL, currentIndicator.mapURL);
+	callMap(indicatorData[initIdx].mapURL);
 	legendFill(indicatorData[initIdx]);
 
 }); // end document ready
