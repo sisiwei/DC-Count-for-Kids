@@ -1,8 +1,11 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-body { font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 14px; line-height: 16px; color: #555; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; background: #eee; }
-h1, h2, h3, h4 { margin: 0; color:#222; }
+body#databook-body { font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 14px; line-height: 16px; color: #555; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; background: #eee; }
+h1,
+h2,
+h3,
+h4 { margin: 0; color:#222; }
 h2 { font-size:16px; }
 h2.selected {
     width: 170px;
@@ -10,30 +13,30 @@ h2.selected {
     padding: 5px 5px 7px 5px;
     text-align:center;
 }
-h3 { font-size:30px; }
-h4 { font-size:18px; }
-p { margin: 0 0 15px; }
+#databook-body h3 { font-size:30px; }
+#databook-body h4 { font-size:18px; }
+#databook-body p { margin: 0 0 15px; }
 ul { padding: 0; margin: 0; }
 a:link,
 a:visited,
 a:active { text-decoration:underline; color:#3180ba; }
 a:hover { text-decoration:none; /*color:#6aadd3;*/ }
 a.disabled { color:#ccc !important; cursor:default; }
-.border { border: 1px solid #eee; }
-.border-bottom { border-bottom: 1px solid #eee; }
-.border-top { border-top: 1px solid #eee; }
-.margin-none { margin:0; }
-.margin-top-30 { margin-top: 30px; }
-.left { float: left; }
-.right { float: right; }
-.pointer { cursor: pointer; }
-.uppercase { text-transform:uppercase; font-weight:bold; }
-.hidden { display:none; }
+#databook-body .border { border: 1px solid #eee; }
+#databook-body .border-bottom { border-bottom: 1px solid #eee; }
+#databook-body .border-top { border-top: 1px solid #eee; }
+#databook-body .margin-none { margin:0; }
+#databook-body .margin-top-30 { margin-top: 30px; }
+#databook-body .left { float: left; }
+#databook-body .right { float: right; }
+#databook-body .pointer { cursor: pointer; }
+#databook-body .uppercase { text-transform:uppercase; font-weight:bold; }
+#databook-body .hidden { display:none; }
 
 /* -----------------------------------------
    Wrapper
 ----------------------------------------- */
-#content {
+#databook-content {
   position: relative;
   width: 940px;
   height: 100%;
@@ -150,6 +153,10 @@ a.disabled { color:#ccc !important; cursor:default; }
 }
 
 #definition { margin: 0 0px 20px; }
+
+.indicator-floats tbody {
+  border-top: none;
+}
 
 /* -----------------------------------------
    Option dropdown
