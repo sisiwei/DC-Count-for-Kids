@@ -129,9 +129,11 @@ function buildMap(baseURL, initialMap){
 							if (currentIndicator.dataTag != 'graduation'){
 								$('#floating-tooltip').show();
 							}							
+
+							console.log(d);
 							var neighborhoodNames = d.NBH_NAMES,
 								indicatorVal = d[currentIndicator.dataTag],
-								displayNum = (currentIndicator.multiplier != 1) ? (indicatorVal * currentIndicator.multiplier).toFixed(1) : (indicatorVal * currentIndicator.multiplier).toFixed(0),
+								displayNum = (indicatorVal * currentIndicator.multiplier).toFixed(currentIndicator.fixed),
 								pop = d.PopTotal,
 								childPop = (d.PopU18).toFixed(0),
 								babyPop = d.PopU5,

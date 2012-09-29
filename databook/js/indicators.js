@@ -5,6 +5,7 @@ indicatorData = [
 		label: 'Poverty rate',
 		multiplier: 100,
 		labelEnd: '%',
+		fixed: 1,
 		mapURL: 'dcaction.poverty2-dc',
 		cutPoints: { // from most conc. to less conc
 			0: 0.38,
@@ -20,6 +21,7 @@ indicatorData = [
 		label: 'Number of grocery stores',
 		multiplier: 1,
 		labelEnd: ' grocery stores',
+		fixed: 0,
 		mapURL: 'dcaction.grocery-dc',
 		cutPoints: {
 			0: null,
@@ -35,6 +37,7 @@ indicatorData = [
 		label: 'Number of recreation centers',
 		multiplier: 1,
 		labelEnd: ' recreation centers',
+		fixed: 0,
 		mapURL: 'dcaction.recreation-dc',
 		cutPoints: {
 			0: null,
@@ -46,7 +49,9 @@ indicatorData = [
 	}, 
 	{
 		name:'Education (25+)', 
-		dataTag: 'noHSDegree25', 
+		dataTag: 'Nr25OrOlde', 
+		fixed: 1,
+		labelEnd: '%',
 		mapURL: 'dcaction.no-hs-degree-25-dc',
 		multiplier: 100,
 		cutPoints: {
@@ -59,7 +64,9 @@ indicatorData = [
 	}, 
 	{
 		name:'Education (18-24)',
-		dataTag: 'noHSDegree18',
+		dataTag: 'woHSDiplom',
+		labelEnd: '%',
+		fixed: 1,
 		mapURL: 'dcaction.no-hs-degree-18to24-dc',
 		multiplier: 100,
 		cutPoints: {
@@ -76,6 +83,7 @@ indicatorData = [
 		label: 'Homeownership',
 		multiplier: 100,
 		labelEnd: '%',
+		fixed: 1,
 		mapURL: 'dcaction.owner-occupied-homes-dc',
 		cutPoints: {
 			0: .75, 
@@ -91,6 +99,7 @@ indicatorData = [
 		label: 'Employment (ages 16-24): ',
 		multiplier: 100,
 		labelEnd: '%',
+		fixed: 1,
 		mapURL: 'dcaction.youth-employed2-dc',
 		cutPoints: {
 			0: .34, 
@@ -106,6 +115,7 @@ indicatorData = [
 		label: 'Asthma rate: ',
 		multiplier: 1,
 		labelEnd: ' per 10,000 children',
+		fixed: 0,
 		mapURL: 'dcaction.asthma-dc',
 		cutPoints: {
 			0: 875, 
@@ -121,6 +131,7 @@ indicatorData = [
 		label: 'Crime rate: : ',
 		multiplier: 1,
 		labelEnd: '%',
+		fixed: 1,
 		mapURL: 'dcaction.crime-dc',
 		cutPoints: {
 			0: 22, 
@@ -136,6 +147,7 @@ indicatorData = [
 		label: 'Number of libraries',
 		multiplier: 1,
 		labelEnd: ' libraries',
+		fixed: 0,
 		mapURL: 'dcaction.libraries-dc',
 		cutPoints: {
 			0: null,
@@ -148,7 +160,8 @@ indicatorData = [
 	// {
 	// 	name:'Neighborhood Assets',
 	// 	dataTag: 'instAssets',
-	// 	mapURL: 'dcaction.owner-occupied-homes-dc,dcaction.institutional_assets-crime',
+	//  fixed: 1,
+	//  mapURL: 'dcaction.owner-occupied-homes-dc,dcaction.institutional_assets-crime',
 	// 	cutPoints: {
 	// 		0: null,
 	// 		1: null,
@@ -161,7 +174,8 @@ indicatorData = [
 	// {
 	// 	name:'School locations', 
 	// 	dataTag: 'schools', 
-	// 	mapURL: 'dcaction.school-locations',
+	//  fixed: 1,
+	//  mapURL: 'dcaction.school-locations',
 	// 	cutPoints: {
 	// 		0: null,
 	// 		1: null,
@@ -176,6 +190,7 @@ indicatorData = [
 		label: 'Percent single mother families: ',
 		multiplier: 100,
 		labelEnd: '%',
+		fixed: 1,
 		mapURL: 'dcaction.single_mother',
 		cutPoints: {
 			0: .37, 
@@ -188,8 +203,10 @@ indicatorData = [
 	{
 		name:'Math scores', 
 		dataTag: 'math', 
+		fixed: 0,
 		mapURL: 'dcaction.math_scores',
 		multiplier: 100,
+		labelEnd: '%',
 		cutPoints: {
 			0: .66,
 			1: .5,
@@ -201,8 +218,10 @@ indicatorData = [
 	{
 		name:'Reading scores', 
 		dataTag: 'reading', 
+		fixed: 0,
 		mapURL: 'dcaction.reading_scores',
 		multiplier: 100,
+		labelEnd: '%',
 		cutPoints: {
 			0: .66,
 			1: .5,
@@ -214,8 +233,10 @@ indicatorData = [
 	{
 		name:'Graduation rates', 
 		dataTag: 'graduation', 
+		fixed: 1,
 		mapURL: 'dcaction.graduation_rates',
 		multiplier: 100,
+		labelEnd: '%',
 		cutPoints: {
 			0: .89,
 			1: .78,
