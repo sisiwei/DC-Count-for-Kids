@@ -1,8 +1,11 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-body { font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 14px; line-height: 16px; color: #555; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; background: #eee; }
-h1, h2, h3, h4 { margin: 0; color:#222; }
+body { font-size: 14px; line-height: 16px; color: #555; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; background: #eee; }
+h1,
+h2,
+h3,
+h4 { margin: 0; color:#222; }
 h2 { font-size:16px; }
 h2.selected {
     width: 170px;
@@ -33,7 +36,7 @@ a.disabled { color:#ccc !important; cursor:default; }
 /* -----------------------------------------
    Wrapper
 ----------------------------------------- */
-#content {
+#databook-content {
   position: relative;
   width: 940px;
   height: 100%;
@@ -41,6 +44,14 @@ a.disabled { color:#ccc !important; cursor:default; }
   margin: 0px auto;
   padding: 0 0 125px;
   overflow: hidden;
+  font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+#databook-content h1#title {
+  font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 2.5em;
+  line-height: 1em;
+  margin-top: 0px;
 }
 .width { width: 920px; padding: 0 10px; }
 /* -----------------------------------------
@@ -65,10 +76,7 @@ a.disabled { color:#ccc !important; cursor:default; }
 #chatter > p {
     margin-bottom:10px;
 }
-#title {
-  font-size: 2.5em;
-  line-height: 1em;
-}
+
 .crosstab-nav-wrapper {
   position:relative;
 }
@@ -150,6 +158,10 @@ a.disabled { color:#ccc !important; cursor:default; }
 }
 
 #definition { margin: 0 0px 20px; }
+
+.indicator-floats tbody {
+  border-top: none;
+}
 
 /* -----------------------------------------
    Option dropdown
@@ -261,6 +273,7 @@ LEGEND
   -webkit-box-shadow: 2px 2px 8px #888; 
   box-shadow: 2px 2px 8px #888;
   display:none;
+  font-family: 'Source Sans Pro', "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 /* -----------------------------------------
