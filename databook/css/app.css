@@ -351,16 +351,6 @@ LEGEND
 /* -----------------------------------------
    Tooltip Elements
 ----------------------------------------- */
-#school-tooltip {
-  min-width: 100px;
-  background-color: white;
-  border: 1px solid #888;
-  position: absolute;
-  top: 0px;
-  left: 100px;
-  display: none;
-  padding: 5px 14px 5px 8px;
-}
 
 /* DIV CLEARS */
 #chatter-wrapper:after,
