@@ -284,10 +284,10 @@ function scrollToFunc(crossTabNav){
 }
 
 function stickyNav(banner){
-    var bannerHeight = banner.height() + 33;
+    var bannerPos = banner.position().top + banner.height() + 45;
     var crossTabNav = $('.crosstab-nav-wrapper');
 
-    if ($(window).scrollTop() > bannerHeight){
+    if ($(window).scrollTop() > bannerPos){
     	crossTabNav.find('#crosstab-title').addClass('pointer').html('2012 e-Databook');
     	crossTabNav.find('.social-share').show();
     	crossTabNav.find('#scrollTo-top').removeClass('disabled');
