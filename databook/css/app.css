@@ -77,6 +77,7 @@ a.disabled { color:#ccc !important; cursor:default; }
 }
 .crosstab-nav-wrapper ul.crosstab-nav {
     list-style-type:none;
+    padding-right: 10px;
 }
 .crosstab-nav-wrapper li {
     display:inline;

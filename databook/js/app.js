@@ -49,7 +49,6 @@ jQuery(document).ready(function ($) {
 
 	arrow.click(function(){
 		if (!$(this).hasClass('fade')){
-
 			var currIdx = indicators.find('li.active').index(),
 				newIdx = $(this).hasClass('arrow-left') ? currIdx - 1 : currIdx + 1 ;
 
@@ -275,7 +274,7 @@ function scrollToFunc(crossTabNav){
 }
 
 function stickyNav(banner){
-    var bannerHeight = banner.height();
+    var bannerHeight = banner.height() + 33;
     var crossTabNav = $('.crosstab-nav-wrapper');
 
     if ($(window).scrollTop() > bannerHeight){
