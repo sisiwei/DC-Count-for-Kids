@@ -255,7 +255,10 @@ function scrollToFunc(crossTabNav){
 				$.scrollTo( object, scrollSpeed, {
 					axis:'y',
 					offset: crossTabNav.hasClass('fixed') ? -crossTabNav.height() : 5,
-					onAfter:function() {clickScroll=false}
+					onAfter:function() {
+						$(this).addClass('selected');
+						clickScroll=false;
+					}
 				});
 			}			
 		}
