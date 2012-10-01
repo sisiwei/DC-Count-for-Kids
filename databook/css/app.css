@@ -52,6 +52,7 @@ a.disabled { color:#ccc !important; cursor:default; }
   font-size: 2.5em;
   line-height: 1em;
   margin-top: 0px;
+  padding-bottom: 0px;
 }
 .width { width: 920px; padding: 0 10px; }
 /* -----------------------------------------
