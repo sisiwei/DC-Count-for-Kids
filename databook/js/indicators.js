@@ -48,7 +48,7 @@ indicatorData = [
 		cutPointLabel: '%'
 	}, 
 	{
-		name:'Education (25+)', 
+		name:'No HS Degree (25+)', 
 		dataTag: 'Nr25OrOlde', 
 		fixed: 1,
 		labelEnd: '%',
@@ -63,7 +63,7 @@ indicatorData = [
 		cutPointLabel: '%'
 	}, 
 	{
-		name:'Education (18-24)',
+		name:'No HS Degree (18-24)',
 		dataTag: 'woHSDiplom',
 		labelEnd: '%',
 		fixed: 1,
