@@ -12,6 +12,7 @@ h2 { font-size:16px; }
     background-color: #EDF4E4;
     padding: 5px 5px 7px 5px;
     text-align:center;
+    border-top: none;
 }
 h3 { font-size:30px; }
 h4 { font-size:18px; }
