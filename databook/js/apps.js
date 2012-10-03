@@ -293,7 +293,7 @@ function stickyNav(banner){
     	crossTabNav.find('.social-share').show();
     	crossTabNav.find('#scrollTo-top').removeClass('disabled');
         crossTabNav.addClass('fixed').css('top','0').next()
-        .css('padding-top','40px');
+        .css('padding-top','60px');
 
     } else {
 		crossTabNav.find('#crosstab-title').removeClass('pointer').html('Cross-tab analysis');
