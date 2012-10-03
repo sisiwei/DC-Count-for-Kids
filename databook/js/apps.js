@@ -284,7 +284,7 @@ function scrollToFunc(crossTabNav){
 }
 
 function stickyNav(banner){
-    var bannerPos = $('#header-group').height() + banner.height() + 45;
+    var bannerPos = $('#header-group').height() + banner.height() + 65;
     var crossTabNav = $('.crosstab-nav-wrapper');
 
     if ($(window).scrollTop() > bannerPos){
