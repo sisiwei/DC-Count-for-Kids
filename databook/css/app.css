@@ -7,7 +7,7 @@ h2,
 h3,
 h4 { margin: 0; color:#222; }
 h2 { font-size:16px; }
-h2.selected {
+#indicators h2.selected {
     width: 170px;
     background-color: #EDF4E4;
     padding: 5px 5px 7px 5px;
