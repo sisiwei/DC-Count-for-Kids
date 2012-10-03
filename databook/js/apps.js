@@ -100,6 +100,8 @@ function buildMap(baseURL, initialMap){
         mouseX = e.pageX;
         mouseY = e.pageY;
 
+        console.log(mouseX, mouseY);
+
         var windowWidth = $(window).width();
         var windowHeight = $('#mainMap').height();
         if (mouseX > windowWidth/5 * 3) {
