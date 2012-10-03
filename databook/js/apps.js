@@ -102,19 +102,19 @@ function buildMap(baseURL, initialMap){
 
         var windowWidth = $(window).width();
         var windowHeight = $('#mainMap').height();
-        if (mouseX > windowWidth/4 * 3) {
+        if (mouseX > windowWidth/5 * 3) {
         	mouseX = currentIndicator.dataTag != 'graduation'
         			?  mouseX = mouseX - $('#floating-tooltip').width() - 50
 					: mouseX = mouseX - $('#school-tooltip').width() - 50;
         }
 
-        if (mouseY > (windowHeight/4 * 3)){
+        if (mouseY > (windowHeight/5 * 3)){
             mouseY = mouseY - $('.tooltip').height();
         }
 
         $('.tooltip').stop().css({
             left: mouseX - 230,
-            top:  mouseY - 184
+            top:  mouseY - 204
         });
 
     });
