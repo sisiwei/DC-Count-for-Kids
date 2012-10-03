@@ -89,7 +89,7 @@ a.disabled { color:#ccc !important; cursor:default; }
     list-style-type:none;
     padding-right: 10px;
 }
-.crosstab-nav-wrapper li {
+#databook-content .crosstab-nav-wrapper li {
     display:inline;
 }
 #databook-content .crosstab-nav-wrapper li a {
@@ -100,10 +100,10 @@ a.disabled { color:#ccc !important; cursor:default; }
     border-left: 1px solid #DDD;
 }
 
-.crosstab-nav-wrapper li a:hover {
+#databook-content .crosstab-nav-wrapper li a:hover {
     color:#3180ba;
 }
-.crosstab-nav-wrapper li a.selected {
+#databook-content .crosstab-nav-wrapper li a.selected {
     color:#3180ba;
     cursor:default;
 }
