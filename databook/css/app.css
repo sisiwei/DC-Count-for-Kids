@@ -316,6 +316,7 @@ LEGEND
     display: none;
 }
 .indicators-floats tr { width:100%; }
+.indicator-floats td {padding: 0px 0px 0px 3px; }
 .indicator-floats .label {font-weight:bold;}
 .indicator-floats .value {text-align:right;}
 #school-perf-chart {
@@ -331,7 +332,7 @@ LEGEND
 }
 .secondary h3 {
     margin: 0 0 10px 0;
-    padding:10px 0 0px 48px; 
+    padding:10px 0 5px 48px; 
     background: url('http://sisiwei.github.com/DC-Count-for-Kids/databook/images/crosstabs.png') no-repeat;
 }
 #distressed-nbhds h3 { background-position: 0 0; }
