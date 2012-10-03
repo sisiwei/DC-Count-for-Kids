@@ -74,7 +74,7 @@ a.disabled { color:#ccc !important; cursor:default; }
 }
 #chatter {
     width:900px;
-    margin: 5px 0 0 16px;
+    margin: 5px 0 0 0px;
 
 }
 #chatter > p {
