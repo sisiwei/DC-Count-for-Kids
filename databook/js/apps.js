@@ -112,7 +112,7 @@ function buildMap(baseURL, initialMap){
             mouseY = mouseY - $('.tooltip').height();
         }
 
-        $('.tooltip').stop().css({
+        $('.tooltip').css({
             left: mouseX - 230,
             top:  mouseY - 204
         });
