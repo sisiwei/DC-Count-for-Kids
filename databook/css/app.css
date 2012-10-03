@@ -103,7 +103,7 @@ a.disabled { color:#ccc !important; cursor:default; }
     color:#3180ba;
     cursor:default;
 }
-.crosstab-nav-wrapper li a.crosstab-btn { padding-left: 40px; background: url('../images/crosstabs-mini.png') no-repeat; }
+.crosstab-nav-wrapper li a.crosstab-btn { padding-left: 40px; background: url('http://sisiwei.github.com/DC-Count-for-Kids/databook/images/crosstabs-mini.png') no-repeat; }
 .crosstab-nav-wrapper li a.crosstab-btn#distressed-nbhds-btn { background-position: 14px 1px; }
 .crosstab-nav-wrapper li a.crosstab-btn#child-success-btn { background-position: 14px -16px; }
 .crosstab-nav-wrapper li a.crosstab-btn#assets-btn { background-position: 14px -33px; }
@@ -331,7 +331,7 @@ LEGEND
 .secondary h3 {
     margin: 0 0 10px 0;
     padding:10px 0 10px 48px; 
-    background: url('../images/crosstabs.png') no-repeat;
+    background: url('http://sisiwei.github.com/DC-Count-for-Kids/databook/images/crosstabs.png') no-repeat;
 }
 #distressed-nbhds h3 { background-position: 0 0; }
 #child-success h3 { background-position: 0 -32px; }
@@ -354,7 +354,7 @@ LEGEND
 ----------------------------------------- */
 
 .social-share { margin: 12px 20px 0; }
-.social-icon { cursor:pointer; width:16px; height:17px; margin:0 5px; background: url('../images/share-btns.png') no-repeat; }
+.social-icon { cursor:pointer; width:16px; height:17px; margin:0 5px; background: url('http://sisiwei.github.com/DC-Count-for-Kids/databook/images/share-btns.png') no-repeat; }
 .twitter { background-position:0px 0px; }
 .fb { background-position:0px -16px; }
 .email { background-position:0px -33px; }
