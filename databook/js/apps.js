@@ -100,14 +100,12 @@ function buildMap(baseURL, initialMap){
         mouseX = e.pageX;
         mouseY = e.pageY;
 
-        console.log(mouseX, mouseY);
-
         var windowWidth = $(window).width();
         var windowHeight = $('#mainMap').height();
-        if (mouseX > windowWidth/6 * 4) {
+        if (mouseX > windowWidth/4 * 3) {
         	mouseX = currentIndicator.dataTag != 'graduation'
-        			?  mouseX = mouseX - $('#floating-tooltip').width() - 250
-					: mouseX = mouseX - $('#school-tooltip').width() - 250;
+        			?  mouseX = mouseX - $('#floating-tooltip').width() - 50
+					: mouseX = mouseX - $('#school-tooltip').width() - 50;
         }
 
         if (mouseY > (windowHeight/4 * 3)){
@@ -115,9 +113,12 @@ function buildMap(baseURL, initialMap){
         }
 
         $('.tooltip').stop().css({
-            left: mouseX + 20,
-            top:  mouseY - 14
+            left: mouseX - 220,
+            top:  mouseY - 114
         });
+
+        console.log(mouseX, mouseY);
+
     });
 
 	wax.tilejson(mapurl, function(tilejson) {
