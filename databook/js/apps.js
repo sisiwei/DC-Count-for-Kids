@@ -113,7 +113,7 @@ function buildMap(baseURL, initialMap){
         }
 
         $('.tooltip').css({
-            left: mouseX - 275,
+            left: mouseX - 360,
             top:  mouseY - 204
         });
 
