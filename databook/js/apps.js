@@ -104,7 +104,7 @@ function buildMap(baseURL, initialMap){
         var windowHeight = $('#mainMap').height();
         if (mouseX > windowWidth/5 * 3) {
         	mouseX = currentIndicator.dataTag != 'graduation'
-        			?  mouseX = mouseX - $('#floating-tooltip').width()
+        			?  mouseX = mouseX - $('#floating-tooltip').width() - 50
 					: mouseX = mouseX - $('#school-tooltip').width() - 70;
         }
 
@@ -113,7 +113,7 @@ function buildMap(baseURL, initialMap){
         }
 
         $('.tooltip').css({
-            left: mouseX - 245,
+            left: mouseX - 255,
             top:  mouseY - 204
         });
 
